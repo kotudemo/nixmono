@@ -5,7 +5,7 @@ It's gonna work if you has nvidia (1000+) and intel hardware setup.
 
 Kde Tokyo Night theme  isn't declared but you can get it via kde theme store.
 
-### Where i can grab your dommerwave wallpaper?
+### Where i can grab your doomerwave wallpaper?
 [sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) 
 #### Special thanks to...
 [hand7s](https://github.com/s0me1newithhand7s)\
