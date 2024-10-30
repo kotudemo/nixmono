@@ -7,3 +7,7 @@ Kde Tokyo Night theme  isn't declared but you can get it via kde theme store.
 
 ### Where i can grab your dommerwave wallpaper?
 [sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) 
+#### Special thanks 
+[hand7s](https://github.com/s0me1newithhand7s)
+[NixOS Wiki](https://nixos.wiki/wiki/Main_Page)
+[NixOS Forum](https://discourse.nixos.org/)
