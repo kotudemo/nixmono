@@ -335,7 +335,7 @@
       home = {
         username = "kd";
         homeDirectory = "/home/kd";
-        stateVersion = "24.05";
+        stateVersion = "24.11";
         packages = with pkgs; [
 
         ];
@@ -351,7 +351,7 @@
  };
 
   system = {
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     name = lib.mkDefault "nixos";
   };
 }
