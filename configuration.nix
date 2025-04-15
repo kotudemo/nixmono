@@ -200,7 +200,7 @@
       pulse.enable = true;
       jack.enable = true;
     };
-     zapret = {
+     /*zapret = {
        enable = true;
        config = ''
          MODE="tpws"
@@ -215,7 +215,7 @@
          INIT_APPLY_FW=1
          TPWS_OPT="--dpi-desync=syndata,fake,split2 --dpi-desync-split-seqovl=336 --dpi-desync-fooling=md5sig --dpi-desync-split-seqovl-pattern=/nix/store/nzrvw5f5c4l8j1svhwsz9fxcw0qfvs2r-zapret-/src/files/fake/tls_clienthello_iana_org.bin --split-pos=1 --oob --mss=88 --bind-addr=127.0.0.1 --port=8081 --uid=1:3003 --socks"
        '';
-     };
+     };*/
   };
 
   users = {
