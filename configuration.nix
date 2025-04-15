@@ -323,7 +323,7 @@
         starship init fish | source
       '';
     };
-    anime-game-launcher.enable = true;
+    the-honkers-railway-launcher.enable = true;
   };
 
   home-manager = {
