@@ -234,38 +234,38 @@
   
 	 environment = {
         systemPackages = with pkgs; [
-            chromium
-            firefox-devedition
-			xwayland
-			vlc
-			heroic
-			tetrio-desktop
-			spoofdpi
-			byedpi
-			nwg-look
-			tokyonight-gtk-theme
-			flatpak
-			home-manager
-	        obs-studio
-	        gparted
-	        gutenprint
-	        cups
-	        canon-cups-ufr2
-			cups-filters
-            go
-            python3Full
-            git
-            nodejs
-            python.pkgs.pip
-            gcc
-            gnumake
-            jq
-            libxml2
-            libjpeg
-            libstdcxx5
-            kdePackages.kcalc
-            kdePackages.kate
-            kdePackages.kcolorchooser
+	    	home-manager
+	    	flatpak
+            	chromium
+            	firefox-devedition
+            	obs-studio 
+	    	vlc	    
+	    	kdePackages.kcalc
+            	kdePackages.kate
+            	kdePackages.kcolorchooser   
+	    	heroic
+            	tetrio-desktop
+	    	spoofdpi
+	    	byedpi
+	    	gparted
+	    	gutenprint
+	    	cups
+	    	canon-cups-ufr2
+	    	cups-filters
+	    	nwg-look
+	    	tokyonight-gtk-theme 
+	    	xwayland
+            	go
+            	python3Full
+            	git
+            	nodejs
+            	python.pkgs.pip
+            	gcc
+            	gnumake
+            	jq
+            	libxml2
+            	libjpeg
+            	libstdcxx5
             ];
         shellAliases =                             # global aliases
             let
@@ -273,15 +273,15 @@
             in {
                 cl = "clear";
                 ls="eza -al --color=always --group-directories-first --icons"; # preferred listing
-				la="eza -a --color=always --group-directories-first --icons";  # all files and dirs
-				ll="eza -l --color=always --group-directories-first --icons";  # long format
-				lt="eza -aT --color=always --group-directories-first --icons"; # tree listing
-				lsdot="eza -a | grep -e '^\.'";       # show only dotfiles
-				please="sudo";
-				jctl="journalctl -p 3 -xb";
+		la="eza -a --color=always --group-directories-first --icons";  # all files and dirs
+		ll="eza -l --color=always --group-directories-first --icons";  # long format
+		lt="eza -aT --color=always --group-directories-first --icons"; # tree listing
+		lsdot="eza -a | grep -e '^\.'";       # show only dotfiles
+		please="sudo";
+		jctl="journalctl -p 3 -xb";
       	        pf = "clear && nix run nixpkgs#pfetch";
-	            ff = "clear && nix run nixpkgs#fastfetch";
-	            nf = "clear && nix run nixpkgs#neofetch";
+	        ff = "clear && nix run nixpkgs#fastfetch";
+	        nf = "clear && nix run nixpkgs#neofetch";
                 unzip = "nix run nixpkgs#unzip -- ";
                 unrar = "nix run nixpkgs#unrar -- ";
                 zip = "nix run nixpkgs#zip -- ";
@@ -291,10 +291,10 @@
                 vim = "nvim";
                 nv = "nvim";
                 nvim = "nvim";
-	            btop = "clear && nix run nixpkgs#btop";
-	            nsp = "nix-shell -p";
-	            ncg = "nix store gc -v && nix-collect-garbage --delete-old";
-	            upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
+	        btop = "clear && nix run nixpkgs#btop";
+	        nsp = "nix-shell -p";
+	        ncg = "nix store gc -v && nix-collect-garbage --delete-old";
+	        upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
                 hms = "home-manager switch --flake ${flakeDir}";
         };
      };
