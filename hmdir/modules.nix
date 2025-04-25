@@ -5,6 +5,7 @@
 	./helix.nix
 	./kitty.nix
 	./vscode.nix
+	./yazi.nix
     ];
 }
 
