@@ -239,7 +239,7 @@
             	chromium
             	firefox-devedition
             	obs-studio 
-	    	vlc
+	    	mpv
 		neovim
 		amp
 		micro
