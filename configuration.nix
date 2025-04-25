@@ -239,9 +239,13 @@
             	chromium
             	firefox-devedition
             	obs-studio 
-	    	vlc	    
+	    	vlc
+		neovim
+		amp
+		micro
+		vscodium-fhs
+		kdePackages.kate
 	    	kdePackages.kcalc
-            	kdePackages.kate
             	kdePackages.kcolorchooser   
 	    	heroic
             	tetrio-desktop
