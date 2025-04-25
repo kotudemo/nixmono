@@ -253,7 +253,7 @@
 		kdePackages.kate
 	    	kdePackages.kcalc
             	kdePackages.kcolorchooser
-		#inputs.freesm.freesmPackages.freesmlauncher
+		inputs.freesm.packages.x86_64-linux.freesmlauncher
 	    	heroic
             	tetrio-desktop
 	    	spoofdpi
