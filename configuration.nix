@@ -227,10 +227,7 @@
       extraGroups = [ "networkmanager" "input ""wheel" ];
       initialPassword = "password";
       packages = with pkgs; [
-        kdePackages.kcalc
-        kdePackages.kate
-        kdePackages.kcolorchooser
-        materialgram
+
       ];
     };
   };
@@ -239,7 +236,6 @@
         systemPackages = with pkgs; [
             chromium
             firefox-devedition
-            pkgs.gnome.epiphany
 			xwayland
 			vlc
 			heroic
@@ -267,9 +263,9 @@
             libxml2
             libjpeg
             libstdcxx5
-            fishPlugins.z
-            fishPlugins.plugin-git
-            fishPlugins.puffer
+            kdePackages.kcalc
+            kdePackages.kate
+            kdePackages.kcolorchooser
             ];
         shellAliases =                             # global aliases
             let
