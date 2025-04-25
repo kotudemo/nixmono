@@ -201,22 +201,28 @@
       pulse.enable = true;
       jack.enable = true;
     };
-     /*zapret = {
-       enable = true;
-       config = ''
-         MODE="tpws"
-         FWTYPE="iptables"
-         MODE_HTTP=1
-         MODE_HTTP_KEEPALIVE=0
-         MODE_HTTPS=1
-         MODE_QUIC=1
-         QUIC_PORTS=50000-65535
-         MODE_FILTER=none
-         DISABLE_IPV6=1
-         INIT_APPLY_FW=1
-         TPWS_OPT="--dpi-desync=syndata,fake,split2 --dpi-desync-split-seqovl=336 --dpi-desync-fooling=md5sig --dpi-desync-split-seqovl-pattern=/nix/store/nzrvw5f5c4l8j1svhwsz9fxcw0qfvs2r-zapret-/src/files/fake/tls_clienthello_iana_org.bin --split-pos=1 --oob --mss=88 --bind-addr=127.0.0.1 --port=8081 --uid=1:3003 --socks"
-       '';
-     };*/
+     zapret = {
+      enable = true;
+      udpSupport = true;
+      udpPorts = [
+        "50000:50099"
+        "443"
+      ];
+      params = [
+        "--filter-udp=50000-50099"
+        "--dpi-desync=fake"
+        "--dpi-desync-any-protocol"
+        "--new"
+        "--filter-udp=443"
+        "--dpi-desync-fake-quic=${self}/modules/shared/quic_initial_www_google_com.bin"
+        "--dpi-desync=fake"
+        "--dpi-desync-repeats=2"
+        "--new"
+        "--filter-tcp=80,443"
+        "--dpi-desync=fake,multidisorder"
+        "--dpi-desync-ttl=3"
+      ];
+    };
   };
 
   users = {
