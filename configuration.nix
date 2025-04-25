@@ -243,7 +243,6 @@
 		neovim
 		amp
 		micro
-		vscodium-fhs
 		kdePackages.kate
 	    	kdePackages.kcalc
             	kdePackages.kcolorchooser   
