@@ -1,9 +1,10 @@
 {
     imports = [
         ./starship.nix
-		./eza.nix
-		./helix.nix
-		./kitty.nix
+	./eza.nix
+	./helix.nix
+	./kitty.nix
+	./vscode.nix
     ];
 }
 
