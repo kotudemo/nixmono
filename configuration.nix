@@ -243,6 +243,7 @@
 	systemPackages = with pkgs; [
 	    	home-manager
 	    	flatpak
+		inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
             	chromium
             	firefox-devedition
             	obs-studio 
@@ -253,7 +254,7 @@
 		kdePackages.kate
 	    	kdePackages.kcalc
             	kdePackages.kcolorchooser
-		freesmlauncher
+		#freesmlauncher
 	    	heroic
             	tetrio-desktop
 	    	spoofdpi
