@@ -245,7 +245,8 @@
 		micro
 		kdePackages.kate
 	    	kdePackages.kcalc
-            	kdePackages.kcolorchooser   
+            	kdePackages.kcolorchooser
+		freesmlauncher
 	    	heroic
             	tetrio-desktop
 	    	spoofdpi
