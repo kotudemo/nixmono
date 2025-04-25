@@ -261,15 +261,8 @@
 	    	xwayland
             	go
             	python3Full
+		python.pkgs.pip
             	git
-            	nodejs
-            	python.pkgs.pip
-            	gcc
-            	gnumake
-            	jq
-            	libxml2
-            	libjpeg
-            	libstdcxx5
             ];
         shellAliases =                             # global aliases
             let
