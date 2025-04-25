@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
       inputs.aagl.nixosModules.default
-      inputs.freesm.nixosModules.default
     ];
 
    boot = {
@@ -254,7 +253,7 @@
 		kdePackages.kate
 	    	kdePackages.kcalc
             	kdePackages.kcolorchooser
-		freesmlauncher
+		inputs.freesm.freesmPackages.freesmlauncher
 	    	heroic
             	tetrio-desktop
 	    	spoofdpi
