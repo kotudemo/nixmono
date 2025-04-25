@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
       inputs.aagl.nixosModules.default
+      inputs.freesm.nixosModules.default
     ];
 
    boot = {
