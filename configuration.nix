@@ -233,7 +233,6 @@
       videoDrivers = [ "nvidia" ];
       xkb = {
         layout = "us,ru";
-        variant = "qwerty";
         options = "grp:shift_alt_toggle";
       };
     };
