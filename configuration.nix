@@ -157,9 +157,40 @@
       jetbrains-mono
       powerline-fonts
       powerline-symbols
-      nerdfonts
       miracode
       monocraft
+      nerd-fonts.0xproto
+      nerd-fonts._3270
+	  nerd-fonts.agave
+	  nerd-fonts.anonymice
+	  nerd-fonts.arimo
+	  era-sans-mono
+	  nerd-fonts.blex-mono
+	  nerd-fonts.caskaydia-cove
+	  nerd-fonts.caskaydia-mono
+	  nerd-fonts.daddy-time-mono
+	  nerd-fonts.dejavu-sans-mono
+	  nerd-fonts.droid-sans-mono
+	  nerd-fonts.fira-code
+	  nerd-fonts.fira-mono
+	  nerd-fonts.go-mono
+	  nerd-fonts.gohufont
+	  nerd-fonts.hack
+	  nerd-fonts.im-writing
+	  nerd-fonts.inconsolata
+	  nerd-fonts.inconsolata-go
+	  nerd-fonts.inconsolata-lgc
+	  nerd-fonts.iosevka
+	  nerd-fonts.iosevka-term
+	  nerd-fonts.iosevka-term-slab
+	  nerd-fonts.jetbrains-mono
+	  nerd-fonts.roboto-mono
+	  nerd-fonts.shure-tech-mono
+	  nerd-fonts.sauce-code-pro
+	  nerd-fonts.terminess-ttf
+	  nerd-fonts.ubuntu
+ 	  nerd-fonts.ubuntu-sans
+	  nerd-fonts.ubuntu-mono
     ];
   };
 
@@ -237,7 +268,7 @@
         "--dpi-desync-any-protocol"
         "--new"
         "--filter-udp=443"
-        "--dpi-desync-fake-quic=${self}/modules/shared/quic_initial_www_google_com.bin"
+        #"--dpi-desync-fake-quic=${self}/modules/shared/quic_initial_www_google_com.bin"
         "--dpi-desync=fake"
         "--dpi-desync-repeats=2"
         "--new"
@@ -266,21 +297,21 @@
 	systemPackages = with pkgs; [
 	    	home-manager
 	    	flatpak
-		inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
-            	chromium
-            	firefox-devedition
-            	obs-studio 
+			inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
+            chromium
+            firefox-devedition
+            obs-studio 
 	    	mpv
-		neovim
-		amp
-		micro
-		kdePackages.kate
+			neovim
+			amp
+			micro
+			kdePackages.kate
 	    	kdePackages.kcalc
-            	kdePackages.kcolorchooser
-		inputs.freesm.packages.x86_64-linux.freesmlauncher
+            kdePackages.kcolorchooser
+			inputs.freesm.packages.x86_64-linux.freesmlauncher
 	    	heroic
-            	tetrio-desktop
-		zapret
+            tetrio-desktop
+			zapret
 	    	spoofdpi
 	    	byedpi
 	    	gparted
@@ -291,40 +322,40 @@
 	    	nwg-look
 	    	tokyonight-gtk-theme 
 	    	xwayland
-            	go
-            	python3Full
-		python.pkgs.pip
-            	git
+            go
+            python3Full
+			python.pkgs.pip
+            git
             ];
         shellAliases =                             # global aliases
             let
                 flakeDir = "/etc/nixos";
             in {
-                cl = "clear";
-                ls="eza -al --color=always --group-directories-first --icons"; # preferred listing
-		la="eza -a --color=always --group-directories-first --icons";  # all files and dirs
-		ll="eza -l --color=always --group-directories-first --icons";  # long format
-		lt="eza -aT --color=always --group-directories-first --icons"; # tree listing
-		lsdot="eza -a | grep -e '^\.'";       # show only dotfiles
-		please="sudo";
-		jctl="journalctl -p 3 -xb";
-      	        pf = "clear && nix run nixpkgs#pfetch";
+            cl = "clear";
+            ls="eza -al --color=always --group-directories-first --icons"; # preferred listing
+			la="eza -a --color=always --group-directories-first --icons";  # all files and dirs
+			ll="eza -l --color=always --group-directories-first --icons";  # long format
+			lt="eza -aT --color=always --group-directories-first --icons"; # tree listing
+			lsdot="eza -a | grep -e '^\.'";       # show only dotfiles
+			please="sudo";
+			jctl="journalctl -p 3 -xb";
+      	    pf = "clear && nix run nixpkgs#pfetch";
 	        ff = "clear && nix run nixpkgs#fastfetch";
 	        nf = "clear && nix run nixpkgs#neofetch";
-                unzip = "nix run nixpkgs#unzip -- ";
-                unrar = "nix run nixpkgs#unrar -- ";
-                zip = "nix run nixpkgs#zip -- ";
-                sv = "sudo nvim";
-                v = "nvim";
-                vi = "nvim";
-                vim = "nvim";
-                nv = "nvim";
-                nvim = "nvim";
+            unzip = "nix run nixpkgs#unzip -- ";
+            unrar = "nix run nixpkgs#unrar -- ";
+            zip = "nix run nixpkgs#zip -- ";
+            sv = "sudo nvim";
+            v = "nvim";
+            vi = "nvim";
+            vim = "nvim";
+            nv = "nvim";
+            nvim = "nvim";
 	        btop = "clear && nix run nixpkgs#btop";
 	        nsp = "nix-shell -p";
 	        ncg = "nix store gc -v && nix-collect-garbage --delete-old";
 	        upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-                hms = "home-manager switch --flake ${flakeDir}";
+            hms = "home-manager switch --flake ${flakeDir}";
         };
      };
 
