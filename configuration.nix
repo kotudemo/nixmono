@@ -96,7 +96,6 @@
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    pulseaudio.enable = false;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -253,6 +252,7 @@
       pulse.enable = true;
       jack.enable = true;
     };
+     pulseaudio.enable = false;
      zapret = {
       enable = true;
       udpSupport = true;
