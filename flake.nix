@@ -10,8 +10,6 @@
     nur.url = "github:nix-community/NUR";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-    zapret.url = "github:SnakeOPM/zapret-flake.nix";
     
     ayugram-desktop.url = "github:ndfined-crp/ayugram-desktop/";
 
@@ -29,7 +27,6 @@
     nixgl,
     nur,
     chaotic,
-    zapret,
     ayugram-desktop,
     aagl,
     freesm,
@@ -44,7 +41,6 @@
           ./configuration.nix
           inputs.chaotic.nixosModules.default
           inputs.home-manager.nixosModules.default
-          inputs.zapret.nixosModules.zapret
         ];
       };
     };
