@@ -256,6 +256,7 @@
 		inputs.freesm.packages.x86_64-linux.freesmlauncher
 	    	heroic
             	tetrio-desktop
+		zapret
 	    	spoofdpi
 	    	byedpi
 	    	gparted
