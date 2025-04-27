@@ -96,6 +96,7 @@
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    opentabletdriver.enable = true;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
