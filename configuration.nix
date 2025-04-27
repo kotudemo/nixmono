@@ -252,6 +252,10 @@
       pulse.enable = true;
       jack.enable = true;
     };
+     scx = {
+      enable = true;
+      scheduler = "scx_lavd";
+     };
      pulseaudio.enable = false;
      zapret = {
       enable = true;
@@ -396,13 +400,6 @@
       };
     };
   };
-
- chaotic = {
-    scx = {
-      enable = true;
-      scheduler = "scx_lavd";
-    };
- };
 
   system = {
     stateVersion = "24.11";
