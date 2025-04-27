@@ -161,8 +161,9 @@
 	  nerd-fonts.agave
 	  nerd-fonts.anonymice
 	  nerd-fonts.arimo
-	  era-sans-mono
 	  nerd-fonts.blex-mono
+	  nerd-fonts.bigblue-terminal
+	  nerd-fonts.bitstream-vera-sans-mono
 	  nerd-fonts.caskaydia-cove
 	  nerd-fonts.caskaydia-mono
 	  nerd-fonts.daddy-time-mono
@@ -381,7 +382,7 @@
         starship init fish | source
       '';
     };
-    the-honkers-railway-launcher.enable = true;
+    honkers-railway-launcher.enable = true;
   };
 
   home-manager = {
