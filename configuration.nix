@@ -39,7 +39,6 @@
   };
 
   nix = {
-  package = pkgs.nixFlakes;
     settings = {
       allowed-users = [
         "kd"
