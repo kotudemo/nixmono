@@ -217,6 +217,7 @@
     fstrim.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
+    pulseaudio.enable = false;
     displayManager = {
       sddm = {
         enable = true;
@@ -255,9 +256,9 @@
     };
      scx = {
       enable = true;
+      package = pkgs.scx_git.full;
       scheduler = "scx_lavd";
      };
-     pulseaudio.enable = false;
      zapret = {
       enable = true;
       udpSupport = true;
