@@ -159,8 +159,6 @@
       powerline-symbols
       miracode
       monocraft
-      nerd-fonts.0xproto
-      nerd-fonts._3270
 	  nerd-fonts.agave
 	  nerd-fonts.anonymice
 	  nerd-fonts.arimo
