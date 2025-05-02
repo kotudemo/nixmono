@@ -297,6 +297,12 @@
       package = pkgs.scx_git.full;
       scheduler = "scx_lavd";
      };
+     zerotierone = {
+     	enable = true;
+     	joinNetworks = [
+     		
+     	];
+     };
      zapret = {
       enable = true;
       configureFirewall = true;
