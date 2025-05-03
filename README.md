@@ -3,7 +3,7 @@ It's gonna work if you has nvidia (1000+) and intel hardware setup.
 
 ![Screenshot_20241031_011623](https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40)
 # TO DECLARE
-KDE settings \
+[KDE settings](https://github.com/nix-community/plasma-manager) \
 firefox user_prefs and extensions \
 spicetify extensions \
 [vencord extensions](https://github.com/KaylorBen/nixcord)
