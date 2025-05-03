@@ -1,5 +1,5 @@
 This is my config.
-It's gonna work if you has nvidia (1000+) and intel hardware setup.
+It's gonna work if you has nvidia (gtx 1000+) and intel hardware setup.
 
 ![Screenshot_20241031_011623](https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40)
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
