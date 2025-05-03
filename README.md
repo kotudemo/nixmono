@@ -10,11 +10,13 @@ firefox user_prefs and extensions \
 spicetify extensions \
 [vencord extensions](https://github.com/KaylorBen/nixcord)
 
-Kde Tokyo Night theme and  isn't declared but you can get it via kde theme store. \
-[Everforest theme](https://github.com/Serge2702/KDE-Everforest/blob/main/Everforest.colors)
-### Where i can grab your doomerwave wallpaper?
-[sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) 
+### Theming
+[sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) \
+[Everforest theme](https://github.com/Serge2702/KDE-Everforest/blob/main/Everforest.colors) \
+Tokyo Night theme isn't declared but you can get it via kde theme store 
+
 #### Special thanks to...
 [hand7s](https://github.com/s0me1newithhand7s)\
+[MyNixOS](https://mynixos.com/) \
 [NixOS Wiki](https://nixos.wiki/wiki/Main_Page)\
 [NixOS Forum](https://discourse.nixos.org/)
