@@ -8,7 +8,9 @@ It's gonna work if you has nvidia (gtx 1000+) and intel hardware setup.
 [KDE settings](https://github.com/nix-community/plasma-manager) \
 firefox user_prefs and extensions \
 spicetify extensions \
-[vencord extensions](https://github.com/KaylorBen/nixcord)
+[vencord extensions](https://github.com/KaylorBen/nixcord) \
+disko \
+nixos-anywhere installation guide
 
 ### Theming
 [sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) \
