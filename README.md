@@ -2,6 +2,8 @@ This is my config.
 It's gonna work if you has nvidia (1000+) and intel hardware setup.
 
 ![Screenshot_20241031_011623](https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40)
+![image](https://github.com/user-attachments/assets/fdaf1cfe-4e2b-41a7-8749-db718ef8cd4b)
+
 # TO DECLARE
 [KDE settings](https://github.com/nix-community/plasma-manager) \
 firefox user_prefs and extensions \
