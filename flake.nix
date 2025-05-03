@@ -10,8 +10,6 @@
     nur.url = "github:nix-community/NUR";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    
-    ayugram-desktop.url = "github:ndfined-crp/ayugram-desktop/";
 
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +25,6 @@
     nixgl,
     nur,
     chaotic,
-    ayugram-desktop,
     aagl,
     freesm,
     ...

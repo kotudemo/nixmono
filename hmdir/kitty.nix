@@ -12,11 +12,12 @@
                 enableFishIntegration = true;   # integration with fish
                 enableZshIntegration = true;
             };
-            themeFile = "tokyo_night_night";
+            #themeFile = "tokyo_night_night";
+            themeFile = "everforest_dark_medium";
             font = {
                 #name = "Inconsolata LGC for Powerline";
-                name = "Roboto Mono Nerd Font SemiBold";
-                size = 11;
+                #name = "Roboto Mono Nerd Font SemiBold";
+                #size = 11;
             };
 		};
     };

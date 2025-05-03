@@ -64,7 +64,7 @@
                 "https://ags.cachix.org"
                 "https://hyprland.cachix.org"
                 "https://chaotic-nyx.cachix.org/"
-		"https://ezkea.cachix.org"
+                "https://ezkea.cachix.org"
       ];
       trusted-public-keys = [
                 # cache.nixos.org
@@ -77,7 +77,7 @@
                 "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
                 "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
                 "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-		"ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+                "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       ];
     };
   };
@@ -215,6 +215,7 @@
   };
 
   services = {
+    flatpak.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
@@ -409,31 +410,49 @@
   environment = {
 	systemPackages = with pkgs; [
 	    	home-manager
-	    	flatpak
-			inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
+
+	    	# Everyday software
+			materialgram
+			(discord-canary.override {
+              withOpenASAR = true;
+              withVencord = true; # can do this here too
+            })
             chromium
             firefox-devedition
+            spicetify-cli
             obs-studio 
 	    	mpv
-			neovim
+	    	kdePackages.kcalc
+            kdePackages.kcolorchooser
+
+            # Text editors
+            neovim
 			amp
 			micro
 			kdePackages.kate
-	    	kdePackages.kcalc
-            kdePackages.kcolorchooser
+
+            # Gaming
 			inputs.freesm.packages.x86_64-linux.freesmlauncher
 	    	heroic
             tetrio-desktop
-			zapret
-	    	spoofdpi
-	    	byedpi
-	    	gparted
+		
+	    	# Printing
 	    	gutenprint
 	    	cups
 	    	canon-cups-ufr2
 	    	cups-filters
+
+	    	# Theming
 	    	nwg-look
-	    	tokyonight-gtk-theme 
+	    	tokyonight-gtk-theme
+	    	everforest-gtk-theme
+
+	    	# Essential
+	    	zip
+	    	unzip
+	    	unrar
+            fastfetch
+	    	gparted
 	    	xwayland
             go
             python3Full
@@ -455,9 +474,6 @@
       	    pf = "clear && nix run nixpkgs#pfetch";
 	        ff = "clear && nix run nixpkgs#fastfetch";
 	        nf = "clear && nix run nixpkgs#neofetch";
-            unzip = "nix run nixpkgs#unzip -- ";
-            unrar = "nix run nixpkgs#unrar -- ";
-            zip = "nix run nixpkgs#zip -- ";
             sv = "sudo nvim";
             v = "nvim";
             vi = "nvim";
@@ -466,7 +482,7 @@
             nvim = "nvim";
 	        btop = "clear && nix run nixpkgs#btop";
 	        nsp = "nix-shell -p";
-	        ncg = "nix store gc -v && nix-collect-garbage --delete-old";
+	        ncg = "nh clean all --keep 2 --keep-since 2d";
 	        upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
             hms = "home-manager switch --flake ${flakeDir}";
         };
@@ -490,12 +506,14 @@
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
         starship init fish | source
+        fastfetch
       '';
     };
     honkers-railway-launcher.enable = true;
   };
 
   home-manager = {
+    useGlobalPkgs = true;
     users.kd = { config, pkgs, options, inputs,  ...}: {
       imports = [
 		./hmdir/modules.nix
@@ -513,7 +531,7 @@
   };
 
   system = {
-    stateVersion = "24.11";
+    stateVersion = "25.05";
     name = lib.mkDefault "nixos";
   };
 }
