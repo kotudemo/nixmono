@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, self, ... }:
 
 {
   imports =
@@ -37,13 +37,6 @@
       supportedFilesystems = [ "ntfs" "refs" ];
     };
   };
-
-  zramSwap = {
-  	enable = true;
-  	algorithm = "zstd";
-  	priority = 100;
-  	memoryPercent = 100;
-	};
 
   nix = {
     settings = {
@@ -300,102 +293,40 @@
                 };
             };
     };
+
      scx = {
       enable = true;
       package = pkgs.scx_git.full;
       scheduler = "scx_lavd";
      };
+
      zerotierone = {
      	enable = true;
      	joinNetworks = [
      		
      	];
      };
+
      zapret = {
       enable = true;
-      configureFirewall = true;
-      qnum = 350;
       udpSupport = true;
       udpPorts = [
         "50000:50099"
         "443"
       ];
       params = [
-                "--wssize 1:6"
-
-                "--filter-tcp=80"
-                "--dpi-desync=multisplit"
-                "--dpi-desync-split-pos=10"
-                "--dpi-desync-repeats=6"
-                "--new"
-
-                "--filter-tcp=443"
-                "--dpi-desync=multidisorder"
-                "--dpi-desync-split-pos=1,midsld"
-                "--new"
-
-                "--filter-tcp=443"
-                "--dpi-desync=syndata"
-                "--dpi-desync-fake-syndata=0x00000000"
-                "--dpi-desync-ttl=10"
-                "--new"
-
-                "--filter-udp=443"
-                "--dpi-desync=fake"
-                "--dpi-desync-repeats=6"
-                "--dpi-desync-fake-quic=0x00000000"
-                "--new"
-
-                "--filter-udp=443"
-                "--dpi-desync=fake,udplen"
-                "--dpi-desync-udplen-increment=5"
-                "--dpi-desync-fake-tls=0x00000000"
-                "--dpi-desync-cutoff=n3"
-                "--dpi-desync-repeats=2"
-                "--new"
-
-                "--filter-tcp=443"
-                "--dpi-desync=split"
-                "--dpi-desync-fooling=md5sig,badseq"
-                "--dpi-desync-fake-tls=0x00000000"
-                "--dpi-desync-split-pos=1"
-                "--dpi-desync-repeats=10"
-                "--new"
-
-                "--filter-tcp=443"
-                "--dpi-desync=fake,split2"
-                "--dpi-desync-fooling=md5sig"
-                "--dpi-desync-fake-tls=0x00000000"
-                "--dpi-desync-split-seqovl=2"
-                "--dpi-desync-split-pos=2"
-
-                "--dpi-desync-autottl"
-                "--new"
-                "--filter-tcp=443"
-                "--dpi-desync=fake,split2"
-                "--dpi-desync-fooling=md5sig"
-                "--dpi-desync-fake-tls=0x00000000"
-                "--dpi-desync-split-seqovl=2"
-                "--dpi-desync-split-pos=2"
-                "--dpi-desync-autottl"
-                "--new"
-
-                "--filter-tcp=80"
-                "--dpi-desync=fake,split2"
-                "--dpi-desync-fooling=md5sig"
-                "--dpi-desync-fake-tls=0x00000000"
-                "--dpi-desync-autottl"
-                "--new"
-
-                "--filter-tcp=80"
-                "--dpi-desync-ttl=1"
-                "--dpi-desync-autottl=2"
-                "--dpi-desync-fake-tls=0x00000000"
-                "--dpi-desync-split-pos=1"
-                "--dpi-desync=fake,split2"
-                "--dpi-desync-repeats=6"
-                "--dpi-desync-fooling=md5sig"
-                "--new"
+        "--filter-udp=50000-50099"
+        "--dpi-desync=fake"
+        "--dpi-desync-any-protocol"
+        "--new"
+        "--filter-udp=443"
+        "--dpi-desync-fake-quic=${inputs.secret_files.packages.${pkgs.system}.files}/quic_initial_www_google_com.bin"
+        "--dpi-desync=fake"
+        "--dpi-desync-repeats=2"
+        "--new"
+        "--filter-tcp=80,443"
+        "--dpi-desync=fake,multidisorder"
+        "--dpi-desync-ttl=3"
       ];
     };
   };
@@ -419,11 +350,9 @@
 	    	home-manager
 
 	    	# Everyday software
-			materialgram
-			(discord-canary.override {
-              withOpenASAR = true;
-              withVencord = true; # can do this here too
-            })
+			#(discord-canary.override {withOpenASAR = true; withVencord = true; })
+			vesktop
+            materialgram
             chromium
             firefox-devedition
             spicetify-cli
@@ -439,7 +368,7 @@
 			kdePackages.kate
 
             # Gaming
-			inputs.freesm.packages.x86_64-linux.freesmlauncher
+			inputs.freesm.packages.${pkgs.system}.freesmlauncher
 	    	heroic
             tetrio-desktop
 		
@@ -454,10 +383,16 @@
 	    	tokyonight-gtk-theme
 	    	everforest-gtk-theme
 
+	    	# Networking
+	    	calyx-vpn
+	    	riseup-vpn
+	    	inputs.secret_files.packages.${pkgs.system}.files
+
 	    	# Essential
+	    	p7zip-rar
+	    	ntfs3g
 	    	zip
 	    	unzip
-	    	unrar
             fastfetch
 	    	gparted
 	    	xwayland
@@ -524,7 +459,9 @@
     users.kd = { config, pkgs, options, inputs,  ...}: {
       imports = [
 		./hmdir/modules.nix
+
       ];
+
 
       home = {
         username = "kd";

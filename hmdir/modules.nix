@@ -8,6 +8,7 @@
 	./yazi.nix
 	./ghostty.nix
 	./nh.nix
+	#./spicetify
     ];
 }
 
