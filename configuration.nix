@@ -38,13 +38,6 @@
     };
   };
 
-  zramSwap = {
-  	enable = true;
-  	algorithm = "zstd";
-  	priority = 100;
-  	memoryPercent = 100;
-	};
-
   nix = {
     settings = {
       allowed-users = [
@@ -315,26 +308,49 @@
      };
 
      zapret = {
-      enable = true;
-      udpSupport = true;
-      udpPorts = [
-        "50000:50099"
-        "443"
-      ];
-      params = [
-        "--filter-udp=50000-50099"
-        "--dpi-desync=fake"
-        "--dpi-desync-any-protocol"
-        "--new"
-        "--filter-udp=443"
-        "--dpi-desync-fake-quic=${inputs.secret_files.packages.${pkgs.system}.files}/quic_initial_www_google_com.bin"
-        "--dpi-desync=fake"
-        "--dpi-desync-repeats=2"
-        "--new"
-        "--filter-tcp=80,443"
-        "--dpi-desync=fake,multidisorder"
-        "--dpi-desync-ttl=3"
-      ];
+            enable = true;
+              udpSupport = true;
+              udpPorts = [
+                "50000:50099"
+                "443"
+              ];
+            params = [
+              "--filter-tcp=80"
+              "--dpi-desync=fake,split2"
+              "--dpi-desync-autottl=2"
+              "--dpi-desync-fooling=md5sig"
+              "--new"
+
+              "--filter-tcp=443"
+              "--dpi-desync=fake,split2"
+              "--dpi-desync-repeats=11"
+              "--dpi-desync-fooling=md5sig"
+              "--dpi-desync-fake-tls=${inputs.secret_files.packages.${pkgs.system}.files}/tls_clienthello_www_google_com.bin"
+              "--new"
+
+              "--filter-tcp=80,443"
+              "--dpi-desync=fake,disorder2"
+              "--dpi-desync-autottl=2"
+              "--dpi-desync-fooling=md5sig"
+              "--new"
+
+              "--filter-udp=50000-50099"
+              "--dpi-desync=fake"
+              "--dpi-desync-repeats=6"
+              "--dpi-desync-any-protocol"
+              "--dpi-desync-cutoff=n4"
+              "--new"
+              "--filter-udp=443"
+              "--dpi-desync=fake"
+              "--dpi-desync-repeats=11"
+              "--dpi-desync-fake-quic=${inputs.secret_files.packages.${pkgs.system}.files}/quic_initial_www_google_com.bin"
+              "--new"
+
+              "--filter-udp=443"
+              "--dpi-desync=fake"
+              "--dpi-desync-repeats=11"
+              "--new"
+            ];
     };
   };
 
@@ -366,7 +382,6 @@
             obs-studio 
 	    	mpv
 	    	kdePackages.kcalc
-            kdePackages.kcolorchooser
 
             # Text editors
             neovim
@@ -398,6 +413,7 @@
 	    	# Essential
 	    	p7zip-rar
 	    	ntfs3g
+	    	openjdk
 	    	zip
 	    	unzip
             fastfetch
