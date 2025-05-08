@@ -7,7 +7,7 @@ It's gonna work if you has nvidia (gtx 1000+) and intel hardware setup.
 # TO DECLARE
 [KDE settings](https://github.com/nix-community/plasma-manager) \
 firefox user_prefs and extensions \
-spicetify extensions \
+spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix)\
 [vencord extensions](https://github.com/KaylorBen/nixcord) \
 disko \
 nixos-anywhere installation guide \
