@@ -10,7 +10,9 @@ firefox user_prefs and extensions \
 spicetify extensions \
 [vencord extensions](https://github.com/KaylorBen/nixcord) \
 disko \
-nixos-anywhere installation guide
+nixos-anywhere installation guide \
+vfio gpu passthrough \
+wrap everything to options to make your nix epirience more customizable
 
 ### Theming
 [sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) \
