@@ -38,6 +38,13 @@
     };
   };
 
+  zramSwap = {
+  	enable = true;
+  	algorithm = "zstd";
+  	priority = 100;
+  	memoryPercent = 100;
+	};	
+
   nix = {
     settings = {
       allowed-users = [
