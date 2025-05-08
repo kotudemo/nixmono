@@ -12,7 +12,7 @@ spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marke
 disko \
 nixos-anywhere installation guide \
 vfio gpu passthrough \
-wrap everything to options to make your nix epirience more customizable
+wrap everything to options to make your nix expirience more customizable
 
 ### Theming
 [sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) \
