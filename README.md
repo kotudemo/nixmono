@@ -4,7 +4,7 @@
 <h1 align=center> TO DECLARE </h1>
 
 [KDE settings](https://github.com/nix-community/plasma-manager) \
-firefox user_prefs and extensions \ 
+firefox user_prefs and extensions \
 spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
 [vencord extensions](https://github.com/KaylorBen/nixcord) \
 disko \
