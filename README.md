@@ -11,7 +11,7 @@ nixos-anywhere installation guide \
 option in passtrough.nix for amd \
 wrap everything to options to make your nix expirience more customizable
 
-## GPU passtrough for gaming on Windows VM
+<h1 align=center> GPU passtrough for gaming on Windows VM </h1>
 **If your pc too low-end like Intel Core i7-6700K + GeForce GTX 680 the best thing you can do is dual-booting Windows 10, because even with my Core i5-9600k I encounter performance issues because of CPU that just can't handle two systems running on it.I'd recommend to use something like AMD R7 5700X or higher.**  
 
 First of all you have to enter BIOS and enable iGPU (because your dGPU will be caged in your VM and will not be accessible in your Linux until you reboot to regular configuration), Virtualization and Intel VT-d, plug HDMI/DP/VGA cable to your motherboard and change your monitor settings to set input method to your new cable. Do not unplug video cable from your gpu because it necessary  for ```looking-glass``` correct work (however you can try to configure virtual montitor).
