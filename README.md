@@ -22,7 +22,7 @@ Then you need to uncomment import of ```passthrough.nix``` in ```configuration``
 
 If you would like to use Spice to give you keyboard and mouse input along with clipboard sync support, make sure you have a ```<graphics type='spice'>``` device, then: find your ```<video>``` device, and set ```<model type='none'/>```. If you cannot find it, make sure you have a ```<graphics>``` device, save and edit again. Now you can start your VM and type ```looking-glass-client -F -S /dev/shm/looking-glass``` to start looking glass (it won't work if you would unplug video cable from you GPU). It there will no any video output refer to [this article](https://looking-glass.io/docs/B7/install_libvirt/#keyboard-mouse-display-audio).
 
-It's gonna work if your setup is powered by nvidia (gtx 1000+) and intel (core 10 gen or lower with with iGPU(for newer iGPU you have to change ```hardware.graphics.extraPackages```)). If it's not you gonna have to do a lot of changes in passthrough.nix. There are some webpages might be useful to adjust your configuration for setuping configuration for AMD GPU and some optimizations for lower latency and higher perfomance. 
+It's gonna work if your setup is powered by nvidia (gtx 1000+) and intel (core 10 gen or lower with with iGPU (for newer iGPU you have to change ```hardware.graphics.extraPackages```)). If it's not you gonna have to do a lot of changes in passthrough.nix. There are some webpages might be useful to adjust your configuration for setuping configuration for AMD GPU and some optimizations for lower latency and higher perfomance. 
 
 https://discourse.nixos.org/t/nixos-vfio-gpu-passthrough/41169/2 \
 https://gist.github.com/techhazard/1be07805081a4d7a51c527e452b87b26 \
