@@ -27,7 +27,7 @@ It's gonna work if your setup is powered by nvidia (gtx 1000+) and intel (core 1
 https://discourse.nixos.org/t/nixos-vfio-gpu-passthrough/41169/2 \
 https://gist.github.com/techhazard/1be07805081a4d7a51c527e452b87b26 \
 https://discourse.nixos.org/t/single-gpu-passthrough/44119/2 \
-https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Attaching_the_PCI_devices  \ 
+https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Attaching_the_PCI_devices \
 https://forum.level1techs.com/t/solved-help-with-dual-nvidia-gpu-and-looking-glass/190084/17 \
 
 ### Theming
