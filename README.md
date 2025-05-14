@@ -8,7 +8,7 @@ firefox user_prefs and extensions \
 spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
 [vencord extensions](https://github.com/KaylorBen/nixcord) \
 disko \
-nixos-anywhere installation guide \ 
+nixos-anywhere installation guide \
 option in passtrough.nix for amd \
 wrap everything to options to make your nix expirience more customizable
 
