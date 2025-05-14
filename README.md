@@ -12,7 +12,7 @@ nixos-anywhere installation guide \
 option in passtrough.nix for amd \
 wrap everything to options to make your nix expirience more customizable
 
-<h1 align=center> GPU passtrough for gaming on Windows VM </h1>
+<h1 align=center> GPU passthrough for gaming on Windows VM </h1>
 
 **If your pc too low-end like Intel Core i7-6700K + GeForce GTX 680 the best thing you can do is dual-booting Windows 10, because even with my Core i5-9600k I encounter performance issues because of CPU that just can't handle two systems running on it.I'd recommend to use something like AMD R7 5700X or higher.** 
 
