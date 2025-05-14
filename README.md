@@ -1,7 +1,7 @@
 ![Screenshot_20241031_011623](https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40)
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
 
-# TO DECLARE
+<h1 align=center> TO DECLARE </h1>
 [KDE settings](https://github.com/nix-community/plasma-manager) \
 firefox user_prefs and extensions \
 spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix)\
