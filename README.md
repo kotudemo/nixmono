@@ -2,13 +2,13 @@
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
 
 <h1 align=center> TO DECLARE </h1>
-[KDE settings](https://github.com/nix-community/plasma-manager) \
-firefox user_prefs and extensions \
-spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix)\
-[vencord extensions](https://github.com/KaylorBen/nixcord) \
-disko \
-nixos-anywhere installation guide \
-option in passtrough.nix for amd \
+[KDE settings](https://github.com/nix-community/plasma-manager)
+firefox user_prefs and extensions
+spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix)
+[vencord extensions](https://github.com/KaylorBen/nixcord)
+disko
+nixos-anywhere installation guide 
+option in passtrough.nix for amd 
 wrap everything to options to make your nix expirience more customizable
 
 <h1 align=center> GPU passtrough for gaming on Windows VM </h1>
