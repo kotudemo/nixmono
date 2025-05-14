@@ -1,26 +1,38 @@
-{ config, pkgs, lib, inputs, self, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-      inputs.aagl.nixosModules.default
-    ];
+  config,
+  pkgs,
+  lib,
+  inputs,
+  self,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    #./passthrough.nix
+    inputs.home-manager.nixosModules.home-manager
+    inputs.aagl.nixosModules.default
+  ];
 
-   boot = {
+  boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelModules = [ "kvm-intel" "nvidia" ];
-    extraModulePackages = [ ];
+    kernelModules = [
+      "kvm-intel"
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ];
+    extraModulePackages = [];
     loader = {
       systemd-boot = {
         enable = true;
         configurationLimit = 10;
-        memtest86 = {   
+        memtest86 = {
           enable = true;
           sortKey = "o_memtest86";
         };
-        netbootxyz = {                  
+        netbootxyz = {
           enable = false;
           sortKey = "o_netbootxyz";
         };
@@ -32,18 +44,28 @@
       };
     };
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      kernelModules = [ ];
-      supportedFilesystems = [ "ntfs" "refs" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      kernelModules = [];
+      supportedFilesystems = [
+        "ntfs"
+        "refs"
+      ];
     };
   };
 
   zramSwap = {
-  	enable = true;
-  	algorithm = "zstd";
-  	priority = 100;
-  	memoryPercent = 100;
-	};	
+    enable = true;
+    algorithm = "zstd";
+    priority = 100;
+    memoryPercent = 100;
+  };
 
   nix = {
     settings = {
@@ -60,31 +82,31 @@
         "nix-command"
       ];
       substituters = [
-                # cache.nixos.org
-                "https://nixos-cache-proxy.cofob.dev"
-                "https://cache.nixos.org"
-                # cache.garnix.org
-                "https://cache.garnix.io"
-                # cachix
-                "https://nix-community.cachix.org/"
-                "https://chaotic-nyx.cachix.org/"
-                "https://ags.cachix.org"
-                "https://hyprland.cachix.org"
-                "https://chaotic-nyx.cachix.org/"
-                "https://ezkea.cachix.org"
+        # cache.nixos.org
+        "https://nixos-cache-proxy.cofob.dev"
+        "https://cache.nixos.org"
+        # cache.garnix.org
+        "https://cache.garnix.io"
+        # cachix
+        "https://nix-community.cachix.org/"
+        "https://chaotic-nyx.cachix.org/"
+        "https://ags.cachix.org"
+        "https://hyprland.cachix.org"
+        "https://chaotic-nyx.cachix.org/"
+        "https://ezkea.cachix.org"
       ];
       trusted-public-keys = [
-                # cache.nixos.org
-                "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-                # cache.garnix.io
-                "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-                # cachix.org
-                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-                "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
-                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-                "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-                "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+        # cache.nixos.org
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        # cache.garnix.io
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        # cachix.org
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+        "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+        "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       ];
     };
   };
@@ -99,7 +121,6 @@
     };
     hostPlatform = lib.mkDefault "x86_64-linux";
   };
-
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -127,9 +148,10 @@
     hostName = "nixos";
     useDHCP = lib.mkDefault true;
     interfaces.eno1.useDHCP = lib.mkDefault true;
-    firewall = {                            # firewall options
-      allowPing = false;                   # you can restrict ping to your host in case you'll need
-      enable = true;                      # toggle for enabling firewall
+    firewall = {
+      # firewall options
+      allowPing = false; # you can restrict ping to your host in case you'll need
+      enable = true; # toggle for enabling firewall
     };
     networkmanager = {
       enable = true;
@@ -137,7 +159,8 @@
     wireless = {
       enable = false;
     };
-    timeServers = [                         # https://wiki.nixos.org/wiki/NTP
+    timeServers = [
+      # https://wiki.nixos.org/wiki/NTP
       "0.nixos.pool.ntp.org"
       "1.nixos.pool.ntp.org"
       "2.nixos.pool.ntp.org"
@@ -151,6 +174,17 @@
     };
     polkit = {
       enable = true;
+      adminIdentities = [
+        "unix-group:wheel"
+      ];
+    };
+    sudo = {
+      enable = lib.mkDefault false;
+    };
+    sudo-rs = {
+      enable = true;
+      wheelNeedsPassword = true;
+      execWheelOnly = true;
     };
   };
 
@@ -166,41 +200,41 @@
       powerline-symbols
       miracode
       monocraft
-	  nerd-fonts.agave
-	  nerd-fonts.anonymice
-	  nerd-fonts.arimo
-	  nerd-fonts.blex-mono
-	  nerd-fonts.bigblue-terminal
-	  nerd-fonts.bitstream-vera-sans-mono
-	  nerd-fonts.caskaydia-cove
-	  nerd-fonts.caskaydia-mono
-	  nerd-fonts.daddy-time-mono
-	  nerd-fonts.dejavu-sans-mono
-	  nerd-fonts.droid-sans-mono
-	  nerd-fonts.fira-code
-	  nerd-fonts.fira-mono
-	  nerd-fonts.go-mono
-	  nerd-fonts.gohufont
-	  nerd-fonts.hack
-	  nerd-fonts.im-writing
-	  nerd-fonts.inconsolata
-	  nerd-fonts.inconsolata-go
-	  nerd-fonts.inconsolata-lgc
-	  nerd-fonts.iosevka
-	  nerd-fonts.iosevka-term
-	  nerd-fonts.iosevka-term-slab
-	  nerd-fonts.jetbrains-mono
-	  nerd-fonts.roboto-mono
-	  nerd-fonts.shure-tech-mono
-	  nerd-fonts.sauce-code-pro
-	  nerd-fonts.terminess-ttf
-	  nerd-fonts.ubuntu
- 	  nerd-fonts.ubuntu-sans
-	  nerd-fonts.ubuntu-mono
+      nerd-fonts.agave
+      nerd-fonts.anonymice
+      nerd-fonts.arimo
+      nerd-fonts.blex-mono
+      nerd-fonts.bigblue-terminal
+      nerd-fonts.bitstream-vera-sans-mono
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.caskaydia-mono
+      nerd-fonts.daddy-time-mono
+      nerd-fonts.dejavu-sans-mono
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+      nerd-fonts.go-mono
+      nerd-fonts.gohufont
+      nerd-fonts.hack
+      nerd-fonts.im-writing
+      nerd-fonts.inconsolata
+      nerd-fonts.inconsolata-go
+      nerd-fonts.inconsolata-lgc
+      nerd-fonts.iosevka
+      nerd-fonts.iosevka-term
+      nerd-fonts.iosevka-term-slab
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.roboto-mono
+      nerd-fonts.shure-tech-mono
+      nerd-fonts.sauce-code-pro
+      nerd-fonts.terminess-ttf
+      nerd-fonts.ubuntu
+      nerd-fonts.ubuntu-sans
+      nerd-fonts.ubuntu-mono
     ];
   };
 
-    i18n = {
+  i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "ru_RU.UTF-8";
@@ -232,28 +266,43 @@
         enable = true;
       };
     };
+
     desktopManager = {
       plasma6 = {
         enable = true;
       };
     };
+
     xserver = {
-    enable = true;
-      videoDrivers = [ "nvidia" ];
+      enable = true;
+      videoDrivers = [
+        "nvidia"
+      ];
       xkb = {
         layout = "us,ru";
         options = "grp:shift_alt_toggle";
       };
     };
+
     printing = {
       enable = true;
-      drivers = with pkgs; [ canon-cups-ufr2 cups-filters gutenprint ];
+      drivers = with pkgs; [
+        canon-cups-ufr2
+        gutenprintBin
+      ];
       listenAddresses = [
         "localhost:631"
       ];
       openFirewall = true;
       webInterface = true;
     };
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     pipewire = {
       enable = true;
       audio.enable = true;
@@ -264,56 +313,55 @@
       wireplumber.enable = true;
       extraConfig = {
         pipewire = {
-                "92-low-latency" = {
-                	"context.properties" = {
-                            "default.clock.rate" = 48000;
-                            "default.clock.allowed-rates" = [
-                                44100
-                                48000
-                                88200
-                                96000
-                            ];
+          "92-low-latency" = {
+            "context.properties" = {
+              "default.clock.rate" = 48000;
+              "default.clock.allowed-rates" = [
+                44100
+                48000
+                88200
+                96000
+              ];
 
-                            "default.clock.min-quantum" = 512;
-                            "default.clock.quantum" = 4096;
-                            "default.clock.max-quantum" = 8192;
-                        };
-                    };
-
-                    "93-no-resampling" = {
-                        "context.properties" = {
-                            "default.clock.rate" = 48000;
-                            "default.clock.allowed-rates" = [
-                                44100
-                                48000
-                                96000
-                                192000
-                            ];
-                        };
-                    };
-
-                    "94-no-upmixing" = {
-                        "stream.properties" = {
-                            "channelmix.upmix" = false;
-                        };
-                    };
-                };
+              "default.clock.min-quantum" = 512;
+              "default.clock.quantum" = 4096;
+              "default.clock.max-quantum" = 8192;
             };
+          };
+
+          "93-no-resampling" = {
+            "context.properties" = {
+              "default.clock.rate" = 48000;
+              "default.clock.allowed-rates" = [
+                44100
+                48000
+                96000
+                192000
+              ];
+            };
+          };
+
+          "94-no-upmixing" = {
+            "stream.properties" = {
+              "channelmix.upmix" = false;
+            };
+          };
+        };
+      };
     };
 
-     scx = {
+    scx = {
       enable = true;
       package = pkgs.scx_git.full;
       scheduler = "scx_lavd";
-     };
+    };
 
-     zerotierone = {
-     	enable = true;
-     	joinNetworks = [
-     		
-     	];
-     };
-
+    zerotierone = {
+      enable = true;
+      joinNetworks = [
+      ];
+    };
+    /*
      zapret = {
             enable = true;
               udpSupport = true;
@@ -359,106 +407,107 @@
               "--new"
             ];
     };
+    */
   };
 
   users = {
-    defaultUserShell = pkgs.fish;
-	mutableUsers = true;
+    #defaultUserShell = pkgs.fish;
+    mutableUsers = true;
     users.kd = {
       isNormalUser = true;
       description = "GOIDALIZATOR777";
-      extraGroups = [ "networkmanager" "input ""wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "input"
+        "wheel"
+        "adbusers"
+      ];
       initialPassword = "password";
+      shell = pkgs.fish;
       packages = with pkgs; [
-
       ];
     };
   };
-  
+
   environment = {
-	systemPackages = with pkgs; [
-	    	home-manager
+    systemPackages = with pkgs; [
+      home-manager
 
-	    	# Everyday software
-			#(discord-canary.override {withOpenASAR = true; withVencord = true; })
-			vesktop
-            materialgram
-            chromium
-            firefox-devedition
-            spicetify-cli
-            obs-studio 
-	    	mpv
-	    	kdePackages.kcalc
+      # Everyday software
+      vesktop
+      materialgram
+      chromium
+      firefox-devedition
+      spicetify-cli
+      obs-studio
+      mpv
+      libreoffice-qt6-fresh
+      kdePackages.kcalc
 
-            # Text editors
-            neovim
-			amp
-			micro
-			kdePackages.kate
+      # Text editors
+      neovim
+      amp
+      micro
+      kdePackages.kate
 
-            # Gaming
-			inputs.freesm.packages.${pkgs.system}.freesmlauncher
-	    	heroic
-            tetrio-desktop
-		
-	    	# Printing
-	    	gutenprint
-	    	cups
-	    	canon-cups-ufr2
-	    	cups-filters
+      # Gaming
+      inputs.freesm.packages.${pkgs.system}.freesmlauncher
+      heroic
+      tetrio-desktop
 
-	    	# Theming
-	    	nwg-look
-	    	tokyonight-gtk-theme
-	    	everforest-gtk-theme
+      # Theming
+      nwg-look
+      tokyonight-gtk-theme
+      everforest-gtk-theme
 
-	    	# Networking
-	    	calyx-vpn
-	    	riseup-vpn
-	    	inputs.secret_files.packages.${pkgs.system}.files
+      # Networking
+      protonvpn-gui
+      inputs.secret_files.packages.${pkgs.system}.files
 
-	    	# Essential
-	    	p7zip-rar
-	    	ntfs3g
-	    	openjdk
-	    	zip
-	    	unzip
-            fastfetch
-	    	gparted
-	    	xwayland
-            go
-            python3Full
-			python.pkgs.pip
-            git
-            ];
-        shellAliases =                             # global aliases
-            let
-                flakeDir = "/etc/nixos";
-            in {
-            cl = "clear";
-            ls="eza -al --color=always --group-directories-first --icons"; # preferred listing
-			la="eza -a --color=always --group-directories-first --icons";  # all files and dirs
-			ll="eza -l --color=always --group-directories-first --icons";  # long format
-			lt="eza -aT --color=always --group-directories-first --icons"; # tree listing
-			lsdot="eza -a | grep -e '^\.'";       # show only dotfiles
-			please="sudo";
-			jctl="journalctl -p 3 -xb";
-      	    pf = "clear && nix run nixpkgs#pfetch";
-	        ff = "clear && nix run nixpkgs#fastfetch";
-	        nf = "clear && nix run nixpkgs#neofetch";
-            sv = "sudo nvim";
-            v = "nvim";
-            vi = "nvim";
-            vim = "nvim";
-            nv = "nvim";
-            nvim = "nvim";
-	        btop = "clear && nix run nixpkgs#btop";
-	        nsp = "nix-shell -p";
-	        ncg = "nh clean all --keep 2 --keep-since 2d";
-	        upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-            hms = "home-manager switch --flake ${flakeDir}";
-        };
-     };
+      # Essential
+      nvtopPackages.full
+      wget
+      git
+      p7zip-rar
+      fastfetch
+      ntfs3g
+      gparted
+      xwayland
+      go
+      python3Full
+      python.pkgs.pip
+    ];
+    shellAliases =
+      # global aliases
+      let
+        flakeDir = "/etc/nixos";
+      in {
+        cl = "clear";
+        ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
+        la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
+        ll = "eza -l --color=always --group-directories-first --icons"; # long format
+        lt = "eza -aT --color=always --group-directories-first --icons"; # tree listing
+        lsdot = "eza -a | grep -e '^\.'"; # show only dotfiles
+        please = "sudo";
+        jctl = "journalctl -p 3 -xb";
+        sv = "sudo nvim";
+        v = "nvim";
+        vi = "nvim";
+        vim = "nvim";
+        nv = "nvim";
+        nvim = "nvim";
+        nsp = "nix-shell -p";
+        ncg = "nh clean all --keep 3 --keep-since 1d";
+        upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
+
+        fmt = "sudo nix run flake:nixpkgs#alejandra";
+        btop = "nix run flake:nixpkgs#btop";
+        pf = "clear && nix run flake:nixpkgs#pfetch";
+        ff = "clear && nix run flake:nixpkgs#fastfetch";
+        nf = "clear && nix run flake:nixpkgs#neofetch";
+        #hms = "home-manager switch --flake ${flakeDir}"; for home configurations
+      };
+  };
 
   programs = {
     steam = {
@@ -482,23 +531,29 @@
       '';
     };
     honkers-railway-launcher.enable = true;
+    amnezia-vpn.enable = true;
+    adb.enable = true;
   };
 
   home-manager = {
     useGlobalPkgs = true;
-    users.kd = { config, pkgs, options, inputs,  ...}: {
+    users.kd = {
+      config,
+      pkgs,
+      options,
+      inputs,
+      ...
+    }: {
       imports = [
-		./hmdir/modules.nix
-
+        ./hmdir/modules.nix
       ];
-
 
       home = {
         username = "kd";
         homeDirectory = "/home/kd";
         stateVersion = "24.11";
         packages = with pkgs; [
-
+          blesh
         ];
       };
     };

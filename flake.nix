@@ -15,7 +15,6 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -26,7 +25,6 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
-
   };
 
   outputs = {
@@ -43,11 +41,10 @@
     nixos-anywhere,
     secret_files,
     ...
-  } @ inputs:
-  {
+  } @ inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem rec {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
