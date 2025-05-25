@@ -16,7 +16,9 @@ wrap everything to options to make your nix expirience more customizable
 
 <h2 align=center> DISCLAIMER </h2>
 
-**If your pc too low-end like Intel Core i7-6700K + GeForce GTX 680 the best thing you can do is dual-booting Windows 10. You also need CPU with iGPU or second dGPU to be left for your Linux system. Also you want to have CPU like r7 7700x to handle both systems at the same time. This guideline's gonna work if your setup is powered by Nvidia (GTX 1000+) and Intel CPU (core 10 gen or lower with with iGPU (for newer iGPU you have to change ```hardware.graphics.extraPackages```)). Otherwise, you gonna have to do a lot of changes in passthrough.nix. There are some links below might be useful to adjust your configuration for AMD GPU and some optimizations for lower latency and higher perfomance.**  
+**If your pc too low-end like Intel Core i7-6700K + GeForce GTX 680 the best thing you can do is dual-booting Windows 10. You also need CPU with iGPU or second dGPU to be left for your Linux system. Also you want to have CPU like r7 7700x to handle both systems at the same time.** 
+
+**The following guideline's gonna work if your setup is powered by Nvidia (GTX 1000+) and Intel CPU (core 10 gen or lower with with iGPU (for newer iGPU you have to change ```hardware.graphics.extraPackages```)). Otherwise, you gonna have to do a lot of changes in passthrough.nix. There are some links below might be useful to adjust your configuration for AMD GPU and some optimizations for lower latency and higher perfomance.**  
 
 https://discourse.nixos.org/t/nixos-vfio-gpu-passthrough/41169/2 \
 https://gist.github.com/techhazard/1be07805081a4d7a51c527e452b87b26 \
@@ -24,7 +26,7 @@ https://discourse.nixos.org/t/single-gpu-passthrough/44119/2 \
 https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Attaching_the_PCI_devices \
 https://forum.level1techs.com/t/solved-help-with-dual-nvidia-gpu-and-looking-glass/190084/17
 
-<h2 align=center> How to guide </h2>
+<h2 align=center> How To Guide </h2>
 
 First of all you have to enter BIOS and enable iGPU (because your dGPU will be caged in your VM and will not be accessible in your Linux until you reboot to regular configuration), Virtualization and Intel VT-d, plug HDMI/DP/VGA cable to your motherboard and change your monitor settings to set input method to your new cable. Do not unplug video cable from your gpu because it necessary  for ```looking-glass``` correct work (however you can try to configure virtual montitor).
 
