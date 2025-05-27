@@ -16,7 +16,7 @@
 
   #Custom options
   passthrough.enable = false;
-  zapret.enable = true;
+  zapret.enable = false;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
