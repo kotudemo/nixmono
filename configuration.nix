@@ -21,21 +21,13 @@
   zapret_vizid.enable = false;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    #kernelPackages = pkgs.linuxPackages_cachyos;
     kernelModules = [
       "kvm-intel"
       "nvidia"
-      "nvidia_modeset"
-      "nvidia_uvm"
-      "nvidia_drm"
-      "v4l2loopback"
     ];
     extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
     ];
-    extraModprobeConfig = ''
-      options v4l2loopback nr_devices=2 exclusive_caps=1,1 video_nr=0,1 card_label=v4l2lo0,v4l2lo1
-    '';
     loader = {
       systemd-boot = {
         enable = true;
@@ -362,11 +354,11 @@
       };
     };
 
-    scx = {
-      enable = true;
-      package = pkgs.scx_git.full;
-      scheduler = "scx_lavd";
-    };
+    #scx = {
+    # enable = true;
+    # package = pkgs.scx_git.full;
+    #  scheduler = "scx_lavd";
+    # };
 
     zerotierone = {
       enable = true;
@@ -438,6 +430,7 @@
 
       # Essential
       nurl
+      alejandra
       nvtopPackages.full
       wget
       git
@@ -451,13 +444,12 @@
       python3Full
       python.pkgs.pip
       #obs
-      v4l-utils
       obs-studio
     ];
     shellAliases =
       # global aliases
       let
-        flakeDir = "/etc/nixos";
+        flakeDir = "~/nxs/nixos";
       in {
         cl = "clear";
         ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
@@ -476,8 +468,8 @@
         nsp = "nix-shell -p";
         ncg = "nh clean all --keep 3 --keep-since 1d";
         upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
+        fmt = "alejandra";
 
-        fmt = "sudo nix run flake:nixpkgs#alejandra";
         btop = "nix run flake:nixpkgs#btop";
         pf = "clear && nix run flake:nixpkgs#pfetch";
         ff = "clear && nix run flake:nixpkgs#fastfetch";
