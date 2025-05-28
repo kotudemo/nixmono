@@ -407,9 +407,7 @@
 
       # Text editors
       neovim
-      amp
       micro
-      evil-helix_git
       kdePackages.kate
 
       # Gaming
@@ -425,7 +423,6 @@
       everforest-gtk-theme
 
       # Networking
-      protonvpn-gui
       inputs.secret_files.packages.${pkgs.system}.files
 
       # Essential
