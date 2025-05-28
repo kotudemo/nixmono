@@ -16,7 +16,9 @@
 
   #Custom options
   passthrough.enable = false;
-  zapret.enable = false;
+  zapret_preset_russia.enable = false;
+  zapret_renixos.enable = true;
+  zapret_vizid.enable = false;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -435,6 +437,7 @@
       inputs.secret_files.packages.${pkgs.system}.files
 
       # Essential
+      nurl
       nvtopPackages.full
       wget
       git

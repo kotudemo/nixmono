@@ -5,6 +5,8 @@
 }: {
   imports = [
     ./passthrough.nix
-    ./zapret.nix
+    ./zapret_preset_russia.nix
+    ./zapret_renixos.nix
+    ./zapret_vizid.nix
   ];
 }
