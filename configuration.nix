@@ -22,9 +22,13 @@
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [
       "kvm-intel"
       "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
     ];
     extraModulePackages = with config.boot.kernelPackages; [
     ];
