@@ -17,24 +17,18 @@
         theme = "everforest_dark";
         keys = {
           normal = {
-            p = ":clipboard-paste-after";
-            P = ":clipboard-paste-before";
-            y = ":clipboard-yank-join";
-            Y = ":clipboard-yank";
             R = ":clipboard-paste-replace";
             d = [":clipboard-yank-join" "delete_selection"];
           };
           select = {
-            p = ":clipboard-paste-after";
-            P = ":clipboard-paste-before";
-            y = ":clipboard-yank-join";
-            Y = ":clipboard-yank";
             R = ":clipboard-paste-replace";
             d = [":clipboard-yank-join" "delete_selection"];
           };
         };
         editor = {
           line-number = "relative";
+          default-yank-register = "+";
+          mouse = false;
           smart-tab.enable = true;
           file-picker = {
             hidden = true;
