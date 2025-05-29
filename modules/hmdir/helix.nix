@@ -17,17 +17,33 @@
         theme = "everforest_dark";
         keys = {
           normal = {
+            p = ":clipboard-paste-after";
+            P = ":clipboard-paste-before";
+            y = ":clipboard-yank-join";
+            Y = ":clipboard-yank";
             R = ":clipboard-paste-replace";
             d = [":clipboard-yank-join" "delete_selection"];
           };
           select = {
+            p = ":clipboard-paste-after";
+            P = ":clipboard-paste-before";
+            y = ":clipboard-yank-join";
+            Y = ":clipboard-yank";
             R = ":clipboard-paste-replace";
             d = [":clipboard-yank-join" "delete_selection"];
+          };
+          insert = {
+            "A-x" = "normal_mode";
+            C-p = "move_line_up";
+            C-n = "move_line_down";
+            C-e = "goto_line_end_newline";
+            C-a = "goto_line_start";
+            C-f = "move_char_right";
+            C-b = "move_char_left";
           };
         };
         editor = {
           line-number = "relative";
-          default-yank-register = "+";
           mouse = false;
           smart-tab.enable = true;
           file-picker = {

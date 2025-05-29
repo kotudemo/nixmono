@@ -544,6 +544,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_8": {
+      "locked": {
+        "lastModified": 1748370509,
+        "narHash": "sha256-QlL8slIgc16W5UaI3w7xHQEP+Qmv/6vSNTpoZrrSlbk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4faa5f5321320e49a78ae7848582f684d64783e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -576,7 +592,8 @@
         "nixpkgs": "nixpkgs_5",
         "nur": "nur",
         "secret_files": "secret_files",
-        "spicetify-nix": "spicetify-nix"
+        "spicetify-nix": "spicetify-nix",
+        "zapret-hostlists": "zapret-hostlists"
       }
     },
     "rust-analyzer-src": {
@@ -689,6 +706,24 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "zapret-hostlists": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1748430327,
+        "narHash": "sha256-jb2+LbVpXe1/dOVFGSKO+mbd7Njr3c4Hiq8GiACQ7BE=",
+        "owner": "kotudemo",
+        "repo": "zapret-hostlists",
+        "rev": "5012251c723a9fc2780fc95cb9ba00a34a8fe5f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kotudemo",
+        "repo": "zapret-hostlists",
         "type": "github"
       }
     }

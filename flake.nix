@@ -25,6 +25,8 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    zapret-hostlists.url = "github:kotudemo/zapret-hostlists";
   };
 
   outputs = {
@@ -40,6 +42,7 @@
     disko,
     nixos-anywhere,
     secret_files,
+    zapret-hostlists,
     ...
   } @ inputs: {
     nixosConfigurations = {

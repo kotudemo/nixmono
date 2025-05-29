@@ -17,8 +17,8 @@
   #Custom options
   passthrough.enable = false;
   zapret_preset_russia.enable = false;
-  zapret_renixos.enable = true;
-  zapret_vizid.enable = false;
+  zapret_renixos.enable = false;
+  #zapret_UltimateFix_Universal_v3.enable = true;
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
@@ -428,6 +428,7 @@
 
       # Networking
       inputs.secret_files.packages.${pkgs.system}.files
+      inputs.zapret-hostlists.packages.${pkgs.system}.files
 
       # Essential
       nurl
