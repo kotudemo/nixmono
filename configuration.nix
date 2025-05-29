@@ -18,7 +18,7 @@
   passthrough.enable = false;
   zapret_preset_russia.enable = false;
   zapret_renixos.enable = false;
- # zapret_ultimatefix.enable = true;
+ zapret_ultimatefix.enable = true;
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
