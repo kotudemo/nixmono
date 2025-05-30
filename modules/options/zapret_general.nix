@@ -19,7 +19,6 @@ in {
       configureFirewall = true;
       qnum = 350;
       params = [
-        [
           "--filter-udp=443"
           "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
           "--dpi-desync=fake"
@@ -49,7 +48,6 @@ in {
           "--dpi-desync-fooling=badseq"
           "--dpi-desync-fake-tls=${inputs.secret_files.packages.${pkgs.system}.files}/tls_clienthello_www_google_com.bin"
           "--new"
-        ]
       ];
     };
   };
