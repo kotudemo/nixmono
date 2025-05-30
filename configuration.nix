@@ -19,7 +19,8 @@
   zapret_preset_russia.enable = false;
   zapret_renixos.enable = false;
   zapret_ultimatefix_universalv3.enable = false;
-  zapret_ultimatefix_extended.enable = true;
+  zapret_ultimatefix_extended.enable = false;
+  zapret_russiafix.enable = true;
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
