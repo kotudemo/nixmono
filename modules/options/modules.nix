@@ -14,5 +14,6 @@
     ./zapret_general.nix
     ./zapret_general_alt.nix
     ./zapret_general_alt2.nix
+    ./zapret_general_alt3.nix
   ];
 }

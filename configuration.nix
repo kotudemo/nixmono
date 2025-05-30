@@ -16,14 +16,17 @@
 
   #Custom options
   passthrough.enable = false;
-  zapret_preset_russia.enable = false;
+
+  zapret_general.enable = false;
+  zapret_general_alt.enable = false;
+  zapret_general_alt2.enable = false;
+  zapret_general_alt3.enable = true;
+
   zapret_renixos.enable = false;
+  zapret_preset_russia.enable = false;
   zapret_ultimatefix_universalv3.enable = false;
   zapret_ultimatefix_extended.enable = false;
   zapret_russiafix.enable = false;
-  zapret_general.enable = false;
-  zapret_general_alt.enable = false;
-  zapret_general_alt2.enable = true;
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
