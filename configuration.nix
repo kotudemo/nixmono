@@ -474,7 +474,7 @@
         ncg = "nh clean all --keep 3 --keep-since 1d";
         upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
         fmt = "alejandra";
-
+        gtu = "cd ~/nxs/nixos && git add ./* && git commit && git push -u origin HEAD && cd -";
         btop = "nix run flake:nixpkgs#btop";
         pf = "clear && nix run flake:nixpkgs#pfetch";
         ff = "clear && nix run flake:nixpkgs#fastfetch";
