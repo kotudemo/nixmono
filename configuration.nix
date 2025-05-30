@@ -22,7 +22,8 @@
   zapret_general_alt2.enable = false;
   zapret_general_alt3.enable = false;
   zapret_general_alt4.enable = false;
-  zapret_general_alt5.enable = true;
+  zapret_general_alt5.enable = false;
+  zapret_general_alt6.enable = true;
 
   zapret_renixos.enable = false;
   zapret_preset_russia.enable = false;
