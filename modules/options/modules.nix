@@ -12,5 +12,6 @@
     ./zapret_ultimatefix_extended.nix
     ./zapret_russiafix.nix
     ./zapret_general.nix
+    ./zapret_general_alt.nix
   ];
 }

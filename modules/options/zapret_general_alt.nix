@@ -5,9 +5,9 @@
   inputs,
   ...
 }: let
-  cfg = config.zapret_general;
+  cfg = config.zapret_general_alt;
 in {
-  options.zapret_general = {
+  options.zapret_general_alt = {
     enable = lib.mkEnableOption ''
       Enable zapret.
     '';
@@ -43,7 +43,7 @@ in {
         "--filter-tcp=443"
         "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--dpi-desync=fake,split"
-        "--dpi-desync-autottl=2"
+        "--dpi-desync-autottl=5"
         "--dpi-desync-repeats=6"
         "--dpi-desync-fooling=badseq"
         "--dpi-desync-fake-tls=${inputs.secret_files.packages.${pkgs.system}.files}/tls_clienthello_www_google_com.bin"
