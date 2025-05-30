@@ -5,9 +5,9 @@
   inputs,
   ...
 }: let
-  cfg = config.zapret_ultimatefix;
+  cfg = config.zapret_zapret_ultimatefix_universalv3;
 in {
-  options.zapret_ultimatefix = {
+  options.zapret_ultimatefix_universalv3 = {
     enable = lib.mkEnableOption ''
       Enable zapret.
     '';
