@@ -435,7 +435,6 @@
       nurl
       alejandra
       nvtopPackages.full
-      ventoy-full-qt
       wget
       git
       gh
