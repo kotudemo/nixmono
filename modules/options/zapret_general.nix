@@ -7,7 +7,7 @@
 }: let
   cfg = config.zapret_general;
 in {
-  options.zapret_generals = {
+  options.zapret_general = {
     enable = lib.mkEnableOption ''
       Enable zapret.
     '';
