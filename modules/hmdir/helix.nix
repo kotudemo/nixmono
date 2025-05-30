@@ -44,6 +44,7 @@
         };
         editor = {
           line-number = "relative";
+          evil = false;
           mouse = false;
           smart-tab.enable = true;
           file-picker = {

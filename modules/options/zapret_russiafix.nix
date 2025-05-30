@@ -26,7 +26,9 @@ in {
         "--dpi-desync=fake,split2"
         "--dpi-desync-autottl=2"
         "--dpi-desync-fooling=md5sig"
-        "--hostlist-auto=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/autohostlist.txt"
+        # "--hostlist-auto=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/autohostlist.txt"
+
+        "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--new"
 
         "--filter-tcp=443"

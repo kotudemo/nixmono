@@ -6,6 +6,7 @@
   ...
 }: let
   cfg = config.zapret_preset_russia;
+  quotedHosts = map (host: "\"${host}\"") (lib.splitString "\n" (lib.fileContents "${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-russia-blacklist.txt"));
 in {
   options.zapret_preset_russia = {
     enable = lib.mkEnableOption ''
@@ -26,11 +27,11 @@ in {
         "--dpi-desync=fake,split2"
         "--dpi-desync-autottl=2"
         "--dpi-desync-fooling=md5sig"
-        "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
+        #"--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--new"
 
         "--filter-tcp=443"
-        "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
+        #"--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--dpi-desync=fake,split2"
         "--dpi-desync-repeats=11"
         "--dpi-desync-fooling=md5sig"
@@ -39,7 +40,7 @@ in {
 
         "--filter-tcp=80,443"
         "--dpi-desync=fake,disorder2"
-        "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
+        #"--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--dpi-desync-autottl=2"
         "--dpi-desync-fooling=md5sig"
         "--new"
@@ -52,7 +53,7 @@ in {
         "--new"
 
         "--filter-udp=443"
-        "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
+        #"--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--dpi-desync=fake"
         "--dpi-desync-repeats=11"
         "--dpi-desync-fake-quic=${inputs.secret_files.packages.${pkgs.system}.files}/quic_initial_www_google_com.bin"
@@ -63,6 +64,7 @@ in {
         "--dpi-desync-repeats=11"
         "--new"
       ];
+      blacklist = quotedHosts;
     };
   };
 }
