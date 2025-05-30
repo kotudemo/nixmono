@@ -22,7 +22,8 @@
   zapret_ultimatefix_extended.enable = false;
   zapret_russiafix.enable = false;
   zapret_general.enable = false;
-  zapret_general_alt.enable = true;
+  zapret_general_alt.enable = false;
+  zapret_general_alt2.enable = true;
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
