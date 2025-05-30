@@ -18,7 +18,7 @@ in {
       enable = true;
       udpSupport = true;
       udpPorts = [
-        "50000:50099"
+        "50000:65535"
         "443"
       ];
       params = [

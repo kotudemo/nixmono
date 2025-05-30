@@ -17,8 +17,11 @@ in {
     services.zapret = {
       enable = true;
       configureFirewall = true;
-      qnum = 350;
-
+      udpSupport = true;
+      udpPorts = [
+        "50000:50100"
+        "443"
+      ];
       params = [
         "--filter-udp=443"
         "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"

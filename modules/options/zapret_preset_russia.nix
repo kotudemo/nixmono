@@ -19,7 +19,7 @@ in {
       enable = true;
       udpSupport = true;
       udpPorts = [
-        "50000:50099"
+        "50000:50100"
         "443"
       ];
       params = [
@@ -45,7 +45,7 @@ in {
         "--dpi-desync-fooling=md5sig"
         "--new"
 
-        "--filter-udp=50000-50099"
+        "--filter-udp=50000-50100"
         "--hostlist=${inputs.zapret-hostlists.packages.${pkgs.system}.files}/lists/list-basic.txt"
         "--dpi-desync=fake"
         "--dpi-desync-repeats=6"
