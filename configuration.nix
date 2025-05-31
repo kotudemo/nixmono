@@ -34,7 +34,7 @@
   zapret_ultimatefix_universal.enable = false;
   zapret_ultimatefix_universalv2.enable = false;
   zapret_ultimatefix_universalv3.enable = false;
-  zapret_ultimatefix_mgts.enable= false;
+  zapret_ultimatefix_mgts.enable = false;
 
   zapret_renixos.enable = false;
   zapret_preset_russia.enable = false;
