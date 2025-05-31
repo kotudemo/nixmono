@@ -50,7 +50,6 @@ in {
         "--dpi-desync-repeats=6"
         "--dpi-desync-fooling=md5sig"
         "--dpi-desync-fake-tls=${inputs.secret_files.packages.${pkgs.system}.files}/tls_clienthello_www_google_com.bin"
-        "--new"
       ];
     };
   };

@@ -63,7 +63,6 @@ in {
         "--filter-udp=443"
         "--dpi-desync=fake"
         "--dpi-desync-repeats=11"
-        "--new"
       ];
       blacklist = quotedHosts;
     };
