@@ -25,12 +25,12 @@
   zapret_general_alt5.enable = false;
   zapret_general_alt6.enable = false;
   zapret_general_mgts.enable = false;
-  zapret_general_mgts2.enable = false;
+  zapret_general_mgts2.enable = true;
 
   zapret_renixos.enable = false;
   zapret_preset_russia.enable = false;
   zapret_ultimatefix_universalv3.enable = false;
-  zapret_ultimatefix_extended.enable = true;
+  zapret_ultimatefix_extended.enable = false;
   zapret_russiafix.enable = false;
 
   boot = {
@@ -54,7 +54,7 @@
           sortKey = "o_memtest86";
         };
         netbootxyz = {
-          enable = false;
+          enable = true;
           sortKey = "o_netbootxyz";
         };
         sortKey = "nixos";
