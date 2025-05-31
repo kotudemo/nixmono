@@ -21,16 +21,12 @@
             P = ":clipboard-paste-before";
             y = ":clipboard-yank-join";
             Y = ":clipboard-yank";
-            R = ":clipboard-paste-replace";
-            d = [":clipboard-yank-join" "delete_selection"];
           };
           select = {
             p = ":clipboard-paste-after";
             P = ":clipboard-paste-before";
             y = ":clipboard-yank-join";
             Y = ":clipboard-yank";
-            R = ":clipboard-paste-replace";
-            d = [":clipboard-yank-join" "delete_selection"];
           };
           insert = {
             "A-x" = "normal_mode";

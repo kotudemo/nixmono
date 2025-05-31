@@ -429,10 +429,6 @@
 
       # Gaming
       inputs.freesm.packages.${pkgs.system}.freesmlauncher
-      heroic
-      lutris
-      legendary-heroic
-      bottles
 
       # Theming
       nwg-look
@@ -452,10 +448,7 @@
       gh
       p7zip-rar
       fastfetch
-      ntfs3g
-      gparted
       xwayland
-      go
       python3Full
       python.pkgs.pip
       #obs
