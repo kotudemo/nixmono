@@ -26,11 +26,18 @@
   zapret_general_mgts.enable = false;
   zapret_general_mgts2.enable = true;
 
+  zapret_russiafix.enable = false;
+
+  zapret_ultimatefix.enable = false;
+  zapret_ultimatefix_alt.enable = false;
+  zapret_ultimatefix_alt_extended.enable = false;
+  zapret_ultimatefix_universal.enable = false;
+  zapret_ultimatefix_universalv2.enable = false;
+  zapret_ultimatefix_universalv3.enable = false;
+  zapret_ultimatefix_mgts.nix = false;
+
   zapret_renixos.enable = false;
   zapret_preset_russia.enable = false;
-  zapret_ultimatefix_universalv3.enable = false;
-  zapret_ultimatefix_extended.enable = false;
-  zapret_russiafix.enable = false;
 
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
@@ -428,8 +435,6 @@
 
       # Gaming
       inputs.freesm.packages.${pkgs.system}.freesmlauncher
-      mindustry-wayland
-      tetrio-desktop
 
       # Theming
       nwg-look
