@@ -10,13 +10,8 @@
 
     nixos-anywhere.url = "github:nix-community/nixos-anywhere";
 
-    secret_files.url = "github:kotudemo/secret_files";
-
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    aagl.inputs.nixpkgs.follows = "nixpkgs";
 
     freesm.url = "github:FreesmTeam/FreesmLauncher";
 
@@ -26,6 +21,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    secret_files.url = "github:kotudemo/secret_files";
     zapret-hostlists.url = "github:kotudemo/zapret-hostlists";
   };
 
@@ -36,7 +32,6 @@
     nixgl,
     nur,
     chaotic,
-    aagl,
     freesm,
     spicetify-nix,
     disko,

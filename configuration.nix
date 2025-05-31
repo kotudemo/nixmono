@@ -11,7 +11,6 @@
     ./hardware-configuration.nix
     ./modules/options/modules.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.aagl.nixosModules.default
   ];
 
   #Custom options
@@ -54,7 +53,7 @@
           sortKey = "o_memtest86";
         };
         netbootxyz = {
-          enable = true;
+          enable = false;
           sortKey = "o_netbootxyz";
         };
         sortKey = "nixos";
@@ -138,6 +137,7 @@
       allowBroken = true;
       permittedInsecurePackages = [
         "python-2.7.18.8"
+        "ventoy-qt5-1.1.05"
       ];
     };
     hostPlatform = lib.mkDefault "x86_64-linux";
@@ -413,14 +413,13 @@
 
       # Everyday software
       vesktop
-      materialgram
+      ayugram-desktop
       cromite
       firefox-devedition
       spicetify-cli
       mpv
       libreoffice-qt6-fresh
       kdePackages.kcalc
-      lmstudio
 
       # Text editors
       neovim
@@ -429,6 +428,8 @@
 
       # Gaming
       inputs.freesm.packages.${pkgs.system}.freesmlauncher
+      mindustry-wayland
+      tetrio-desktop
 
       # Theming
       nwg-look
@@ -441,18 +442,23 @@
 
       # Essential
       nurl
+      ventoy-full-qt
       alejandra
-      nvtopPackages.full
-      wget
+      ripgrep-all
+      sd
+      xh
       git
       gh
       p7zip-rar
+      nvtopPackages.full
       fastfetch
-      xwayland
       python3Full
       python.pkgs.pip
-      #obs
+
+      # Video audio
       obs-studio
+      easyeffects
+      xwayland
     ];
     shellAliases =
       # global aliases
@@ -511,7 +517,6 @@
       enable = true;
       package = pkgs.jdk24;
     };
-    honkers-railway-launcher.enable = true;
     amnezia-vpn.enable = true;
     adb.enable = true;
   };
