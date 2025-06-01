@@ -16,29 +16,6 @@
   #Custom options
   passthrough.enable = false;
 
-  zapret_general.enable = false;
-  zapret_general_alt.enable = false;
-  zapret_general_alt2.enable = false;
-  zapret_general_alt3.enable = false;
-  zapret_general_alt4.enable = false;
-  zapret_general_alt5.enable = false;
-  zapret_general_alt6.enable = false;
-  zapret_general_mgts.enable = false;
-  zapret_general_mgts2.enable = true;
-
-  zapret_russiafix.enable = false;
-
-  zapret_ultimatefix.enable = false;
-  zapret_ultimatefix_alt.enable = false;
-  zapret_ultimatefix_alt_extended.enable = false;
-  zapret_ultimatefix_universal.enable = false;
-  zapret_ultimatefix_universalv2.enable = false;
-  zapret_ultimatefix_universalv3.enable = false;
-  zapret_ultimatefix_mgts.enable = false;
-
-  zapret_renixos.enable = false;
-  zapret_preset_russia.enable = false;
-
   boot = {
     #kernelPackages = pkgs.linuxPackages_cachyos;
     kernelPackages = pkgs.linuxPackages_zen;
@@ -284,6 +261,14 @@
   };
 
   services = {
+    zapret = {
+      enable = true;
+      sf_presets = {
+        enable = true;
+        preset = "general_mgts2";
+      };
+    };
+
     flatpak.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
@@ -488,7 +473,7 @@
         ncg = "nh clean all --keep 3 --keep-since 1d";
         upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
         fmt = "alejandra";
-        gtu = "cd ~/nxs/nixos && git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD && cd -";
+        gtu = "cd ~/nxs/nixos && git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD && cd";
         btop = "nix run flake:nixpkgs#btop";
         pf = "clear && nix run flake:nixpkgs#pfetch";
         ff = "clear && nix run flake:nixpkgs#fastfetch";
