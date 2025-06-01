@@ -265,7 +265,7 @@
       enable = true;
       sf_presets = {
         enable = true;
-        preset = "general_mgts2";
+        preset = "renixos";
       };
     };
 
