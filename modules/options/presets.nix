@@ -8,7 +8,7 @@
   cfg = config.services.zapret.sf_presets;
   zapretBins = inputs.secret_files.packages.${pkgs.system}.files; # ${zapretBins}
   zapretLists = inputs.zapret-hostlists.packages.${pkgs.system}.files; # ${zapretLists}
-  extraHosts = ["github.com"];
+  extraHosts = ["github.com" "reddit.com" "google.com"];
   quotedHosts =
     (map (host: "\"${host}\"")
       (lib.splitString "\n" (lib.fileContents "${zapretLists}/lists/list-russia-blacklist.txt")))
