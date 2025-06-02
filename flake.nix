@@ -21,8 +21,10 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    secret_files.url = "github:kotudemo/secret_files";
-    zapret-hostlists.url = "github:kotudemo/zapret-hostlists";
+    #secret_files.url = "github:kotudemo/secret_files";
+    #zapret-hostlists.url = "github:kotudemo/zapret-hostlists";
+    zapret-presets.url = "github:kotudemo/zapret-presets";
+
   };
 
   outputs = {
@@ -36,8 +38,9 @@
     spicetify-nix,
     disko,
     nixos-anywhere,
-    secret_files,
-    zapret-hostlists,
+    #secret_files,
+    #zapret-hostlists,
+    zapret-presets,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -48,6 +51,7 @@
           ./configuration.nix
           inputs.chaotic.nixosModules.default
           inputs.home-manager.nixosModules.default
+          inputs.zapret-presets.nixosModules.presets
         ];
       };
     };
