@@ -24,7 +24,6 @@
     #secret_files.url = "github:kotudemo/secret_files";
     #zapret-hostlists.url = "github:kotudemo/zapret-hostlists";
     zapret-presets.url = "github:kotudemo/zapret-presets";
-
   };
 
   outputs = {
