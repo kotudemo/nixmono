@@ -426,10 +426,6 @@
       tokyonight-gtk-theme
       everforest-gtk-theme
 
-      # Networking
-      inputs.secret_files.packages.${pkgs.system}.files
-      inputs.zapret-hostlists.packages.${pkgs.system}.files
-
       # Essential
       nurl
       ventoy-full-qt

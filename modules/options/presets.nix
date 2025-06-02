@@ -59,6 +59,12 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    environment = {
+      systemPackages = with pkgs; [
+        inputs.secret_files.packages.${pkgs.system}.files
+        inputs.zapret-hostlists.packages.${pkgs.system}.files
+      ];
+    };
     services.zapret = {
       udpSupport = true;
       configureFirewall = true;
