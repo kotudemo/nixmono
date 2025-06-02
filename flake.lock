@@ -711,11 +711,11 @@
         "zapret-hostlists": "zapret-hostlists"
       },
       "locked": {
-        "lastModified": 1748885217,
-        "narHash": "sha256-SismC7Cf1UC/D4Rw3SxrHYwLy6jmhidWLzU1HYGVmgw=",
+        "lastModified": 1748886668,
+        "narHash": "sha256-su+ZPQd6P0ocJCV1bSKqwqUtOnU+PejmMQyJzy8lanI=",
         "owner": "kotudemo",
         "repo": "zapret-presets",
-        "rev": "8f4989ed00d4fb25f44c1e9113c9d29420b1cea3",
+        "rev": "0b6ab99a288cc0c8ea52438a7065da4016dada94",
         "type": "github"
       },
       "original": {
