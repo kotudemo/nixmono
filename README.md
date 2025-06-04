@@ -10,7 +10,8 @@ spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marke
 disko \
 nixos-anywhere installation guide \
 option in passtrough.nix for amd \
-wrap everything to options to make your nix expirience more customizable
+wrap everything to options to make your nix expirience more customizable \
+migration to wm wtih pywal and stylix (???)
 
 <h1 align=center> GPU passthrough for gaming on Windows VM </h1>
 
