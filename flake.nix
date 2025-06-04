@@ -1,29 +1,52 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
 
-    nixgl.url = "github:nix-community/nixGL";
+    nixgl = {
+      url = "github:nix-community/nixGL";
+    };
 
-    nur.url = "github:nix-community/NUR";
+    nur = {
+      url = "github:nix-community/NUR";
+    };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    };
 
-    nixos-anywhere.url = "github:nix-community/nixos-anywhere";
+    nixos-anywhere = {
+      url = "github:nix-community/nixos-anywhere";
+    };
 
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    freesm.url = "github:FreesmTeam/FreesmLauncher";
+    freesm = {
+      url = "github:FreesmTeam/FreesmLauncher";
+    };
 
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    #secret_files.url = "github:kotudemo/secret_files";
-    #zapret-hostlists.url = "github:kotudemo/zapret-hostlists";
-    zapret-presets.url = "github:kotudemo/zapret-presets";
+    zapret-presets = {
+      url = "github:kotudemo/zapret-presets";
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -37,8 +60,7 @@
     spicetify-nix,
     disko,
     nixos-anywhere,
-    #secret_files,
-    #zapret-hostlists,
+    stylix,
     zapret-presets,
     ...
   } @ inputs: {
@@ -48,6 +70,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          inputs.stylix.nixosModules.stylix
           inputs.chaotic.nixosModules.default
           inputs.home-manager.nixosModules.default
           inputs.zapret-presets.nixosModules.presets
