@@ -43,41 +43,46 @@
       url = "github:kotudemo/zapret-presets";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixgl,
-      nur,
-      chaotic,
-      freesm,
-      spicetify-nix,
-      disko,
-      nixos-anywhere,
-      stylix,
-      zapret-presets,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem rec {
-          specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
-          modules = [
-            ./configuration.nix
-            inputs.stylix.nixosModules.stylix
-            inputs.chaotic.nixosModules.default
-            inputs.home-manager.nixosModules.default
-            inputs.zapret-presets.nixosModules.presets
-          ];
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixgl,
+    nur,
+    chaotic,
+    freesm,
+    spicetify-nix,
+    disko,
+    nixos-anywhere,
+    stylix,
+    zapret-presets,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem rec {
+        specialArgs = {
+          inherit inputs self;
         };
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          inputs.stylix.nixosModules.stylix
+          inputs.chaotic.nixosModules.default
+          inputs.home-manager.nixosModules.default
+          inputs.nix-index-database.nixosModules.nix-index
+          inputs.zapret-presets.nixosModules.presets
+        ];
       };
     };
+  };
 }

@@ -4,8 +4,7 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -56,7 +55,7 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = [ ];
+      kernelModules = [];
       supportedFilesystems = [
         "ntfs"
         "refs"
@@ -484,9 +483,8 @@
     shellAliases =
       # global aliases
       let
-        flakeDir = "~/nixos";
-      in
-      {
+        flakeDir = "~/nixos/";
+      in {
         cl = "clear";
         ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
         la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
@@ -504,12 +502,12 @@
         nsp = "nix-shell -p";
         ncg = "nh clean all --keep 3 --keep-since 1d";
         upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-        fmt = "alejandra";
         gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
-        btop = "nix run flake:nixpkgs#btop";
-        pf = "clear && nix run flake:nixpkgs#pfetch";
-        ff = "clear && nix run flake:nixpkgs#fastfetch";
-        nf = "clear && nix run flake:nixpkgs#neofetch";
+        btop = ", btop";
+        pf = ", pfetch";
+        ff = ", fastfetch";
+        nf = ", neofetch";
+        fmt = ", alejandra";
         #hms = "home-manager switch --flake ${flakeDir}"; for home configurations
       };
   };
@@ -540,31 +538,27 @@
       enable = true;
       package = pkgs.jdk24;
     };
+    nix-index-database.comma.enable = true;
     amnezia-vpn.enable = true;
     adb.enable = true;
   };
 
   home-manager = {
     useGlobalPkgs = true;
-    users.kd =
-      {
-        pkgs,
-        ...
-      }:
-      {
-        imports = [
-          ./modules/hmdir/modules.nix
-        ];
+    users.kd = {pkgs, ...}: {
+      imports = [
+        ./modules/hmdir/modules.nix
+      ];
 
-        home = {
-          username = "kd";
-          homeDirectory = "/home/kd";
-          stateVersion = "25.11";
-          packages = with pkgs; [
-            blesh
-          ];
-        };
+      home = {
+        username = "kd";
+        homeDirectory = "/home/kd";
+        stateVersion = "25.11";
+        packages = with pkgs; [
+          blesh
+        ];
       };
+    };
   };
 
   system = {

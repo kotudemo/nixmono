@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs = {
     eza = {
       # about eza - https://github.com/eza-community/eza
