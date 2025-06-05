@@ -73,18 +73,6 @@
     zapret-presets,
     ...
   } @ inputs: {
-      homeConfigurations = {
-      "kd" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs self;};
-        modules = [
-          ./hmdir/home.nix
-          inputs.nurpkgs.modules.homeManager.default
-          inputs.stylix.homeManagerModules.stylix
-          inputs.spicetify-nix.homeManagerModules.default
-        ];
-      };
-    };
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem rec {
         specialArgs = {
@@ -681,8 +669,47 @@
           inputs.nix-index-database.nixosModules.nix-index
           inputs.zapret-presets.nixosModules.presets
           inputs.home-manager.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              users.kd = {
+                pkgs,
+                inputs,
+                config,
+                ...
+              }: {
+                imports = [
+                  ./modules/starship.nix
+                  ./modules/eza.nix
+                  ./modules/helix.nix
+                  ./modules/yazi.nix
+                  ./modules/ghostty.nix
+                  ./modules/nh.nix
+                  ./modules/bash.nix
+                  ./modules/zoxide.nix
+                  ./modules/bat.nix
+                  ./modules/stylix.nix
+                ];
+
+                home = {
+                  username = "kd";
+                  homeDirectory = "/home/kd";
+                  stateVersion = config.system.nixos.release;
+                  packages = with pkgs; [
+                    blesh
+                  ];
+                };
+
+                stylixConfig = {
+                  enable = true;
+                  theme = "everforest";
+                };
+              };
+            };
+          }
         ];
       };
     };
-    };
+  };
 }

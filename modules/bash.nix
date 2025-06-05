@@ -11,7 +11,8 @@
       '';
     };
 
-    blesh = {
+    /*
+      blesh = {
       enable = true;
       options = {
         prompt_ps1_transient = "trim:same-dir";
@@ -27,5 +28,6 @@
         blehook/eval-after-load complete my/complete-load-hook
       '';
     };
+    */
   };
 }
