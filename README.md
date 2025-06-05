@@ -11,7 +11,10 @@ disko \
 nixos-anywhere installation guide \
 option in passtrough.nix for amd \
 wrap everything to options to make your nix expirience more customizable \
-migration to wm wtih pywal and stylix (???)
+add some features from re:Nixos \
+add home manager configuration to do home manager rebuild \
+change aliases to ", alejandra", etc \
+migration to wm wtih pywal, [autotilng](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs) and stylix (???)
 
 <h1 align=center> GPU passthrough for gaming on Windows VM </h1>
 
