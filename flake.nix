@@ -399,12 +399,6 @@
                   };
                 };
 
-                #greetd = {
-                #  enable = true;
-                #  restart = false;
-                #  package = pkgs.greetd.tuigreet;
-                #};
-
                 desktopManager = {
                   plasma6 = {
                     enable = true;
@@ -540,6 +534,8 @@
 
               environment = {
                 systemPackages = with pkgs; [
+                  home-manager
+
                   # Everyday software
                   (discord.override {
                     withVencord = true;
@@ -679,7 +675,7 @@
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           ./hmdir/home.nix
-          nurpkgs.modules.homeManager.default
+          inputs.nurpkgs.modules.homeManager.default
           inputs.stylix.homeManagerModules.stylix
           inputs.spicetify-nix.homeManagerModules.default
         ];

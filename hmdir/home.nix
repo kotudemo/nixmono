@@ -22,6 +22,7 @@
     homeDirectory = "/home/kd";
     stateVersion = config.system.nixos.release;
     packages = with pkgs; [
+      bottom
     ];
   };
 
