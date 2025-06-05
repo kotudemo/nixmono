@@ -5,13 +5,12 @@
 
 declare [KDE settings](https://github.com/nix-community/plasma-manager) \
 declare firefox user_prefs and extensions \
-declarespicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
+declare spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
 declare [vencord extensions](https://github.com/KaylorBen/nixcord) \
 disko \
 nixos-anywhere installation guide \
 declare option in passtrough.nix for amd \
 wrap everything to options to make your nix expirience more customizable \
-add some features from re:Nixos \
 add home manager configuration to do home manager rebuild \
 change aliases to ", alejandra", etc \
 declare starship \
