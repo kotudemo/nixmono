@@ -107,9 +107,21 @@
             mode.normal = "NORMAL";
             mode.insert = "INSERT";
             mode.select = "VISUAL";
-            left = ["mode" "spinner"];
-            center = ["read-only-indicator" "file-name"];
-            right = ["file-type" "position" "position-percentage" "diagnostics" "file-encoding"];
+            left = [
+              "mode"
+              "spinner"
+            ];
+            center = [
+              "read-only-indicator"
+              "file-name"
+            ];
+            right = [
+              "file-type"
+              "position"
+              "position-percentage"
+              "diagnostics"
+              "file-encoding"
+            ];
             separator = "│";
           };
         };
