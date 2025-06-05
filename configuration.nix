@@ -199,7 +199,6 @@
     };
     networkmanager = {
       enable = true;
-      dns = "default";
       dhcp = "internal";
     };
     wireless = {
@@ -307,6 +306,7 @@
     gvfs.enable = true;
     udisks2.enable = true;
     pulseaudio.enable = false;
+
     zapret = {
       enable = true;
       sf_presets = {
@@ -315,11 +315,23 @@
       };
     };
 
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
+
     displayManager = {
       sddm = {
         enable = true;
       };
     };
+
+    #greetd = {
+    #  enable = true;
+    #  restart = false;
+    #  package = pkgs.greetd.tuigreet;
+    #};
 
     desktopManager = {
       plasma6 = {
@@ -359,12 +371,26 @@
 
     pipewire = {
       enable = true;
-      audio.enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-      wireplumber.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+
+      audio = {
+        enable = true;
+      };
+
+      pulse = {
+        enable = true;
+      };
+
+      jack = {
+        enable = true;
+      };
+
+      wireplumber = {
+        enable = true;
+      };
       extraConfig = {
         pipewire = {
           "92-low-latency" = {
@@ -542,9 +568,6 @@
         enable = true;
       };
       protontricks.enable = true;
-    };
-    gamemode = {
-      enable = true;
     };
     fish = {
       enable = true;
