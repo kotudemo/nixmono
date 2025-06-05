@@ -465,6 +465,10 @@
       home-manager
 
       # Everyday software
+      (discord.override {
+        withVencord = true;
+        withOpenASAR = false;
+      })
       vesktop
       ayugram-desktop
       cromite
@@ -475,10 +479,6 @@
       libreoffice-qt6-fresh
       kdePackages.kcalc
       ventoy-full-qt
-      (discord.override {
-        withVencord = true;
-        withOpenASAR = false;
-      })
 
       # Text editors
       neovim
@@ -494,6 +494,7 @@
       everforest-gtk-theme
 
       # Essential
+      easyeffects
       ripgrep-all
       tealdeer
       comma
