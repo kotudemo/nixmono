@@ -1,19 +1,23 @@
 ![Screenshot_20241031_011623](https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40)
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
 
-<h1 align=center> TO DECLARE </h1>
+<h1 align=center> TO DO </h1>
 
-[KDE settings](https://github.com/nix-community/plasma-manager) \
-firefox user_prefs and extensions \
-spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
-[vencord extensions](https://github.com/KaylorBen/nixcord) \
+declare [KDE settings](https://github.com/nix-community/plasma-manager) \
+declare firefox user_prefs and extensions \
+declarespicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
+declare [vencord extensions](https://github.com/KaylorBen/nixcord) \
 disko \
 nixos-anywhere installation guide \
-option in passtrough.nix for amd \
+declare option in passtrough.nix for amd \
 wrap everything to options to make your nix expirience more customizable \
 add some features from re:Nixos \
 add home manager configuration to do home manager rebuild \
 change aliases to ", alejandra", etc \
+declare starship \
+declare git and zerotier secrets with sops and agenix \
+declare docker \ 
+
 migration to wm wtih pywal, [autotilng](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs) and stylix (???)
 
 <h1 align=center> GPU passthrough for gaming on Windows VM </h1>
