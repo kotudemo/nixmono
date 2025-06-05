@@ -5,6 +5,8 @@
       enableBashIntegration = true; # integration with bash
       enableFishIntegration = true; # integration with fish
       enableZshIntegration = true;
+      installBatSyntax = true;
+      installVimSyntax = true;
       settings = {
         theme = "dark_everforest";
         #theme = "tokyonight";
