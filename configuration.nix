@@ -475,6 +475,10 @@
       libreoffice-qt6-fresh
       kdePackages.kcalc
       ventoy-full-qt
+      (discord.override {
+        withVencord = true;
+        withOpenASAR = false;
+      })
 
       # Text editors
       neovim
@@ -591,7 +595,7 @@
       home = {
         username = "kd";
         homeDirectory = "/home/kd";
-        stateVersion = "25.11";
+        stateVersion = config.system.nixos.release;
         packages = with pkgs; [
           blesh
         ];
