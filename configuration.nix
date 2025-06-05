@@ -443,9 +443,11 @@
       cromite
       firefox-devedition
       spicetify-cli
+      qbittorrent-enhanced
       mpv
       libreoffice-qt6-fresh
       kdePackages.kcalc
+      ventoy-full-qt
 
       # Text editors
       neovim
@@ -461,11 +463,8 @@
       everforest-gtk-theme
 
       # Essential
-      nurl
-      ventoy-full-qt
       ripgrep-all
-      sd
-      xh
+      tealdeer
       comma
       git
       gh
@@ -499,16 +498,30 @@
         vim = "nvim";
         nv = "nvim";
         nvim = "nvim";
+        ff = "fastfetch";
         nsp = "nix-shell -p";
         ncg = "nh clean all --keep 3 --keep-since 1d";
         upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-        gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
-        btop = ", btop";
-        pf = ", pfetch";
-        ff = ", fastfetch";
-        nf = ", neofetch";
-        fmt = ", alejandra";
         #hms = "home-manager switch --flake ${flakeDir}"; for home configurations
+        gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
+
+        j2n = "nix run github:sempruijs/json2nix";
+        tokei = ", tokei";
+        fmt = ", alejandra";
+
+        gping = ", gping";
+        trip = ", trip";
+
+        xh = ", xh";
+        yt = ", yt-dlp";
+        nurl = ", nurl";
+        nom = ", nom";
+
+        sed = ", sd";
+        du = ", dust";
+        ps = ", procs";
+        top = ", btm";
+        pf = ", pfetch";
       };
   };
 
