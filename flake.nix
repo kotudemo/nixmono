@@ -686,9 +686,7 @@
     stateVersion = config.system.nixos.release;
     name = config.networking.hostName;
   };
-}
-
-          )
+})
           inputs.stylix.nixosModules.stylix
           inputs.chaotic.nixosModules.default
           inputs.home-manager.nixosModules.default
