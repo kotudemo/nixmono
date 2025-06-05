@@ -24,7 +24,7 @@
         TAIL=$($pastel lighten 0.1 '${base02}' | $pastel format hex)
         HIGHLIGHTS=$($pastel lighten 0.1 '${base05}' | $pastel format hex)
 
-        ${pkgs.imagemagick}/bin/convert ${../attachments/input_wallpaper.png} \
+        ${pkgs.imagemagick}/bin/convert ${../../attachments/input_wallpaper.png} \
          -fill '${base00}' -opaque black \
          -fill '${base05}' -opaque white \
          -fill '${base08}' -opaque blue \

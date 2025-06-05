@@ -80,7 +80,7 @@
       modules = [
         ./hmdir/home.nix
         nurpkgs.modules.homeManager.default
-        inputs.stylix.homeManagerModules.stylix
+        inputs.stylix.homeModules.stylix
     ];
     };
 

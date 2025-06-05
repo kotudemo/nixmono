@@ -16,10 +16,10 @@
     ./modules/bat.nix
     ./modules/stylix.nix
   ];
-  useGlobalPkgs = true;
   home = {
     username = "kd";
     homeDirectory = "/home/kd";
+    stateVersion = "25.11";
     packages = with pkgs; [
       blesh
     ];
