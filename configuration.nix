@@ -315,7 +315,6 @@
       };
     };
 
-
     displayManager = {
       sddm = {
         enable = true;
