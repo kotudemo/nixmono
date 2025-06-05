@@ -2,17 +2,53 @@
   programs = {
     helix = {
       # about helix - https://helix-editor.com/
-      defaultEditor = true; # toggle for making it default editor
-      package = pkgs.evil-helix;
       enable = true;
+      defaultEditor = true; # toggle for making it default editor
       ignores = ["!.gitignore"]; # enabling toggle
-      languages.language = [
-        {
-          name = "nix";
-          auto-format = true;
-          formatter.command = "alejandra";
-        }
+      package = pkgs.evil-helix;
+      extraPackages = with pkgs; [
+        nixd
+        nixfmt-rfc-style
       ];
+
+      languages = {
+        language-servers = {
+          nixd = {
+            command = "${pkgs.nixd}/bin/nixd";
+            args = [
+              "--inlay-hints=true"
+            ];
+          };
+        };
+
+        language = [
+          {
+            name = "nix";
+            comment-token = "#";
+            injection-regex = "nix";
+            indent = {
+              tab-width = 4;
+              unit = "  ";
+            };
+
+            formatter = {
+              command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
+              args = [
+                "--indent=2"
+              ];
+            };
+
+            file-types = [
+              "nix"
+            ];
+
+            language-servers = [
+              "nixd"
+            ];
+          }
+        ];
+      };
+
       settings = {
         theme = "everforest_dark";
         keys = {
