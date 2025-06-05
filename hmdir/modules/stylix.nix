@@ -41,8 +41,8 @@
       image = config.wallpaper;
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.roboto-mono;
-          name = "Roboto-Mono Nerd Font";
+          package = pkgs.nerd-fonts.caskaydia-mono;
+          name = "Cascadia Mono Nerd Font";
         };
 
         emoji = {
@@ -56,8 +56,8 @@
         };
 
         serif = {
-          package = pkgs.nerd-fonts.inconsolata-lgc;
-          name = "Hack Nerd Font";
+          package = pkgs.nerd-fonts.caskaydia-cove;
+          name = "Cascadia Code Nerd Font";
         };
       };
       cursor = {

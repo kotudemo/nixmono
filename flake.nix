@@ -73,15 +73,14 @@
     zapret-presets,
     ...
   } @ inputs: {
-
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = { inherit inputs self; };
+      extraSpecialArgs = {inherit inputs self;};
       modules = [
         ./hmdir/home.nix
         nurpkgs.modules.homeManager.default
         inputs.stylix.homeModules.stylix
-    ];
+      ];
     };
 
     nixosConfigurations = {
@@ -618,7 +617,7 @@
                     nsp = "nix-shell -p";
                     ncg = "nh clean all --keep 3 --keep-since 1d";
                     upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-                    hms = "home-manager switch --flake ${flakeDir}"; #for home configurations
+                    hms = "rm ~/.gtkrc-2.0 && home-manager switch --flake ${flakeDir}"; #for home configurations
                     gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                     cd = "z";
                     cdd = "zi";
@@ -676,12 +675,12 @@
                 stateVersion = config.system.nixos.release;
                 name = config.networking.hostName;
                 userActivationScripts = {
-    removeConflictingFiles = {
-      text = ''
-        rm -f ${config.users.users.kd.home}/.gtkrc-2.0.homeManagerBackupFileExtension
-      '';
-      };
-      };
+                  removeConflictingFiles = {
+                    text = ''
+                      rm -f ${config.users.users.kd.home}/.gtkrc-2.0.homeManagerBackupFileExtension
+                    '';
+                  };
+                };
               };
             }
           )
