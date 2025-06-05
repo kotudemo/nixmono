@@ -192,8 +192,15 @@
       allowPing = false; # you can restrict ping to your host in case you'll need
       enable = true; # toggle for enabling firewall
     };
+    dhcpcd = {
+      enable = true;
+      persistent = false;
+      wait = "any";
+    };
     networkmanager = {
       enable = true;
+      dns = "default";
+      dhcp = "internal";
     };
     wireless = {
       enable = false;
@@ -295,6 +302,11 @@
   };
 
   services = {
+    flatpak.enable = true;
+    fstrim.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
+    pulseaudio.enable = false;
     zapret = {
       enable = true;
       sf_presets = {
@@ -303,11 +315,7 @@
       };
     };
 
-    flatpak.enable = true;
-    fstrim.enable = true;
-    gvfs.enable = true;
-    udisks2.enable = true;
-    pulseaudio.enable = false;
+
     displayManager = {
       sddm = {
         enable = true;
@@ -544,6 +552,7 @@
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
         starship init fish | source
+        zoxide init fish | source
         fastfetch
       '';
     };
@@ -575,7 +584,7 @@
   };
 
   system = {
-    stateVersion = "25.11";
-    name = lib.mkDefault "nixos";
+    stateVersion = config.system.nixos.release;
+    name = config.networking.hostName;
   };
 }
