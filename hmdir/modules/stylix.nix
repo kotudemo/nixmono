@@ -42,7 +42,7 @@
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.caskaydia-mono;
-          name = "Cascadia Mono Nerd Font";
+          name = "Caskaydia Mono Nerd Font";
         };
 
         emoji = {
@@ -56,8 +56,8 @@
         };
 
         serif = {
-          package = pkgs.nerd-fonts.caskaydia-cove;
-          name = "Cascadia Code Nerd Font";
+          package = pkgs.nerd-fonts.caskaydia-mono;
+          name = "Caskaydia Mono Nerd Font";
         };
       };
       cursor = {
