@@ -8,7 +8,7 @@
       installBatSyntax = true;
       installVimSyntax = true;
       settings = {
-        theme = "dark_everforest";
+        # theme = "dark_everforest";
         #theme = "tokyonight";
       };
       themes = {

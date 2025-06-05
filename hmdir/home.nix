@@ -5,16 +5,16 @@
   ...
 }: {
   imports = [
-    ./starship.nix
-    ./eza.nix
-    ./helix.nix
-    ./yazi.nix
-    ./ghostty.nix
-    ./nh.nix
-    ./bash.nix
-    ./zoxide.nix
-    ./bat.nix
-    ./stylix.nix
+    ./modules/starship.nix
+    ./modules/eza.nix
+    ./modules/helix.nix
+    ./modules/yazi.nix
+    ./modules/ghostty.nix
+    ./modules/nh.nix
+    ./modules/bash.nix
+    ./modules/zoxide.nix
+    ./modules/bat.nix
+    ./modules/stylix.nix
   ];
 
   home = {
@@ -22,7 +22,6 @@
     homeDirectory = "/home/kd";
     stateVersion = config.system.nixos.release;
     packages = with pkgs; [
-
     ];
   };
 
