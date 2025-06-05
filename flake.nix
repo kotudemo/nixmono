@@ -74,13 +74,12 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem rec {
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = {
           inherit inputs self;
         };
-        system = "x86_64-linux";
         modules = [
-          #./configuration.nix
           (
             {
               config,
@@ -93,6 +92,7 @@
                 # Include the results of the hardware scan.
                 ./hardware-configuration.nix
                 ./options/modules.nix
+                inputs.home-manager.nixosModules.default
               ];
 
               passthrough.enable = false;
@@ -538,6 +538,8 @@
 
               environment = {
                 systemPackages = with pkgs; [
+                home-manager
+
                   # Everyday software
                   (discord.override {
                     withVencord = true;
@@ -659,19 +661,7 @@
                 adb.enable = true;
               };
 
-              system = {
-                stateVersion = config.system.nixos.release;
-                name = config.networking.hostName;
-              };
-            }
-          )
-          inputs.chaotic.nixosModules.default
-          inputs.nix-index-database.nixosModules.nix-index
-          inputs.zapret-presets.nixosModules.presets
-          inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-          {
-            home-manager = {
+                          home-manager = {
               useGlobalPkgs = true;
               users.kd = {
                 pkgs,
@@ -707,7 +697,18 @@
                 };
               };
             };
-          }
+
+              system = {
+                stateVersion = config.system.nixos.release;
+                name = config.networking.hostName;
+              };
+            }
+          )
+          inputs.chaotic.nixosModules.default
+          inputs.nix-index-database.nixosModules.nix-index
+          inputs.zapret-presets.nixosModules.presets
+          inputs.home-manager.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
