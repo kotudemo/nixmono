@@ -48,7 +48,7 @@
       };
 
       settings = {
-        theme = "everforest_dark";
+        # theme = "everforest_dark";
         keys = {
           normal = {
             p = ":clipboard-paste-after";

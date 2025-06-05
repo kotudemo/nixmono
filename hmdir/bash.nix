@@ -10,7 +10,7 @@
         [[ ! ''${BLE_VERSION-} ]] || ble-attach
       '';
     };
-    /*
+
       blesh = {
         enable = true;
         options = {
@@ -27,6 +27,5 @@
         blehook/eval-after-load complete my/complete-load-hook
         '';
     };
-    */
   };
 }

@@ -6,6 +6,5 @@
 }: {
   imports = [
     ./passthrough.nix
-    ./stylix.nix
   ];
 }

@@ -8,8 +8,9 @@
       url = "github:nix-community/nixGL";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
+    nurpkgs = {
+      url = "github:/nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     chaotic = {
@@ -58,7 +59,7 @@
     nixpkgs,
     home-manager,
     nixgl,
-    nur,
+    nurpkgs,
     chaotic,
     freesm,
     spicetify-nix,
@@ -88,15 +89,9 @@
                 # Include the results of the hardware scan.
                 ./hardware-configuration.nix
                 ./options/modules.nix
-                inputs.home-manager.nixosModules.home-manager
               ];
 
-              #Custom options
               passthrough.enable = false;
-              stylixConfig = {
-                enable = true;
-                theme = "everforest";
-              };
 
               boot = {
                 kernelPackages = pkgs.linuxPackages_cachyos;
@@ -545,7 +540,6 @@
 
               environment = {
                 systemPackages = with pkgs; [
-                  home-manager
 
                   # Everyday software
                   (discord.override {
@@ -614,8 +608,10 @@
                     nsp = "nix-shell -p";
                     ncg = "nh clean all --keep 3 --keep-since 1d";
                     upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-                    #hms = "home-manager switch --flake ${flakeDir}"; for home configurations
+                    hms = "home-manager switch --flake ${flakeDir}"; #for home configurations
                     gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
+                    cd = "z";
+                    cdd = "zi";
 
                     j2n = "nix run github:sempruijs/json2nix";
                     tokei = ", tokei";
@@ -666,35 +662,27 @@
                 adb.enable = true;
               };
 
-              home-manager = {
-                useGlobalPkgs = true;
-                users.kd = {pkgs, ...}: {
-                  imports = [
-                    ./hmdir/modules.nix
-                  ];
-
-                  home = {
-                    username = "kd";
-                    homeDirectory = "/home/kd";
-                    stateVersion = config.system.nixos.release;
-                    packages = with pkgs; [
-                      blesh
-                    ];
-                  };
-                };
-              };
-
               system = {
                 stateVersion = config.system.nixos.release;
                 name = config.networking.hostName;
               };
             }
           )
-          inputs.stylix.nixosModules.stylix
           inputs.chaotic.nixosModules.default
-          inputs.home-manager.nixosModules.default
           inputs.nix-index-database.nixosModules.nix-index
           inputs.zapret-presets.nixosModules.presets
+        ];
+      };
+    };
+    homeConfigurations = {
+      kd = home-manager.lib.homeManagerConfiguration rec {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs self;};
+        modules = [
+          ./hmdir/home.nix
+          nurpkgs.modules.homeManager.default
+          inputs.stylix.homeManagerModules.stylix
+          inputs.spicetify-nix.homeManagerModules.default
         ];
       };
     };
