@@ -540,7 +540,6 @@
 
               environment = {
                 systemPackages = with pkgs; [
-
                   # Everyday software
                   (discord.override {
                     withVencord = true;

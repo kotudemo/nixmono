@@ -17,7 +17,6 @@
     ./stylix.nix
   ];
 
-
   home = {
     username = "kd";
     homeDirectory = "/home/kd";
