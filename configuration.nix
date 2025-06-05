@@ -64,6 +64,41 @@
     };
   };
 
+  systemd = {
+    oomd = {
+      enable = true;
+      enableUserSlices = true;
+      enableSystemSlice = true;
+      enableRootSlice = true;
+    };
+    slices = {
+      root = {
+        sliceConfig = {
+          ManagedOOMSwap = "kill";
+          ManagedOOMMemoryPressure = "kill";
+          ManagedOOMMemoryPressureLimit = "40%";
+          ManagedOOMMemoryPressureDurationSec = 0;
+        };
+      };
+      system = {
+        sliceConfig = {
+          ManagedOOMSwap = "kill";
+          ManagedOOMMemoryPressure = "kill";
+          ManagedOOMMemoryPressureLimit = "40%";
+          ManagedOOMMemoryPressureDurationSec = 0;
+        };
+      };
+      user = {
+        sliceConfig = {
+          ManagedOOMSwap = "kill";
+          ManagedOOMMemoryPressure = "kill";
+          ManagedOOMMemoryPressureLimit = "40%";
+          ManagedOOMMemoryPressureDurationSec = 0;
+        };
+      };
+    };
+  };
+
   zramSwap = {
     enable = true;
     algorithm = "zstd";
@@ -433,6 +468,7 @@
       ripgrep-all
       sd
       xh
+      comma
       git
       gh
       p7zip-rar
