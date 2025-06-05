@@ -192,14 +192,8 @@
       allowPing = false; # you can restrict ping to your host in case you'll need
       enable = true; # toggle for enabling firewall
     };
-    dhcpcd = {
-      enable = true;
-      persistent = false;
-      wait = "any";
-    };
     networkmanager = {
       enable = true;
-      dhcp = "internal";
     };
     wireless = {
       enable = false;
