@@ -3,9 +3,9 @@
   pkgs,
   lib,
   inputs,
-  self,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -56,7 +56,7 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = [];
+      kernelModules = [ ];
       supportedFilesystems = [
         "ntfs"
         "refs"
@@ -464,7 +464,6 @@
       # Essential
       nurl
       ventoy-full-qt
-      alejandra
       ripgrep-all
       sd
       xh
@@ -485,8 +484,9 @@
     shellAliases =
       # global aliases
       let
-        flakeDir = "~/nxs/nixos";
-      in {
+        flakeDir = "~/nixos";
+      in
+      {
         cl = "clear";
         ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
         la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
@@ -546,26 +546,25 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    users.kd = {
-      config,
-      pkgs,
-      options,
-      inputs,
-      ...
-    }: {
-      imports = [
-        ./modules/hmdir/modules.nix
-      ];
-
-      home = {
-        username = "kd";
-        homeDirectory = "/home/kd";
-        stateVersion = "25.11";
-        packages = with pkgs; [
-          blesh
+    users.kd =
+      {
+        pkgs,
+        ...
+      }:
+      {
+        imports = [
+          ./modules/hmdir/modules.nix
         ];
+
+        home = {
+          username = "kd";
+          homeDirectory = "/home/kd";
+          stateVersion = "25.11";
+          packages = with pkgs; [
+            blesh
+          ];
+        };
       };
-    };
   };
 
   system = {

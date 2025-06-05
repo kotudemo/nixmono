@@ -1,14 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     helix = {
       # about helix - https://helix-editor.com/
       enable = true;
       defaultEditor = true; # toggle for making it default editor
-      ignores = ["!.gitignore"]; # enabling toggle
+      ignores = [ "!.gitignore" ]; # enabling toggle
       package = pkgs.evil-helix;
       extraPackages = with pkgs; [
         nixd
-        nixfmt-rfc-style
+        alejandra
       ];
 
       languages = {
@@ -33,10 +34,7 @@
             };
 
             formatter = {
-              command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
-              args = [
-                "--indent=2"
-              ];
+              command = "${pkgs.alejandra}/bin/alejandra";
             };
 
             file-types = [
