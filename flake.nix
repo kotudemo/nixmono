@@ -23,7 +23,11 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
     };
 
     freesm = {
@@ -69,6 +73,18 @@
     zapret-presets,
     ...
   } @ inputs: {
+      homeConfigurations = {
+      "kd" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs self;};
+        modules = [
+          ./hmdir/home.nix
+          inputs.nurpkgs.modules.homeManager.default
+          inputs.stylix.homeManagerModules.stylix
+          inputs.spicetify-nix.homeManagerModules.default
+        ];
+      };
+    };
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem rec {
         specialArgs = {
@@ -534,8 +550,6 @@
 
               environment = {
                 systemPackages = with pkgs; [
-                  home-manager
-
                   # Everyday software
                   (discord.override {
                     withVencord = true;
@@ -666,20 +680,9 @@
           inputs.chaotic.nixosModules.default
           inputs.nix-index-database.nixosModules.nix-index
           inputs.zapret-presets.nixosModules.presets
+          inputs.home-manager.nixosModules.default
         ];
       };
     };
-    homeConfigurations = {
-      kd = home-manager.lib.homeManagerConfiguration rec {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs self;};
-        modules = [
-          ./hmdir/home.nix
-          inputs.nurpkgs.modules.homeManager.default
-          inputs.stylix.homeManagerModules.stylix
-          inputs.spicetify-nix.homeManagerModules.default
-        ];
-      };
     };
-  };
 }
