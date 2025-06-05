@@ -9,7 +9,7 @@
     };
 
     nurpkgs = {
-      url = "github:/nix-community/NUR";
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,7 +22,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/";
+      url = "github:nix-community/home-manager";
       inputs = {
         nixpkgs = {
           follows = "nixpkgs";
@@ -73,6 +73,17 @@
     zapret-presets,
     ...
   } @ inputs: {
+
+    homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = { inherit inputs self; };
+      modules = [
+        ./hmdir/home.nix
+        nurpkgs.modules.homeManager.default
+        inputs.stylix.homeManagerModules.stylix
+    ];
+    };
+
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -92,7 +103,6 @@
                 # Include the results of the hardware scan.
                 ./hardware-configuration.nix
                 ./options/modules.nix
-                inputs.home-manager.nixosModules.default
               ];
 
               passthrough.enable = false;
@@ -538,7 +548,7 @@
 
               environment = {
                 systemPackages = with pkgs; [
-                home-manager
+                  home-manager
 
                   # Everyday software
                   (discord.override {
@@ -660,43 +670,6 @@
                 amnezia-vpn.enable = true;
                 adb.enable = true;
               };
-
-                          home-manager = {
-              useGlobalPkgs = true;
-              users.kd = {
-                pkgs,
-                inputs,
-                config,
-                ...
-              }: {
-                imports = [
-                  ./modules/starship.nix
-                  ./modules/eza.nix
-                  ./modules/helix.nix
-                  ./modules/yazi.nix
-                  ./modules/ghostty.nix
-                  ./modules/nh.nix
-                  ./modules/bash.nix
-                  ./modules/zoxide.nix
-                  ./modules/bat.nix
-                  ./modules/stylix.nix
-                ];
-
-                home = {
-                  username = "kd";
-                  homeDirectory = "/home/kd";
-                  stateVersion = config.system.nixos.release;
-                  packages = with pkgs; [
-                    blesh
-                  ];
-                };
-
-                stylixConfig = {
-                  enable = true;
-                  theme = "everforest";
-                };
-              };
-            };
 
               system = {
                 stateVersion = config.system.nixos.release;
