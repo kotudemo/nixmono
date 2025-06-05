@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./modules/starship.nix
     ./modules/eza.nix
@@ -28,5 +23,8 @@
   stylixConfig = {
     enable = true;
     theme = "everforest";
+  };
+  programs.home-manager = {
+    enable = true;
   };
 }

@@ -97,6 +97,7 @@
               pkgs,
               lib,
               inputs,
+              configVars,
               ...
             }: {
               imports = [
@@ -674,6 +675,13 @@
               system = {
                 stateVersion = config.system.nixos.release;
                 name = config.networking.hostName;
+                userActivationScripts = {
+    removeConflictingFiles = {
+      text = ''
+        rm -f ${config.users.users.kd.home}/.gtkrc-2.0.homeManagerBackupFileExtension
+      '';
+      };
+      };
               };
             }
           )
@@ -681,7 +689,6 @@
           inputs.nix-index-database.nixosModules.nix-index
           inputs.zapret-presets.nixosModules.presets
           inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
         ];
       };
     };
