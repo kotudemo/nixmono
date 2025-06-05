@@ -8,7 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/options/modules.nix
+    ./options/modules.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -585,7 +585,7 @@
     useGlobalPkgs = true;
     users.kd = {pkgs, ...}: {
       imports = [
-        ./modules/hmdir/modules.nix
+        ./hmdir/modules.nix
       ];
 
       home = {
