@@ -507,8 +507,6 @@
 
       # Video audio
       obs-studio
-      easyeffects
-      xwayland
     ];
     shellAliases =
       # global aliases
