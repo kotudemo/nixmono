@@ -16,8 +16,8 @@
   passthrough.enable = false;
 
   boot = {
-    #kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_cachyos;
+    # kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [
       "kvm-intel"
       "nvidia"
@@ -424,11 +424,11 @@
       };
     };
 
-    #scx = {
-    # enable = true;
-    # package = pkgs.scx_git.full;
-    #  scheduler = "scx_lavd";
-    # };
+    scx = {
+      enable = true;
+      package = pkgs.scx_git.full;
+      scheduler = "scx_lavd";
+    };
 
     zerotierone = {
       enable = true;
