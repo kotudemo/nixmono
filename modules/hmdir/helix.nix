@@ -26,8 +26,9 @@
             name = "nix";
             comment-token = "#";
             injection-regex = "nix";
+            auto-format = true;
             indent = {
-              tab-width = 4;
+              tab-width = 2;
               unit = "  ";
             };
 
