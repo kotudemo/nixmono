@@ -40,21 +40,14 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.stylixConfig.theme}.yaml";
       image = config.wallpaper;
       fonts = {
-        sizes = {
-          applications = 10;
-          desktop = 8;
-          popups = 10;
-          terminal = 8;
-        };
-
         monospace = {
           package = pkgs.nerd-fonts.roboto-mono;
           name = "Roboto-Mono Nerd Font";
         };
 
         emoji = {
-          package = pkgs.nerd-fonts.symbols-only;
-          name = "Symbols Only Nerd Font";
+          package = pkgs.noto-fonts-emoji;
+          name = "Noto Color Emoji";
         };
 
         sansSerif = {
@@ -63,13 +56,14 @@
         };
 
         serif = {
-          package = pkgs.nerd-fonts.hack;
+          package = pkgs.nerd-fonts.inconsolata-lgc;
           name = "Hack Nerd Font";
         };
       };
       cursor = {
         name = "Whitesur-cursors";
         package = pkgs.whitesur-cursors;
+        size = 24;
       };
     };
   };
