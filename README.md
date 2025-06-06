@@ -18,6 +18,7 @@ declare starship \
 declare git and zerotier secrets with sops and agenix \
 declare docker \
 move most of packages to home manager and separate it into one file \
+randomized wallpaper option after hms \ 
 migration to wm wtih pywal, [autotilng](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs) and stylix (???)
 
 <h1 align=center> GPU passthrough for gaming on Windows VM </h1>
