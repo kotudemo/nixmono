@@ -40,24 +40,24 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.stylixConfig.theme}.yaml";
       image = config.wallpaper;
       fonts = {
-        monospace = {
-          package = pkgs.nerd-fonts.caskaydia-mono;
-          name = "Caskaydia Mono Nerd Font";
-        };
-
         emoji = {
-          package = pkgs.noto-fonts-emoji;
-          name = "Noto Color Emoji";
+          package = pkgs.nerd-fonts.symbols-only;
+          name = "Symbols Only Nerd Font";
         };
-
-        sansSerif = {
-          package = pkgs.nerd-fonts.aurulent-sans-mono;
-          name = "Aurulent Sans Mono Nerd Font";
-        };
-
+        #DE
         serif = {
-          package = pkgs.nerd-fonts.caskaydia-mono;
-          name = "Caskaydia Mono Nerd Font";
+          package = pkgs.nerd-fonts.hack;
+                name = "Hack Nerd Font";
+        };
+        #GUI
+        sansSerif = {
+          package = pkgs.nerd-fonts.hack;
+                name = "Hack Nerd Font";
+        };
+        #Terminal
+        monospace = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
       };
       cursor = {

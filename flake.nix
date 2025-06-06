@@ -326,42 +326,24 @@
                   noto-fonts
                   noto-fonts-emoji
                   twemoji-color-font
-                  jetbrains-mono
                   powerline-fonts
                   powerline-symbols
                   miracode
                   monocraft
                   nerd-fonts.agave
-                  nerd-fonts.anonymice
-                  nerd-fonts.arimo
                   nerd-fonts.blex-mono
                   nerd-fonts.bigblue-terminal
-                  nerd-fonts.bitstream-vera-sans-mono
                   nerd-fonts.caskaydia-cove
                   nerd-fonts.caskaydia-mono
-                  nerd-fonts.daddy-time-mono
-                  nerd-fonts.dejavu-sans-mono
-                  nerd-fonts.droid-sans-mono
+                  nerd-fonts.fantasque-sans-mono
                   nerd-fonts.fira-code
                   nerd-fonts.fira-mono
-                  nerd-fonts.go-mono
                   nerd-fonts.gohufont
                   nerd-fonts.hack
                   nerd-fonts.im-writing
-                  nerd-fonts.inconsolata
-                  nerd-fonts.inconsolata-go
-                  nerd-fonts.inconsolata-lgc
-                  nerd-fonts.iosevka
-                  nerd-fonts.iosevka-term
-                  nerd-fonts.iosevka-term-slab
                   nerd-fonts.jetbrains-mono
+                  nerd-fonts.mononoki
                   nerd-fonts.roboto-mono
-                  nerd-fonts.shure-tech-mono
-                  nerd-fonts.sauce-code-pro
-                  nerd-fonts.terminess-ttf
-                  nerd-fonts.ubuntu
-                  nerd-fonts.ubuntu-sans
-                  nerd-fonts.ubuntu-mono
                 ];
               };
 
@@ -617,7 +599,7 @@
                     nsp = "nix-shell -p";
                     ncg = "nh clean all --keep 3 --keep-since 1d";
                     upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-                    hms = "rm ~/.gtkrc-2.0 && home-manager switch --flake ${flakeDir}"; #for home configurations
+                    hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && home-manager switch --flake ${flakeDir}"; #for home configurations
                     gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                     cd = "z";
                     cdd = "zi";
@@ -674,13 +656,13 @@
               system = {
                 stateVersion = config.system.nixos.release;
                 name = config.networking.hostName;
-                userActivationScripts = {
-                  removeConflictingFiles = {
-                    text = ''
-                      rm -f ${config.users.users.kd.home}/.gtkrc-2.0.homeManagerBackupFileExtension
-                    '';
-                  };
-                };
+                # userActivationScripts = {
+                #   removeConflictingFiles = {
+                #     text = ''
+                #       rm -f ${config.users.users.kd.home}/.gtkrc-2.0.homeManagerBackupFileExtension
+                #     '';
+                #   };
+                # };
               };
             }
           )
