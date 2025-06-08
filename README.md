@@ -2,9 +2,9 @@
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
 
 <h1 align=center> TO DO </h1>
-flake for properly packaged ufr ii printer driver\
-flake for properly packaged xp pen driver\
-move games to custom option\
+flake for properly packaged ufr ii printer driver \
+flake for properly packaged xp pen driver \
+move games to custom option \
 declare firefox user_prefs and extensions \
 declare spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
 declare [vencord extensions](https://github.com/KaylorBen/nixcord) \
