@@ -15,7 +15,6 @@
   <li>Declare option in <code>passtrough.nix</code> for AMD</li>
   <li>Wrap everything to options to make your Nix experience more customizable</li>
   <li>Add Home Manager configuration to use <code>home-manager rebuild</code></li>
-  <li>Change aliases to <code>", alejandra"</code>, etc.</li>
   <li>Declare Starship</li>
   <li>Declare Git and Zerotier secrets with SOPS and AgeNix</li>
   <li>Declare Docker</li>
