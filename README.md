@@ -2,8 +2,9 @@
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
 
 <h1 align=center> TO DO </h1>
-
-declare [KDE settings](https://github.com/nix-community/plasma-manager) \
+flake for properly packaged ufr ii printer driver \
+flake for properly packaged xp pen driver \
+move games to custom option \
 declare firefox user_prefs and extensions \
 declare spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
 declare [vencord extensions](https://github.com/KaylorBen/nixcord) \
@@ -19,6 +20,7 @@ declare git and zerotier secrets with sops and agenix \
 declare docker \
 move most of packages to home manager and separate it into one file \
 randomized wallpaper option after hms \
+declare [KDE settings](https://github.com/nix-community/plasma-manager) \
 migration to wm wtih pywal, [autotilng](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs) and stylix (???)
 
 <h1 align=center> GPU passthrough for gaming on Windows VM </h1>
