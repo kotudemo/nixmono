@@ -1,58 +1,113 @@
-![Screenshot_20241031_011623](https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40)
-![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f7ce3e4e-299b-444a-ace2-9106fdf6fb40" alt="screenshot" width="600"/>
+  <img src="https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38" alt="screenshot" width="600"/>
+</p>
 
-<h1 align=center> TO DO </h1>
-<ol>
-  <li>Flake for properly packaged UFR II printer driver</li>
-  <li>Flake for properly packaged XP-Pen driver</li>
-  <li>Move games to custom option</li>
-  <li>Declare Firefox <code>user_prefs</code> and extensions</li>
-  <li>Declare Spicetify extensions (I'm going to fork Gerg-L's Spicetify flake to add all marketplace support and also make a parser to convert your <code>marketplace backup.txt</code> to <code>spicetify.nix</code>)</li>
-  <li>Declare <a href="https://github.com/KaylorBen/nixcord">Vencord extensions</a></li>
-  <li>Declare Flatpaks</li>
-  <li>Disko</li>
-  <li><code>nixos-anywhere</code> installation guide</li>
-  <li>Declare option in <code>passtrough.nix</code> for AMD</li>
-  <li>Wrap everything to options to make your Nix experience more customizable</li>
-  <li>Add Home Manager configuration to use <code>home-manager rebuild</code></li>
-  <li>Declare Starship</li>
-  <li>Declare Git and Zerotier secrets with SOPS and AgeNix</li>
-  <li>Declare Docker</li>
-  <li>Move most packages to Home Manager and separate them into one file</li>
-  <li>Randomized wallpaper option after HMS</li>
-  <li>Declare <a href="https://github.com/nix-community/plasma-manager">KDE settings</a></li>
-  <li>Migration to WM with Pywal, <a href="https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs">autotiling</a>, and Stylix (???)</li>
-</ol>
+<h1 align="center">🛠️ NixOS Config TODO List</h1>
 
-<h1 align=center> GPU passthrough for gaming on Windows VM </h1>
+### ✅ Planned Improvements
 
-<h2 align=center> DISCLAIMER </h2>
+1. Package UFR II printer driver via Flake
+2. Package XP-Pen driver via Flake
+3. Move games to a custom option
+4. Declare Firefox `user_prefs` and extensions 
+5. Declare Spicetify extensions  
+   ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
+6. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
+7. Declare Flatpak applications
+8. Integrate [Disko](https://github.com/nix-community/disko)
+9. Add `nixos-anywhere` installation guide
+10. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
+11. Refactor everything into options for full customization
+12. Declare Starship prompt config
+13. Manage Git and Zerotier secrets via SOPS and AgeNix
+14. Add Docker configuration
+15. Move packages to Home Manager 
+16. Add HMS-based randomized wallpaper option
+17. Declare [Plasma Manager](https://github.com/nix-community/plasma-manager) KDE settings (???)
+18. Consider WM migration using Pywal, [autotiling-rs](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs), Stylix (???)
 
-**If your pc too low-end like Intel Core i7-6700K + GeForce GTX 680 the best thing you can do is dual-booting Windows 10. You also need CPU with iGPU or second dGPU to be left for your Linux system. Also you want to have CPU like r7 7700x to handle both systems at the same time.** 
+---
 
-**The following guideline's gonna work if your setup is powered by Nvidia (GTX 1000+) and Intel CPU (core 10 gen or lower with with iGPU (for newer iGPU you have to change ```hardware.graphics.extraPackages```)). Otherwise, you gonna have to do a lot of changes in passthrough.nix. There are some links below might be useful to adjust your configuration for AMD GPU and some optimizations for lower latency and higher perfomance.**  
+<h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
 
-https://discourse.nixos.org/t/nixos-vfio-gpu-passthrough/41169/2 \
-https://gist.github.com/techhazard/1be07805081a4d7a51c527e452b87b26 \
-https://discourse.nixos.org/t/single-gpu-passthrough/44119/2 \
-https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Attaching_the_PCI_devices \
-https://forum.level1techs.com/t/solved-help-with-dual-nvidia-gpu-and-looking-glass/190084/17
+### ⚠️ Disclaimer
 
-<h2 align=center> How To Guide </h2>
+If your hardware is **low-end** (e.g., Intel i7-7700K or lower), ypu have no need to try, it's just better to dual-boot Windows 10.
 
-First of all you have to enter BIOS and enable iGPU (because your dGPU will be caged in your VM and will not be accessible in your Linux until you reboot to regular configuration), Virtualization and Intel VT-d, plug HDMI/DP/VGA cable to your motherboard and change your monitor settings to set input method to your new cable. Do not unplug video cable from your gpu because it necessary  for ```looking-glass``` correct work (however you can try to configure virtual montitor).
+For this guide you need:
 
-Then you need to enable ```passthrough``` option in ```configuration.nix``` and change PCI IDs at the top of the former one. To do that use ```lspci -nn | grep -iE '(nvidia|amd)'``` for audio and graphics PCI IDs and ```sudo lshw -c display``` for nvidia prime bus ids. Then create Windows VM with virt-manager, install Windows and ```looking-glass```,```spice``` and ```scream``` drivers, reboot your pc, add your GPU and Audio Controller isolated earlier in your VM settings by clicking ```Add Hardware``` (they are in the PCI Host Device section) and after that change your VM .xml file to add some anticheat treaking smbios lines with ```dmidecode``` and [this guide](https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/). Also add there lines for ```scream``` and ```looking-glass``` from [this guide](https://alexbakker.me/post/nixos-pci-passthrough-qemu-vfio.html) into ```<devices> </devices>``` tag.
+- A CPU with iGPU (or second dGPU) for Linux host
+- Setup with **Nvidia GTX 1000+** and **Intel CPU (10th gen or lower)** for this guide
+- Otherwise, AMD GPU setups require modifying `passthrough.nix`
 
-If you would like to use Spice to give you keyboard and mouse input along with clipboard sync support, make sure you have a ```<graphics type='spice'>``` device, then: find your ```<video>``` device, and set ```<model type='none'/>```. If you cannot find it, make sure you have a ```<graphics>``` device, save and edit again. Now you can start your VM and type ```looking-glass-client -F -S /dev/shm/looking-glass``` to start looking glass (it won't work if you would unplug video cable from you GPU). It there will no any video output refer to [this article](https://looking-glass.io/docs/B7/install_libvirt/#keyboard-mouse-display-audio).
+🧠 Useful links for custom setups:
 
-### Theming
-[sigma wallpaper pack](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers) \
-[Everforest theme](https://github.com/Serge2702/KDE-Everforest/blob/main/Everforest.colors) \
-Tokyo Night theme isn't declared but you can get it via kde theme store 
+- [NixOS Discourse thread](https://discourse.nixos.org/t/nixos-vfio-gpu-passthrough/41169/2)
+- [Another one NixOS Discourse thread](https://discourse.nixos.org/t/single-gpu-passthrough/44119/2)
+- [Techhazard's gist](https://gist.github.com/techhazard/1be07805081a4d7a51c527e452b87b26)
+- [Arch Wiki: PCI Passthrough article](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Attaching_the_PCI_devices)
+- [Some tips and tricks from Level1Techs Forum post](https://forum.level1techs.com/t/solved-help-with-dual-nvidia-gpu-and-looking-glass/190084/17)
 
-#### Special thanks to...
-[hand7s](https://github.com/s0me1newithhand7s)\
-[MyNixOS](https://mynixos.com/) \
-[NixOS Wiki](https://nixos.wiki/wiki/Main_Page)\
-[NixOS Forum](https://discourse.nixos.org/)
+---
+
+### 📘 How-To Guide
+
+1. **BIOS Setup**
+   - Enable **iGPU**, **Virtualization**, and **Intel VT-d**
+   - Plug monitor into motherboard (leave GPU connected as well)
+   - Configure monitor input source
+
+2. **NixOS Config**
+   - Enable `passthrough` option in `configuration.nix`
+   - Change `passthrough.nix`
+   - Replace PCI IDs using:
+     ```bash
+     lspci -nn | grep -iE '(nvidia|amd)' # for GPU and Audio Controller PCI IDs 
+     sudo lshw -c display # for NVIDIA Prime BUS IDs
+     ```
+
+3. **VM Setup**
+   - Create a Windows VM using `virt-manager`
+   - Install Windows + drivers for `looking-glass`, `spice`, `scream`
+   - Reboot your pc
+   - In virt-manager, go to **Add Hardware → PCI Host Device**
+     - Add GPU and Audio Controller
+   - Edit VM `.xml`:
+     - Add spoofed `smbios` data with `dmidecode`
+     - Use [Astrid's Guide](https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/)
+     - Add `<devices>` entries for `scream` and `looking-glass`: [Guide](https://alexbakker.me/post/nixos-pci-passthrough-qemu-vfio.html)
+     - Enable SPICE Input + Clipboard Sync
+       - Ensure `<graphics type='spice'>` exists
+       - Find `<video>` and set:
+         ```xml
+         <model type='none'/>
+         ```
+
+
+
+4. **Start VM + Looking Glass**
+   ```bash
+   looking-glass-client -F -S /dev/shm/looking-glass
+   ```
+
+📌 *Ensure GPU is connected to your monitor or create a virtual monitor*
+
+🔧 Troubleshooting: [Looking Glass Setup](https://looking-glass.io/docs/B7/install_libvirt/#keyboard-mouse-display-audio)
+
+---
+
+### 🎨 Theming & Appearance
+
+* [Sigma Wallpapers](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers)
+* [Everforest KDE Theme](https://github.com/Serge2702/KDE-Everforest/blob/main/Everforest.colors)
+* Tokyo Night theme: available in KDE store
+
+---
+
+### 🙏 Special Thanks
+
+* [hand7s](https://github.com/s0me1newithhand7s)
+* [MyNixOS](https://mynixos.com/)
+* [NixOS Wiki](https://nixos.wiki/wiki/Main_Page)
+* [NixOS Forum](https://discourse.nixos.org/)
