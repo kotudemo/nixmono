@@ -2,26 +2,28 @@
 ![image](https://github.com/user-attachments/assets/4cfdc724-c451-4147-b885-fde028a74b38)
 
 <h1 align=center> TO DO </h1>
-flake for properly packaged ufr ii printer driver \
-flake for properly packaged xp pen driver \
-move games to custom option \
-declare firefox user_prefs and extensions \
-declare spicetify extensions (im going to fork Gerg-L's spicetify flake to add all marketplace and also make a parser to convert your marketplace backup.txt to spicetify.nix) \
-declare [vencord extensions](https://github.com/KaylorBen/nixcord) \
-declare flatpaks \
-disko \
-nixos-anywhere installation guide \
-declare option in passtrough.nix for amd \
-wrap everything to options to make your nix expirience more customizable \
-add home manager configuration to do home manager rebuild \
-change aliases to ", alejandra", etc \
-declare starship \
-declare git and zerotier secrets with sops and agenix \
-declare docker \
-move most of packages to home manager and separate it into one file \
-randomized wallpaper option after hms \
-declare [KDE settings](https://github.com/nix-community/plasma-manager) \
-migration to wm wtih pywal, [autotilng](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs) and stylix (???)
+<ol>
+  <li>Flake for properly packaged UFR II printer driver</li>
+  <li>Flake for properly packaged XP-Pen driver</li>
+  <li>Move games to custom option</li>
+  <li>Declare Firefox <code>user_prefs</code> and extensions</li>
+  <li>Declare Spicetify extensions (I'm going to fork Gerg-L's Spicetify flake to add all marketplace support and also make a parser to convert your <code>marketplace backup.txt</code> to <code>spicetify.nix</code>)</li>
+  <li>Declare <a href="https://github.com/KaylorBen/nixcord">Vencord extensions</a></li>
+  <li>Declare Flatpaks</li>
+  <li>Disko</li>
+  <li><code>nixos-anywhere</code> installation guide</li>
+  <li>Declare option in <code>passtrough.nix</code> for AMD</li>
+  <li>Wrap everything to options to make your Nix experience more customizable</li>
+  <li>Add Home Manager configuration to use <code>home-manager rebuild</code></li>
+  <li>Change aliases to <code>", alejandra"</code>, etc.</li>
+  <li>Declare Starship</li>
+  <li>Declare Git and Zerotier secrets with SOPS and AgeNix</li>
+  <li>Declare Docker</li>
+  <li>Move most packages to Home Manager and separate them into one file</li>
+  <li>Randomized wallpaper option after HMS</li>
+  <li>Declare <a href="https://github.com/nix-community/plasma-manager">KDE settings</a></li>
+  <li>Migration to WM with Pywal, <a href="https://search.nixos.org/packages?channel=unstable&show=autotiling-rs&from=0&size=50&sort=relevance&type=packages&query=autotiling-rs">autotiling</a>, and Stylix (???)</li>
+</ol>
 
 <h1 align=center> GPU passthrough for gaming on Windows VM </h1>
 
