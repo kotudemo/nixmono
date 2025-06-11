@@ -25,8 +25,8 @@
 15. Move packages to Home Manager 
 16. Add HMS-based randomized wallpaper option
 17. Declare [Plasma Manager](https://github.com/nix-community/plasma-manager) KDE settings (???)
-18. Consider WM migration using Pywal, [autotiling-rs](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs), Stylix (???)
-
+18. Consider Xorg WM (i3 or Qtile) migration using Pywal, [autotiling-rs](https://search.nixos.org/packages?channel=unstable&show=autotiling-rs), Stylix (???)
+19 Hardened specialisation 
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
