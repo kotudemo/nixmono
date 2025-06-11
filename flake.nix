@@ -59,6 +59,10 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
     };
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -75,6 +79,7 @@
     stylix,
     zapret-presets,
     nixcord,
+    hyprpanel,
     ...
   } @ inputs: {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
@@ -83,8 +88,6 @@
       modules = [
         ./hmdir/home.nix
         nur.modules.homeManager.default
-        inputs.stylix.homeModules.stylix
-        inputs.nixcord.homeModules.nixcord
       ];
     };
 

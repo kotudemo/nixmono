@@ -1,6 +1,12 @@
-# home.nix
 {
-  # ...
+    inputs,
+    pkgs,
+    ...
+}:{
+  imports = [
+    inputs.nixcord.homeModules.nixcord
+  ];
+  
   programs.nixcord = {
     enable = true;  # enable Nixcord. Also installs discord package
     vesktop = {
