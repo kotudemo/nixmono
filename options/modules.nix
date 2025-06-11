@@ -6,5 +6,6 @@
 }: {
   imports = [
     ./passthrough.nix
+    ./games.nix
   ];
 }

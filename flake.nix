@@ -106,6 +106,7 @@
               ];
 
               passthrough.enable = false;
+              games.enable = false;
 
               boot = {
                 kernelPackages = pkgs.linuxPackages_cachyos;
@@ -533,11 +534,6 @@
                   home-manager
 
                   # Everyday software
-                  (discord.override {
-                    withVencord = true;
-                    withOpenASAR = false;
-                  })
-                  webcord
                   vesktop
                   ayugram-desktop
                   cromite
@@ -551,9 +547,6 @@
 
                   # Text editors
                   kdePackages.kate
-
-                  # Gaming
-                  inputs.freesm.packages.${pkgs.system}.freesmlauncher
 
                   # Theming
                   nwg-look
@@ -625,16 +618,6 @@
               };
 
               programs = {
-                steam = {
-                  enable = true;
-                  remotePlay = {
-                    openFirewall = true;
-                  };
-                  gamescopeSession = {
-                    enable = true;
-                  };
-                  protontricks.enable = true;
-                };
                 fish = {
                   enable = true;
                   interactiveShellInit = ''
