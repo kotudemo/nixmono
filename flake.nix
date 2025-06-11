@@ -389,22 +389,21 @@
                   package = pkgs.ananicy-cpp;
                   rulesProvider = pkgs.ananicy-rules-cachyos;
                 };
-
-                displayManager = {
-                  ly = {
+  
+                greetd = {
                     enable = true;
-                  };
+                    vt = 7;
+                    restart = false;
+                    settings = {
+                        default_session = {
+                            command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t -c Hyprland --greet-align center";
+                            user = "greeter";
+                        };
+                    };
                 };
 
                 xserver = {
                   enable = true;
-                  windowManager.qtile = {
-                    enable = true;
-                    configFile = ./attachments/qtile-rice/config/qtile/config.py;
-                    extraPackages = python3Packages: with python3Packages; [
-                      qtile-extras
-                    ];
-                  };
                   videoDrivers = [
                     "nvidia"
                   ];
