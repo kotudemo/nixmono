@@ -391,19 +391,20 @@
                 };
 
                 displayManager = {
-                  sddm = {
-                    enable = true;
-                  };
-                };
-
-                desktopManager = {
-                  plasma6 = {
+                  ly = {
                     enable = true;
                   };
                 };
 
                 xserver = {
                   enable = true;
+                  windowManager.qtile = {
+                    enable = true;
+                    configFile = ./;
+                    extraPackages = python3Packages: with python3Packages; [
+                      qtile-extras
+                    ];
+                  };
                   videoDrivers = [
                     "nvidia"
                   ];
@@ -546,7 +547,6 @@
                   ventoy-full-qt
 
                   # Text editors
-                  kdePackages.kate
 
                   # Theming
                   nwg-look
