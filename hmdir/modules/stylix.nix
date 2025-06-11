@@ -38,6 +38,9 @@
       autoEnable = true;
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.stylixConfig.theme}.yaml";
+      targets = {
+        librewolf.enable = true;
+      };
       image = config.wallpaper;
       fonts = {
         emoji = {

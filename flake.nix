@@ -8,7 +8,7 @@
       url = "github:nix-community/nixGL";
     };
 
-    nurpkgs = {
+    nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -56,6 +56,9 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
   };
 
   outputs = {
@@ -63,7 +66,7 @@
     nixpkgs,
     home-manager,
     nixgl,
-    nurpkgs,
+    nur,
     chaotic,
     freesm,
     spicetify-nix,
@@ -71,6 +74,7 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
+    nixcord,
     ...
   } @ inputs: {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
@@ -78,8 +82,9 @@
       extraSpecialArgs = {inherit inputs self;};
       modules = [
         ./hmdir/home.nix
-        nurpkgs.modules.homeManager.default
+        nur.modules.homeManager.default
         inputs.stylix.homeModules.stylix
+        inputs.nixcord.homeModules.nixcord
       ];
     };
 
@@ -534,16 +539,13 @@
                   home-manager
 
                   # Everyday software
-                  vesktop
                   ayugram-desktop
                   cromite
-                  firefox-devedition
                   spicetify-cli
                   qbittorrent-enhanced
                   mpv
                   libreoffice-qt6-fresh
                   kdePackages.kcalc
-                  ventoy-full-qt
 
                   # Text editors
 
@@ -553,6 +555,7 @@
                   everforest-gtk-theme
 
                   # Essential
+                  ventoy-full-qt
                   ripgrep-all
                   tealdeer
                   comma
@@ -560,7 +563,6 @@
                   gh
                   p7zip-rar
                   nvtopPackages.full
-                  fastfetch
                   python3Full
                   python.pkgs.pip
 
@@ -587,7 +589,6 @@
                     vim = "nvim";
                     nv = "nvim";
                     nvim = "nvim";
-                    ff = "fastfetch";
                     nsp = "nix-shell -p";
                     ncg = "nh clean all --keep 3 --keep-since 1d";
                     upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
@@ -612,6 +613,7 @@
                     du = ", dust";
                     ps = ", procs";
                     top = ", btm";
+                    ff = ", fastfetch -c neofetch";
                     pf = ", pfetch";
                   };
               };
@@ -623,7 +625,7 @@
                     set fish_greeting # Disable greeting
                     starship init fish | source
                     zoxide init fish | source
-                    fastfetch
+                    , fastfetch -c neofetch
                   '';
                 };
                 java = {

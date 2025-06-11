@@ -10,6 +10,8 @@
     ./modules/zoxide.nix
     ./modules/bat.nix
     ./modules/stylix.nix
+    ./moudles/nixcord.nix
+    ./modules/firefox.nix
   ];
   home = {
     username = "kd";
