@@ -400,7 +400,7 @@
                   enable = true;
                   windowManager.qtile = {
                     enable = true;
-                    configFile = ./;
+                    configFile = ./attachments/qtile-rice/config/qtile/config.py;
                     extraPackages = python3Packages: with python3Packages; [
                       qtile-extras
                     ];
