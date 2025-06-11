@@ -19,7 +19,38 @@
                     istilldontcareaboutcookies
                     decentraleyes
                   ];
-
+                  settings = {
+                    "uBlock0@raymondhill.net".settings = {
+                      userSettings = {
+                          externalLists = "https://raw.githubusercontent.com/Zalexanninev15/NoADS_RU/main/ads_list_extended.txt";
+                          importedLists = [
+                          "https://raw.githubusercontent.com/Zalexanninev15/NoADS_RU/main/ads_list_extended.txt"
+                        ];
+                      };
+                      selectedFilterLists = [
+                        "user-filters"
+                        "ublock-filters"
+                        "ublock-badware"
+                        "ublock-privacy"
+                        "ublock-quick-fixes"
+                        "ublock-unbreak"
+                        "easylist"
+                        "block-lan"
+                        "easyprivacy"
+                        "urlhaus-1"
+                        "plowe-0"
+                        "easylist-chat"
+                        "easylist-newsletters"
+                        "easylist-notifications"
+                        "easylist-annoyances"
+                        "fanboy-social"
+                        "fanboy-cookiemonster"
+                        "ublock-cookies-easylist"
+                        "ublock-annoyances"
+                        "https://raw.githubusercontent.com/Zalexanninev15/NoADS_RU/main/ads_list_extended.txt"
+                      ];
+                    };
+                  };
                 };
                 search = {
                   default = "google";
