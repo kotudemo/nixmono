@@ -31,4 +31,5 @@ in {
       systemPackages = with pkgs; [
         inputs.freesm.packages.${pkgs.system}.freesmlauncher
       ];
+    };
 }
