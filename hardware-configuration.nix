@@ -14,7 +14,7 @@
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/root";
-    fsType = "f2fs";
+    fsType = "btrfs";
   };
 
   fileSystems."/boot" = {
@@ -22,8 +22,4 @@
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
-
-  swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
-  ];
 }
