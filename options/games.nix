@@ -26,10 +26,11 @@ in {
         };
         protontricks.enable = true;
       };
-  };
+    };
     environment = {
       systemPackages = with pkgs; [
         inputs.freesm.packages.${pkgs.system}.freesmlauncher
       ];
     };
+  };
 }

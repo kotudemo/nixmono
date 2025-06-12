@@ -377,7 +377,7 @@
               };
 
               services = {
-                flatpak.enable = true;
+                # flatpak.enable = true;
                 fstrim.enable = true;
                 gvfs.enable = true;
                 udisks2.enable = true;
@@ -598,6 +598,27 @@
                   };
               };
 
+ xdg = {
+        icons = {
+            enable = true;
+        };
+         portal = {
+            enable = true;
+            wlr = {
+                enable = true;
+            };
+
+            config = {
+                common = {
+                    default = [
+                        "hyprland"
+                        "gtk"
+                    ];
+                };
+            };
+        };
+    };
+              
               programs = {
                 fish = {
                   enable = true;
