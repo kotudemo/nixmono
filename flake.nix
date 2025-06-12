@@ -83,7 +83,12 @@
     ...
   } @ inputs: {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = nixpkgs.legacyPackages.x86_64-linux {
+        inherit system
+          overlays = [
+            inputs.hyprpanel.overlay
+          ];
+      };
       extraSpecialArgs = {inherit inputs self;};
       modules = [
         ./hmdir/home.nix
@@ -539,25 +544,8 @@
 
               environment = {
                 systemPackages = with pkgs; [
+                  fishPlugins.autopair
                   home-manager
-
-                  # Everyday software
-                  ayugram-desktop
-                  cromite
-                  spicetify-cli
-                  qbittorrent-enhanced
-                  mpv
-                  libreoffice-qt6-fresh
-                  kdePackages.kcalc
-
-                  # Text editors
-
-                  # Theming
-                  nwg-look
-                  tokyonight-gtk-theme
-                  everforest-gtk-theme
-
-                  # Essential
                   ventoy-full-qt
                   ripgrep-all
                   tealdeer
@@ -568,10 +556,6 @@
                   nvtopPackages.full
                   python3Full
                   python.pkgs.pip
-
-                  # Video audio
-                  obs-studio
-                  easyeffects
                 ];
                 shellAliases =
                   # global aliases
@@ -597,6 +581,7 @@
                     upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
                     hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && home-manager switch --flake ${flakeDir}"; #for home configurations
                     gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
+                    ff = "fastfetch";
                     cd = "z";
                     cdd = "zi";
 
@@ -616,7 +601,6 @@
                     du = ", dust";
                     ps = ", procs";
                     top = ", btm";
-                    ff = ", fastfetch -c neofetch";
                     pf = ", pfetch";
                   };
               };
@@ -628,7 +612,7 @@
                     set fish_greeting # Disable greeting
                     starship init fish | source
                     zoxide init fish | source
-                    , fastfetch -c neofetch
+                    fastfetch
                   '';
                 };
                 java = {
