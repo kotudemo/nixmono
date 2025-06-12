@@ -261,7 +261,6 @@
                   allowBroken = true;
                   permittedInsecurePackages = [
                     "python-2.7.18.8"
-                    "ventoy-qt5-1.1.05"
                   ];
                 };
                 hostPlatform = lib.mkDefault "x86_64-linux";
@@ -546,7 +545,6 @@
                 systemPackages = with pkgs; [
                   fishPlugins.autopair
                   home-manager
-                  ventoy-full-qt
                   ripgrep-all
                   tealdeer
                   comma
