@@ -83,12 +83,7 @@
     ...
   } @ inputs: {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux {
-        inherit system
-          overlays = [
-            inputs.hyprpanel.overlay
-          ];
-      };
+      pkgs = nixpkgs.legacyPackages.x86_64-linux; 
       extraSpecialArgs = {inherit inputs self;};
       modules = [
         ./hmdir/home.nix

@@ -14,7 +14,7 @@
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
+    fsType = "ext4";
   };
 
   fileSystems."/boot" = {
