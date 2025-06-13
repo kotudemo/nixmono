@@ -211,6 +211,7 @@
 
               nix = {
                 settings = {
+                  package = pkgs.nixVersions.latest;
                   auto-optimise-store = true;
                   allowed-users = [
                     "@wheel"
