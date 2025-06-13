@@ -1,4 +1,4 @@
-{ inputs, ... } : {
+{inputs, ...}: {
   imports = [
     inputs.hyprshell.homeModules.hyprshell
   ];
@@ -6,28 +6,26 @@
     enable = true;
     systemd.args = "-v";
     settings = {
-    #  launcher = {
-    #    max_items = 6;
-    #    plugins.websearch = {
-    #        enable = true;
-    #        engines = [{
-    #            name = "DuckDuckGo";
-    #            url = "https://duckduckgo.com/?q=%s";
-    #            key = "d";
-    #        }];
-    #    };
-    #  };
-      window.switch = {
+      #  launcher = {
+      #    max_items = 6;
+      #    plugins.websearch = {
+      #        enable = true;
+      #        engines = [{
+      #            name = "DuckDuckGo";
+      #            url = "https://duckduckgo.com/?q=%s";
+      #            key = "d";
+      #        }];
+      #    };
+      #  };
+      windows.switch = {
         enable = true;
         open = {
-          modifier = "alt"
+          modifier = "alt";
         };
         navigate = {
           forward = "tab";
-          reverse = {
-            key = "tab";
-            mod = "shift";
-          };
         };
       };
+    };
+  };
 }

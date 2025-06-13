@@ -67,8 +67,8 @@
         };
       };
       cursor = {
-        name = "Whitesur-cursors";
-        package = pkgs.whitesur-cursors;
+        name = "GoogleDot-Black";
+        package = pkgs.google-cursor;
         size = 24;
       };
     };
