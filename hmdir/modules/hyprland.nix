@@ -96,7 +96,7 @@
             hide_on_touch = true;
           };
 
-          animations = [
+          animation = [
             "enabled = true;"
             "first_launch_animation = false;"
 
