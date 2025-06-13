@@ -56,6 +56,12 @@
     ];
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+  
   systemd.user = {
     services = {
       hyprpolkitagent = {
