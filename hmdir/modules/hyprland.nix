@@ -1,10 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{...}: {
   wayland = {
     windowManager = {
       hyprland = {
@@ -206,7 +200,6 @@
             "$mainMod, S, exec, spotify"
             "$mainMod, B, exec, vesktop"
             "$mainMod, D, exec, wofi --show drun"
-            "$mainMod, W, exec, pkill -SIGUSR2 waybar"
             "$mainMod, L, exec, hyprlock"
             "SUPER_ALT, S, exec, grimblast -f -c copy screen"
             "SUPER_CTRL, S, exec, grimblast -f save area - | swappy -f -"
