@@ -63,6 +63,10 @@
       url = "github:jas-singhfsu/hyprpanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprshell = {
+      url = "github:H3rmt/hyprswitch?ref=hyprshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -80,6 +84,7 @@
     zapret-presets,
     nixcord,
     hyprpanel,
+    hyprshell,
     ...
   } @ inputs: let
     cfgDir = "~/sigmaNix";

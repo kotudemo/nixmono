@@ -4,8 +4,7 @@
   ...
 }: {
   programs = {
-    librewolf = {
-      package = pkgs.librewolf;
+    firefox = {
       profiles = {
         default = {
           # choose a profile name; directory is /home/<user>/.mozilla/firefox/profile_0

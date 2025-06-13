@@ -576,6 +576,27 @@
         "type": "github"
       }
     },
+    "hyprshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1749687640,
+        "narHash": "sha256-86Qvogc+K6NYZLTfRxNPjNcXLPB0j6jk9W0qG5ujsS4=",
+        "owner": "H3rmt",
+        "repo": "hyprswitch",
+        "rev": "f3530ba978c946d0026c63bd89cdd91110a3b6cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "H3rmt",
+        "ref": "hyprshell",
+        "repo": "hyprswitch",
+        "type": "github"
+      }
+    },
     "jovian": {
       "inputs": {
         "nix-github-actions": "nix-github-actions",
@@ -1010,6 +1031,7 @@
         "freesm": "freesm",
         "home-manager": "home-manager_2",
         "hyprpanel": "hyprpanel",
+        "hyprshell": "hyprshell",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
         "nixgl": "nixgl",

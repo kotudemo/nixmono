@@ -11,13 +11,14 @@
     ./modules/bat.nix
     ./modules/stylix.nix
     ./modules/nixcord.nix
-    ./modules/librewolf.nix
+    ./modules/firefox.nix
     ./modules/fastfetch.nix
     ./modules/hyprlock.nix
     ./modules/swayimg.nix
     ./modules/wofi.nix
     ./modules/hyprland.nix
     ./modules/hyprpanel.nix
+    ./modules/hyprshell.nix
   ];
   home = {
     username = "kd";
@@ -36,7 +37,6 @@
       grimblast
       hyprpicker
       hyprprop
-      hyprswitch
       kdePackages.ark
       kdePackages.dolphin
       kdePackages.kcalc
