@@ -57,7 +57,7 @@
   };
 
                 nix = {
-                  package = pkgs.nixVersions.latest;
+                package = pkgs.nixVersions.latest;
                 settings = {
                   substituters = [
                 # cache.nixos.org

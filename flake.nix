@@ -210,8 +210,8 @@
               };
 
               nix = {
+                package = pkgs.nixVersions.latest;
                 settings = {
-                  package = pkgs.nixVersions.latest;
                   auto-optimise-store = true;
                   allowed-users = [
                     "@wheel"
@@ -259,6 +259,9 @@
                     "python-2.7.18.8"
                   ];
                 };
+                overlays = [
+                  inputs.hyprpanel.overlay
+                ];
                 hostPlatform = lib.mkDefault "x86_64-linux";
               };
 
