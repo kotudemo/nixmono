@@ -54,21 +54,21 @@
         show = true;
         info_timeout = 5;
         status_timeout = 3;
+      };
 
-        viewer = {
+        "info.viewer" = {
           top_left = "+name,+format,+filesize,+imagesize,+exif";
           top_right = "index";
           bottom_left = "scale,frame";
           bottom_right = "status";
         };
 
-        gallery = {
+        "info.gallery" = {
           top_left = "none";
           top_right = "none";
           bottom_left = "none";
           bottom_right = "name,status";
         };
-      };
 
       "keys.viewer" = {
         F1 = "help";
