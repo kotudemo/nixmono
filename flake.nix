@@ -409,6 +409,8 @@
                     };
                 };
 
+                desktopManager.gnome.enable = true;
+                      
                 xserver = {
                   enable = true;
                   videoDrivers = [
