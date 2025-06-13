@@ -8,7 +8,6 @@
       hyprland = true;
       overwrite = true;
       overlay = true;
-      theme = "gruvbox_vivid";
       settings = {
         layout = {
           "bar.layouts" = {
@@ -145,6 +144,7 @@
         };
 
         theme = {
+          name = "gruvbox_vivid";
           font = {
             name = "Hack Font Nerd Regular";
           };
