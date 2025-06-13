@@ -96,20 +96,23 @@
             hide_on_touch = true;
           };
 
-          animation = [
-            "enabled = true;"
-            "first_launch_animation = false;"
-
-            "bezier = myBezier, 0.05, 0.7, 0.1, 1.0"
-            "bezier = myBezier1, 0.05, 0.8, 0.1, 1.0"
-            "bezier = myBezier2, 0.05, 0.92, 0.1, 1.0"
-            "animation = windows, 1, 9, myBezier2, popin"
-            "animation = windowsOut, 1, 7, myBezier2, popin 80%"
-            "animation = border, 1, 10, default"
-            "animation = borderangle, 0, 8, myBezier1"
-            "animation = fade, 1, 7, myBezier1"
-            "animation = workspaces, 1, 8, myBezier, slide"
-          ];
+          animations = {
+            enabled = true;
+            first_launch_animation = false;
+            bezier = [
+              "myBezier, 0.05, 0.7, 0.1, 1.0"
+              "myBezier1, 0.05, 0.8, 0.1, 1.0"
+              "myBezier2, 0.05, 0.92, 0.1, 1.0"
+            ];
+            animation = [
+              "windows, 1, 9, myBezier2, popin"
+              "windowsOut, 1, 7, myBezier2, popin 80%"
+              "border, 1, 10, default"
+              "borderangle, 0, 8, myBezier1"
+              "fade, 1, 7, myBezier1"
+              "workspaces, 1, 8, myBezier, slide"
+            ];
+          };
 
           dwindle = {
             # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
@@ -206,13 +209,13 @@
             "$mainMod, W, exec, pkill -SIGUSR2 waybar"
             "$mainMod, L, exec, hyprlock"
             "SUPER_ALT, S, exec, grimblast -f -c copy screen"
-            "SUPER_CTRL, S, exec, grimblast -f -c save area - | swappy -f -"
+            "SUPER_CTRL, S, exec, grimblast -f save area - | swappy -f -"
             "CTRL, Print, exec, grimblast -c copysave screen ~/screens/screen-$(date +%s).png"
-            "Print, exec, grimblast -f -c copysave area ~/screens/screen-$(date +%s).png"
+            ", Print, exec, grimblast -f copysave area ~/screens/screen-$(date +%s).png"
             "SUPER_SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-            "SUPER_SHIFT, S, exec, grimblast -f -c copy area"
-            "SUPER_SHIFT, T, exec, grimblast -f -c save area - | tesseract -l eng stdin stdout | wl-copy"
-            "SUPER_SHIFT, R, exec, grimblast -f -c save area - | tesseract -l rus stdin stdout | wl-copy"
+            "SUPER_SHIFT, S, exec, grimblast -f copy area"
+            "SUPER_SHIFT, T, exec, grimblast -f save area - | tesseract -l eng stdin stdout | wl-copy"
+            "SUPER_SHIFT, R, exec, grimblast -f save area - | tesseract -l rus stdin stdout | wl-copy"
             "SUPER_SHIFT, C, exec, hyprpicker -a"
             "SUPER_SHIFT, M, exit,"
             "ALT, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=key=$reverse --sort-recent && hyprswitch dispatch"
