@@ -2,7 +2,7 @@
   programs.fastfetch = {
     enable = true;
     settings = {
-      modules = [ 
+      modules = [
         "title"
         "separator"
         "os"

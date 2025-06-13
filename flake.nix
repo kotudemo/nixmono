@@ -81,12 +81,11 @@
     nixcord,
     hyprpanel,
     ...
-  } @ inputs:                   
-  let
+  } @ inputs: let
     cfgDir = "~/sigmaNix";
   in {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux; 
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
       extraSpecialArgs = {inherit inputs self cfgDir;};
       modules = [
         ./hmdir/home.nix
@@ -224,29 +223,29 @@
                     "nix-command"
                   ];
                   substituters = [
-                # cache.nixos.org
-                "https://nixos-cache-proxy.cofob.dev"
-                "https://cache.nixos.org"
-                # cache.garnix.org
-                "https://cache.garnix.io"
-                # cachix
-                "https://nix-community.cachix.org/"
-                "https://chaotic-nyx.cachix.org/"
-                "https://ags.cachix.org"
-                "https://hyprland.cachix.org"
-                "https://chaotic-nyx.cachix.org/"
+                    # cache.nixos.org
+                    # "https://nixos-cache-proxy.cofob.dev"
+                    "https://cache.nixos.org"
+                    # cache.garnix.org
+                    # "https://cache.garnix.io"
+                    # cachix
+                    "https://nix-community.cachix.org/"
+                    # "https://chaotic-nyx.cachix.org/"
+                    # "https://ags.cachix.org"
+                    # "https://hyprland.cachix.org"
+                    # "https://chaotic-nyx.cachix.org/"
                   ];
                   trusted-public-keys = [
-                # cache.nixos.org
-                "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-                # cache.garnix.io
-                "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-                # cachix.org
-                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-                "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
-                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-                "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+                    # cache.nixos.org
+                    "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+                    # cache.garnix.io
+                    # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+                    # cachix.org
+                    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                    # "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+                    # "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
+                    # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+                    # "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
                   ];
                 };
               };
@@ -400,21 +399,21 @@
                   package = pkgs.ananicy-cpp;
                   rulesProvider = pkgs.ananicy-rules-cachyos;
                 };
-  
+
                 greetd = {
-                    enable = true;
-                    vt = 7;
-                    restart = false;
-                    settings = {
-                        default_session = {
-                            command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t -c Hyprland --greet-align center";
-                            user = "greeter";
-                        };
+                  enable = true;
+                  vt = 7;
+                  restart = false;
+                  settings = {
+                    default_session = {
+                      command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t -c Hyprland --greet-align center";
+                      user = "greeter";
                     };
+                  };
                 };
 
                 desktopManager.gnome.enable = true;
-                      
+
                 xserver = {
                   enable = true;
                   videoDrivers = [
@@ -557,70 +556,70 @@
                   python.pkgs.pip
                 ];
                 shellAliases = {
-                    cl = "clear";
-                    # ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
-                    la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
-                    ll = "eza -l --color=always --group-directories-first --icons"; # long format
-                    lt = "eza -aT --color=always --group-directories-first --icons"; # tree listing
-                    lsdot = "eza -a | grep -e '^\.'"; # show only dotfiles
-                    please = "sudo";
-                    jctl = "journalctl -p 3 -xb";
-                    sv = "sudo nvim";
-                    v = "nvim";
-                    vi = "nvim";
-                    vim = "nvim";
-                    nv = "nvim";
-                    nvim = "nvim";
-                    nsp = "nix-shell -p";
-                    ncg = "nh clean all --keep 3 --keep-since 1d";
-                    upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${cfgDir}";
-                    hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
-                    gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
-                    ff = "fastfetch";
-                    # cd = "z";
-                    # cdd = "zi";
+                  cl = "clear";
+                  ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
+                  la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
+                  ll = "eza -l --color=always --group-directories-first --icons"; # long format
+                  lt = "eza -aT --color=always --group-directories-first --icons"; # tree listing
+                  lsdot = "eza -a | grep -e '^\.'"; # show only dotfiles
+                  please = "sudo";
+                  jctl = "journalctl -p 3 -xb";
+                  sv = "sudo nvim";
+                  v = "nvim";
+                  vi = "nvim";
+                  vim = "nvim";
+                  nv = "nvim";
+                  nvim = "nvim";
+                  nsp = "nix-shell -p";
+                  ncg = "nh clean all --keep 3 --keep-since 1d";
+                  upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${cfgDir}";
+                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
+                  gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
+                  ff = "fastfetch";
+                  cd = "z";
+                  cdd = "zi";
 
-                    j2n = "nix run github:sempruijs/json2nix";
-                    tokei = ", tokei";
-                    fmt = ", alejandra";
+                  j2n = "nix run github:sempruijs/json2nix";
+                  tokei = ", tokei";
+                  fmt = ", alejandra";
 
-                    gping = ", gping";
-                    trip = ", trip";
+                  gping = ", gping";
+                  trip = ", trip";
 
-                    xh = ", xh";
-                    yt = ", yt-dlp";
-                    nurl = ", nurl";
-                    nom = ", nom";
+                  xh = ", xh";
+                  yt = ", yt-dlp";
+                  nurl = ", nurl";
+                  nom = ", nom";
 
-                    sed = ", sd";
-                    du = ", dust";
-                    ps = ", procs";
-                    top = ", btm";
-                    pf = ", pfetch";
-                  };
+                  sed = ", sd";
+                  du = ", dust";
+                  ps = ", procs";
+                  top = ", btm";
+                  pf = ", pfetch";
+                };
               };
 
- xdg = {
-        icons = {
-            enable = true;
-        };
-         portal = {
-            enable = true;
-            wlr = {
-                enable = true;
-            };
+              xdg = {
+                icons = {
+                  enable = true;
+                };
+                portal = {
+                  enable = true;
+                  wlr = {
+                    enable = true;
+                  };
 
-            config = {
-                common = {
-                    default = [
+                  config = {
+                    common = {
+                      default = [
                         "hyprland"
                         "gtk"
-                    ];
+                      ];
+                    };
+                  };
                 };
-            };
-        };
-    };
-              
+              };
+
               programs = {
                 fish = {
                   enable = true;

@@ -1,6 +1,10 @@
-{ inputs, config, pkgs, lib,... }:
-
 {
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   wayland = {
     windowManager = {
       hyprland = {
@@ -8,12 +12,12 @@
 
         settings = {
           monitor = "HDMI-A-3,1920x1080@144,0x0,1";
-            "$mainMod" = "SUPER";
-            "$terminal" = "ghostty";
-            "$calc" = "kcalc";
-            "$browser" = "librewolf";
-            "$fileManager" = "dolphin";
-            "$key" = "tab";
+          "$mainMod" = "SUPER";
+          "$terminal" = "ghostty";
+          "$calc" = "kcalc";
+          "$browser" = "librewolf";
+          "$fileManager" = "dolphin";
+          "$key" = "tab";
 
           exec-once = [
             "systemctl --user start hypridle.service"
@@ -109,20 +113,20 @@
               workspaces = "1, 8, myBezier, slide";
             };
           };
-            dwindle = {
-    # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-    preserve_split = true; 
-    smart_split = "no";
-	special_scale_factor = "0.92";
-    force_split = "2";
-    };
+          dwindle = {
+            # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+            pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+            preserve_split = true;
+            smart_split = "no";
+            special_scale_factor = "0.92";
+            force_split = "2";
+          };
 
-master = {
-    # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-    new_status  = "master";
-    mfact = "0.62";
-};
+          master = {
+            # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+            new_status = "master";
+            mfact = "0.62";
+          };
           gestures = {
             workspace_swipe = true;
             workspace_swipe_fingers = "3";
@@ -143,19 +147,18 @@ master = {
             explicit_sync_kms = "2";
           };
 
-        xwayland = {
+          xwayland = {
             enabled = true;
             use_nearest_neighbor = true;
             force_zero_scaling = false;
-        };
+          };
 
-        ecosystem = {
+          ecosystem = {
             no_update_news = true;
             no_donation_nag = true;
-        };
+          };
 
           windowrulev2 = [
-
             "float,center,size 1250 700,move 330 15%, class:^(swayimg)$"
             "float,size 650 400,move 785 625,class:^(pwvucontrol)$"
             "float,center,size 900 600,class:^(mpv)$"
@@ -173,7 +176,7 @@ master = {
             "rounding 0, floating:0, onworkspace:w[tv1]"
             "bordersize 0, floating:0, onworkspace:f[1]"
             "rounding 0, floating:0, onworkspace:f[1]"
-            
+
             "suppressevent maximize, class:.*"
             "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 

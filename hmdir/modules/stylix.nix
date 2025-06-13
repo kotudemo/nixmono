@@ -53,12 +53,12 @@
         #DE
         serif = {
           package = pkgs.nerd-fonts.hack;
-                name = "Hack Nerd Font";
+          name = "Hack Nerd Font";
         };
         #GUI
         sansSerif = {
           package = pkgs.nerd-fonts.hack;
-                name = "Hack Nerd Font";
+          name = "Hack Nerd Font";
         };
         #Terminal
         monospace = {

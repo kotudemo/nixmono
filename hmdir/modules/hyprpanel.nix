@@ -1,7 +1,11 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
   programs = {
     hyprpanel = {
       enable = true;
@@ -95,41 +99,41 @@
             shortcuts = {
               enabled = true;
               left = {
-                  shortcut1 = {
-                      command = "cromite";
-                      icon = "";
-                      tooltip = "Cromite";
-                  };
-                  shortcut2 = {
-                      command = "spotify";
-                      icon = "";
-                      tooltip = "Spotify";
-                  };
-                  shortcut3 = {
-                      command = "vesktop";
-                      icon = "";
-                      tooltip = "Discord";
-                  };
-                  shortcut4 = {
-                      command = "ayugram-desktop";
-                      icon = "";
-                      tooltip = "Telegram";
-                  };
+                shortcut1 = {
+                  command = "cromite";
+                  icon = "";
+                  tooltip = "Cromite";
+                };
+                shortcut2 = {
+                  command = "spotify";
+                  icon = "";
+                  tooltip = "Spotify";
+                };
+                shortcut3 = {
+                  command = "vesktop";
+                  icon = "";
+                  tooltip = "Discord";
+                };
+                shortcut4 = {
+                  command = "ayugram-desktop";
+                  icon = "";
+                  tooltip = "Telegram";
+                };
               };
               right = {
-                  shortcut1 = {
-                      command = "wofi --show drun";
-                      icon = "";
-                      tooltip = "Search";
-                  };
-                  shortcut3 = {
-                      command = "sleep 2; grimblast -c -n copysave screen ~/screens/screen-$(date +%s).png";
-                      icon = "󰄀";
-                      tooltip = "Screenshot";
-                  };
+                shortcut1 = {
+                  command = "wofi --show drun";
+                  icon = "";
+                  tooltip = "Search";
+                };
+                shortcut3 = {
+                  command = "sleep 2; grimblast -c -n copysave screen ~/screens/screen-$(date +%s).png";
+                  icon = "󰄀";
+                  tooltip = "Screenshot";
+                };
               };
             };
-                      directories = {
+            directories = {
               enabled = false;
             };
 
@@ -138,9 +142,8 @@
                 image = "../../attachments/dots/hyprlandarch/wallpapers/ava.png";
               };
             };
-            };
           };
-
+        };
 
         theme = {
           name = "gruvbox_vivid";
@@ -163,11 +166,11 @@
         };
 
         wallpaper = {
-            enable = false;
-            pywal = false;
-            image = "";
+          enable = false;
+          pywal = false;
+          image = "";
         };
       };
     };
   };
-  }
+}
