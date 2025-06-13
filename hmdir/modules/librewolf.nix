@@ -82,7 +82,7 @@
                     };
                     g-imgs = {
                       name = "Google Images";
-                      urls = [{ template = "https://www.google.com/search"; params = [ { name = "tbm"; value = "isch"; }, { name = "q"; value = "{searchTerms}"; } ]; }];
+                      urls = [{ template = "https://www.google.com/search"; params = [ { name = "tbm"; value = "isch"; } { name = "q"; value = "{searchTerms}"; } ]; }];
                       icon = "https://www.google.com/favicon.ico";
                       definedAliases = [ "@gi" ];
                     };

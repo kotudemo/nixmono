@@ -14,7 +14,7 @@
       autoscroll = {
         enable = true;
       };
-      configDir = ../../attachments/dots/vencord
+      configDir = ../../attachments/dots/vencord;
     };
   };
   # ...

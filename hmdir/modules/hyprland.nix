@@ -109,7 +109,7 @@
               workspaces = "1, 8, myBezier, slide";
             };
           };
-            dwindle {
+            dwindle = {
     # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
     pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true; 
@@ -118,7 +118,7 @@
     force_split = "2";
     };
 
-master {
+master = {
     # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
     new_status  = "master";
     mfact = "0.62";

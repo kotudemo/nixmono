@@ -10,7 +10,7 @@
     ./modules/zoxide.nix
     ./modules/bat.nix
     ./modules/stylix.nix
-    ./moudles/nixcord.nix
+    ./modules/nixcord.nix
     ./modules/librewolf.nix
     ./modules/fastfetch.nix
     ./modules/hyprlock.nix

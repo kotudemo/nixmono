@@ -553,10 +553,10 @@
                 shellAliases =
                   # global aliases
                   let
-                    flakeDir = "~/nixos/";
+                    flakeDir = "~/sigmaNix/";
                   in {
                     cl = "clear";
-                    ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
+                    # ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
                     la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
                     ll = "eza -l --color=always --group-directories-first --icons"; # long format
                     lt = "eza -aT --color=always --group-directories-first --icons"; # tree listing
@@ -572,11 +572,11 @@
                     nsp = "nix-shell -p";
                     ncg = "nh clean all --keep 3 --keep-since 1d";
                     upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-                    hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && home-manager switch --flake ${flakeDir}"; #for home configurations
+                    hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && , home-manager switch --flake ${flakeDir}"; #for home configurations
                     gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                     ff = "fastfetch";
-                    cd = "z";
-                    cdd = "zi";
+                    # cd = "z";
+                    # cdd = "zi";
 
                     j2n = "nix run github:sempruijs/json2nix";
                     tokei = ", tokei";
