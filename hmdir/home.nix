@@ -31,6 +31,8 @@
       cliphist
       cromite
       easyeffects
+      hyprpaper
+      google-cursor
       grimblast
       hyprpicker
       hyprprop

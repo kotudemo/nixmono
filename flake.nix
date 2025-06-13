@@ -106,7 +106,6 @@
               pkgs,
               lib,
               inputs,
-              configVars,
               ...
             }: {
               imports = [
