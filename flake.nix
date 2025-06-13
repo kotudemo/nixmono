@@ -293,18 +293,37 @@
               networking = {
                 hostName = "nixos";
                 useDHCP = lib.mkDefault true;
-                interfaces.eno1.useDHCP = lib.mkDefault true;
+                dhcpcd = {
+                    enable = true;
+                    persistent = false;
+                    wait = "any";
+                };
                 firewall = {
                   # firewall options
-                  allowPing = false; # you can restrict ping to your host in case you'll need
+                  allowPing = true; # you can restrict ping to your host in case you'll need
                   enable = true; # toggle for enabling firewall
                 };
                 networkmanager = {
                   enable = true;
+                  dns = "default";
+                  dhcp = "internal";
                 };
                 wireless = {
                   enable = false;
                 };
+                hosts = {
+                
+                };
+                nameservers = [
+                    "1.1.1.1"
+                    "1.0.0.1"
+                    "8.8.8.8"
+                    "8.8.4.4"
+                    "2606:4700:4700::1111"
+                    "2606:4700:4700::1001"
+                    "2001:4860:4860::8888"
+                    "2001:4860:4860::8844"
+                ];
                 timeServers = [
                   # https://wiki.nixos.org/wiki/NTP
                   "0.nixos.pool.ntp.org"
