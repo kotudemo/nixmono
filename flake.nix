@@ -418,7 +418,7 @@
                   ];
                   xkb = {
                     layout = "us,ru";
-                    options = "grp:shift_alt_toggle";
+                    options = "grp:alt_shift_toggle";
                   };
                 };
 
