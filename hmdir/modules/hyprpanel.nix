@@ -1,13 +1,13 @@
-{ config, pkgs, lib,... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
   programs = {
     hyprpanel = {
       enable = true;
-      hyprland = true;
-      overwrite = true;
-      overlay = true;
+      hyprland.enable = true;
+      overwrite.enable = true;
+      overlay.enable = true;
       settings = {
         layout = {
           "bar.layouts" = {
@@ -128,10 +128,8 @@
                       tooltip = "Screenshot";
                   };
               };
-          };
             };
-
-            directories = {
+                      directories = {
               enabled = false;
             };
 
@@ -140,8 +138,9 @@
                 image = "../../attachments/dots/hyprlandarch/wallpapers/ava.png";
               };
             };
+            };
           };
-        };
+
 
         theme = {
           name = "gruvbox_vivid";
@@ -170,4 +169,5 @@
         };
       };
     };
+  };
   }
