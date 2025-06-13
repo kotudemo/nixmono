@@ -35,19 +35,21 @@
             "[workspace 4 silent] spotify"
           ];
 
-          env = {
-            XDG_CURRENT_DESKTOP = "Hyprland";
-            XDG_SESSION_TYPE = "wayland";
-            XDG_SESSION_DESKTOP = "Hyprland";
-            XCURSOR_SIZE = "8";
-            QT_QPA_PLATFORM = "wayland";
-            QT_QPA_PLATFORMTHEME = "qt5ct";
-            XDG_SCREENSHOTS_DIR = "~/screens";
-            ELECTRON_OZONE_PLATFORM_HINT = "auto";
-            LIBVA_DRIVER_NAME = "nvidia";
-            __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-            NVD_BACKEND = "direct";
-          };
+          env = [
+            "env = XDG_CURRENT_DESKTOP,Hyprland"
+            "env = XDG_SESSION_TYPE,wayland"
+            "env = XDG_SESSION_DESKTOP,Hyprland"
+            "env = XCURSOR_SIZE,8"
+            "env = QT_QPA_PLATFORM,wayland"
+            "env = QT_QPA_PLATFORMTHEME=qt5ct"
+            "env = XDG_SCREENSHOTS_DIR,~/screens"
+            "env = ELECTRON_OZONE_PLATFORM_HINT,auto"
+            # env = MOZ_ENABLE_WAYLAND,0
+            # Nvidima
+            "env = LIBVA_DRIVER_NAME,nvidia"
+            "env = __GLX_VENDOR_LIBRARY_NAME,nvidia"
+            "env = NVD_BACKEND,direct"
+          ];
 
           input = {
             kb_layout = "us,ru";
@@ -94,25 +96,21 @@
             hide_on_touch = true;
           };
 
-          animations = {
-            enabled = true;
-            first_launch_animation = false;
+          animations = [
+            "enabled = true;"
+            "first_launch_animation = false;"
 
-            bezier = {
-              myBezier = "0.05, 0.7, 0.1, 1.0";
-              myBezier1 = "0.05, 0.8, 0.1, 1.0";
-              myBezier2 = "0.05, 0.92, 0.1, 1.0";
-            };
+            "bezier = myBezier, 0.05, 0.7, 0.1, 1.0"
+            "bezier = myBezier1, 0.05, 0.8, 0.1, 1.0"
+            "bezier = myBezier2, 0.05, 0.92, 0.1, 1.0"
+            "animation = windows, 1, 9, myBezier2, popin"
+            "animation = windowsOut, 1, 7, myBezier2, popin 80%"
+            "animation = border, 1, 10, default"
+            "animation = borderangle, 0, 8, myBezier1"
+            "animation = fade, 1, 7, myBezier1"
+            "animation = workspaces, 1, 8, myBezier, slide"
+          ];
 
-            animation = {
-              windows = "1, 9, myBezier2, popin";
-              windowsOut = "1, 7, myBezier2, popin 80%";
-              border = "1, 10, default";
-              borderangle = "0, 8, myBezier1";
-              fade = "1, 7, myBezier1";
-              workspaces = "1, 8, myBezier, slide";
-            };
-          };
           dwindle = {
             # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
             pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
