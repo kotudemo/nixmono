@@ -17,7 +17,8 @@
     ./modules/swayimg.nix
     ./modules/wofi.nix
     ./modules/hyprland.nix
-    ./modules/hyprpanel.nix
+    #./modules/hyprpanel.nix
+    ./modules/handpanel.nix
     ./modules/hyprshell.nix
   ];
   home = {
