@@ -1,6 +1,9 @@
 {
     inputs,
     pkgs,
+    self,
+    cfgDir,
+    config,
     ...
 }:{
   imports = [
@@ -14,7 +17,7 @@
       autoscroll = {
         enable = true;
       };
-      configDir = ../../attachments/dots/vencord;
+      #configDir = "../../attachments/dots/vencord";
     };
   };
   # ...

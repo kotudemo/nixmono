@@ -81,10 +81,13 @@
     nixcord,
     hyprpanel,
     ...
-  } @ inputs: {
+  } @ inputs:                   
+  let
+    cfgDir = "~/sigmaNix";
+  in {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux; 
-      extraSpecialArgs = {inherit inputs self;};
+      extraSpecialArgs = {inherit inputs self cfgDir;};
       modules = [
         ./hmdir/home.nix
         nur.modules.homeManager.default
@@ -552,11 +555,7 @@
                   python3Full
                   python.pkgs.pip
                 ];
-                shellAliases =
-                  # global aliases
-                  let
-                    flakeDir = "~/sigmaNix/";
-                  in {
+                shellAliases = {
                     cl = "clear";
                     # ls = "eza -al --color=always --group-directories-first --icons"; # preferred listing
                     la = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
@@ -573,8 +572,8 @@
                     nvim = "nvim";
                     nsp = "nix-shell -p";
                     ncg = "nh clean all --keep 3 --keep-since 1d";
-                    upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${flakeDir}";
-                    hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && , home-manager switch --flake ${flakeDir}"; #for home configurations
+                    upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${cfgDir}";
+                    hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
                     gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                     ff = "fastfetch";
                     # cd = "z";
