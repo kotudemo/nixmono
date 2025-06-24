@@ -9,23 +9,22 @@
 
 1. Package UFR II printer driver via Flake
 2. Package XP-Pen driver via Flake
-3. Move games to a custom option
-4. Declare Firefox `user_prefs` and extensions 
-5. Declare Spicetify extensions  
+3. Declare Firefox `user_prefs` and extensions 
+4. Declare Spicetify extensions  
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
-6. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
-7. Declare Flatpak applications
-8. Integrate [Disko](https://github.com/nix-community/disko)
-9. Add `nixos-anywhere` installation guide
-10. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
-11. Refactor everything into options for full customization
-12. Declare Starship prompt config
-13. Manage Git and Zerotier secrets via SOPS and AgeNix
-14. Add Docker configuration
-15. Move packages to Home Manager 
-16. Qtile migration
-17. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-18. Hardened specialisation 
+5. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
+6. Declare Flatpak applications
+7. Integrate [Disko](https://github.com/nix-community/disko)
+8. Add `nixos-anywhere` installation guide
+9. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
+10. Refactor everything into options for full customization
+11. Declare Starship prompt config
+12. Manage Git and Zerotier secrets via SOPS and AgeNix
+13. Add Docker configuration
+14. Declare gtk theme
+15. Declare qt and kde.packages theme
+16. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
+17. Hardened specialisation 
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
