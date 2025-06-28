@@ -1,25 +1,25 @@
 {pkgs, ...}: {
   imports = [
-    ./modules/starship.nix
-    ./modules/eza.nix
-    ./modules/helix.nix
-    ./modules/yazi.nix
-    ./modules/ghostty.nix
-    ./modules/nh.nix
-    ./modules/bash.nix
-    ./modules/zoxide.nix
-    ./modules/bat.nix
-    ./modules/stylix.nix
-    ./modules/nixcord.nix
-    ./modules/firefox.nix
-    ./modules/fastfetch.nix
-    ./modules/hyprlock.nix
-    ./modules/swayimg.nix
-    ./modules/wofi.nix
-    ./modules/hyprland.nix
+    ./programs/starship.nix
+    ./programs/eza.nix
+    ./programs/helix.nix
+    ./programs/yazi.nix
+    ./programs/ghostty.nix
+    ./programs/nh.nix
+    ./programs/bash.nix
+    ./programs/zoxide.nix
+    ./programs/bat.nix
+    ./programs/stylix.nix
+    ./programs/nixcord.nix
+    ./programs/firefox.nix
+    ./programs/fastfetch.nix
+    ./programs/hyprlock.nix
+    ./programs/swayimg.nix
+    ./programs/wofi.nix
+    ./programs/hyprland.nix
+    ./programs/handpanel.nix
+    ./programs/hyprshell.nix
     #./modules/hyprpanel.nix
-    ./modules/handpanel.nix
-    ./modules/hyprshell.nix
   ];
   home = {
     username = "kd";
