@@ -36,14 +36,14 @@
             "env = XDG_SESSION_DESKTOP,Hyprland"
             "env = XCURSOR_SIZE,8"
             "env = QT_QPA_PLATFORM,wayland"
-            "env = QT_QPA_PLATFORMTHEME=qt5ct"
+            "env = QT_QPA_PLATFORMTHEME=qt6ct"
             "env = XDG_SCREENSHOTS_DIR,~/screens"
             "env = ELECTRON_OZONE_PLATFORM_HINT,auto"
             # env = MOZ_ENABLE_WAYLAND,0
             # Nvidima
-            "env = LIBVA_DRIVER_NAME,nvidia"
-            "env = __GLX_VENDOR_LIBRARY_NAME,nvidia"
-            "env = NVD_BACKEND,direct"
+            #"env = LIBVA_DRIVER_NAME,nvidia"
+            #"env = __GLX_VENDOR_LIBRARY_NAME,nvidia"
+            #"env = NVD_BACKEND,direct"
           ];
 
           input = {

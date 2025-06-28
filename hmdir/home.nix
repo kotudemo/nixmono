@@ -61,6 +61,11 @@
 
   qt = {
     enable = true;
+    platformTheme = "qt6ct";
+    style = {
+      package = pkgs.gruvbox-kvantum;
+      name = "kvantum";
+    };  
   };
 
   gtk = {
