@@ -703,13 +703,6 @@
               system = {
                 stateVersion = config.system.nixos.release;
                 name = config.networking.hostName;
-                # userActivationScripts = {
-                #   removeConflictingFiles = {
-                #     text = ''
-                #       rm -f ${config.users.users.kd.home}/.gtkrc-2.0.homeManagerBackupFileExtension
-                #     '';
-                #   };
-                # };
               };
             }
           )

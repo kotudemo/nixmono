@@ -57,6 +57,11 @@
       wl-clipboard-rs
       wlsunset
     ];
+    activation = {
+      starshipSetup = lib.hm.dag.entryAfter [ "installPackages" ] ''
+        run starship preset gruvbox-rainbow -o ~/.config/starship.toml
+      '';
+    };
   };
 
   qt = {
