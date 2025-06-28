@@ -111,28 +111,63 @@
               pkgs,
               lib,
               inputs,
+              modulesPath,
               ...
             }: {
               imports = [
                 # Include the results of the hardware scan.
                 ./hardware-configuration.nix
                 ./options/modules.nix
+                (modulesPath + "/installer/scan/not-detected.nix")
               ];
 
               passthrough.enable = false;
               games.enable = false;
+
+              fileSystems."/" = {
+                device = "/dev/disk/by-label/root";
+                fsType = "btrfs";
+              };
+
+              fileSystems."/boot" = {
+                device = "/dev/disk/by-label/BOOT";
+                fsType = "vfat";
+                options = ["fmask=0077" "dmask=0077"];
+              };
 
               boot = {
                 kernelPackages = pkgs.linuxPackages_cachyos;
                 # kernelPackages = pkgs.linuxPackages_zen;
                 kernelModules = [
                   "kvm-intel"
-                  "nvidia"
-                  "nvidia_modeset"
-                  "nvidia_uvm"
-                  "nvidia_drm"
+                  "amdgpu"
                 ];
                 extraModulePackages = with config.boot.kernelPackages; [
+                ];
+                blacklistedKernelModules = [
+                    "k10temp"
+                    "ax25"
+                    "netrom"
+                    "rose"
+                    "adfs"
+                    "affs"
+                    "bfs"
+                    "befs"
+                    "cramfs"
+                    "efs"
+                    "erofs"
+                    "exofs"
+                    "freevxfs"
+                    "hfs"
+                    "hpfs"
+                    "jfs"
+                    "minix"
+                    "omfs"
+                    "qnx4"
+                    "qnx6"
+                    "sysv"
+                    "sp5100-tco"
+                    "iTCO_wdt"
                 ];
                 loader = {
                   systemd-boot = {
@@ -279,14 +314,10 @@
                   enable = true;
                   enable32Bit = true;
                 };
-                nvidia = {
-                  package = config.boot.kernelPackages.nvidiaPackages.beta;
-                  datacenter.enable = false;
-                  modesetting.enable = true;
-                  nvidiaSettings = true;
-                  open = false;
-                  powerManagement.enable = false;
-                  powerManagement.finegrained = false;
+                amdgpu = {
+                    initrd = {
+                        enable = true;
+                    };
                 };
               };
 
@@ -438,7 +469,7 @@
                 xserver = {
                   enable = true;
                   videoDrivers = [
-                    "nvidia"
+                    "amdgpu"
                   ];
                   xkb = {
                     layout = "us,ru";
