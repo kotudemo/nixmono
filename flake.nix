@@ -326,7 +326,7 @@
                 amdgpu = {
                     initrd = {
                         enable = true;
-                    };
+                  };
                 };
               };
 
