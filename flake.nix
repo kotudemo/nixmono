@@ -67,6 +67,10 @@
       url = "github:H3rmt/hyprswitch?ref=hyprshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -85,6 +89,7 @@
     nixcord,
     hyprpanel,
     hyprshell,
+    aagl,
     ...
   } @ inputs: let
     cfgDir = "~/sigmaNix";
@@ -122,7 +127,7 @@
               ];
 
               passthrough.enable = false;
-              games.enable = false;
+              games.enable = true;
 
               fileSystems."/" = {
                 device = "/dev/disk/by-label/root";
@@ -273,6 +278,8 @@
                     # "https://ags.cachix.org"
                     # "https://hyprland.cachix.org"
                     # "https://chaotic-nyx.cachix.org/"
+                    # ezkea
+                    "https://ezkea.cachix.org"
                   ];
                   trusted-public-keys = [
                     # cache.nixos.org
@@ -285,6 +292,8 @@
                     # "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
                     # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
                     # "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+                    # ezkea
+                    "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
                   ];
                 };
               };

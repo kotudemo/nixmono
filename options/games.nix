@@ -26,10 +26,14 @@ in {
         };
         protontricks.enable = true;
       };
+      honkers-railway-launcher = {
+        enable = true;
+      };
     };
     environment = {
       systemPackages = with pkgs; [
         inputs.freesm.packages.${pkgs.system}.freesmlauncher
+        adwsteamgtk
       ];
     };
   };
