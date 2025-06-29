@@ -37,6 +37,7 @@
       blesh
       brightnessctl
       cliphist
+      dconf
       easyeffects
       hyprpaper
       google-cursor

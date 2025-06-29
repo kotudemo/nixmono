@@ -17,7 +17,7 @@
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
             "systemctl --user start hyprpanel.service"
-            "systemctl --user start hyprshell.service"
+            # "systemctl --user start hyprshell.service"
             #"hyprswitch init --show-title"
             "hyprctl setcursor GoogleDot-Black 24"
             "export QT_DISABLE_WINDOWDECORATION=1"

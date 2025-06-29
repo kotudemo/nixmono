@@ -43,7 +43,10 @@
         hyprlock = {
           useWallpaper = true;
         };
-        qt.enable = true;
+        qt = {
+          enable = true;
+          platform = "qtct";
+        };
       };
       image = config.wallpaper;
       fonts = {
