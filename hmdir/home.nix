@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
     ./programs/starship.nix
     ./programs/eza.nix
@@ -16,9 +21,10 @@
     ./programs/hyprlock.nix
     ./programs/swayimg.nix
     ./programs/wofi.nix
+    ./programs/chromium.nix
     ./programs/hyprland.nix
-    ./programs/handpanel.nix
-    ./programs/hyprshell.nix
+    # ./programs/hyprshell.nix
+    # ./programs/handpanel.nix
     #./modules/hyprpanel.nix
   ];
   home = {
@@ -31,7 +37,6 @@
       blesh
       brightnessctl
       cliphist
-      cromite
       easyeffects
       hyprpaper
       google-cursor
@@ -42,7 +47,6 @@
       kdePackages.dolphin
       kdePackages.kcalc
       libreoffice-qt6-fresh
-      librewolf
       mpv
       obs-studio
       pamixer
@@ -57,20 +61,15 @@
       wl-clipboard-rs
       wlsunset
     ];
-    activation = {
-      starshipSetup = lib.hm.dag.entryAfter [ "installPackages" ] ''
-        run starship preset gruvbox-rainbow -o ~/.config/starship.toml
-      '';
-    };
   };
 
   qt = {
     enable = true;
-    platformTheme = "qt6ct";
-    style = {
-      package = pkgs.gruvbox-kvantum;
-      name = "kvantum";
-    };  
+    platformTheme.name = "qtct";
+    # style = {
+    #   package = pkgs.gruvbox-kvantum;
+    #   name = "kvantum";
+    # };
   };
 
   gtk = {
@@ -122,6 +121,9 @@
       allowUnfree = true;
       allowBroken = true;
     };
+    overlays = [
+      inputs.hyprpanel.overlay
+    ];
   };
 
   systemd.user = {

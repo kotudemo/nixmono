@@ -121,15 +121,27 @@
             }: {
               imports = [
                 # Include the results of the hardware scan.
-                ./hardware-configuration.nix
                 ./options/modules.nix
                 (modulesPath + "/installer/scan/not-detected.nix")
+                inputs.aagl.nixosModules.default
               ];
 
               passthrough.enable = false;
-              games.enable = true;
+              games.enable = false;
 
               fileSystems."/" = {
+                device = "/dev/disk/by-uuid/fe8cfb14-50a2-4ab4-befa-904db1384b34";
+                fsType = "btrfs";
+                options = ["subvol=@"];
+              };
+
+              fileSystems."/boot" = {
+                device = "/dev/disk/by-uuid/6CCC-CCD9";
+                fsType = "vfat";
+                options = ["fmask=0077" "dmask=0077"];
+              };
+              /*
+                fileSystems."/" = {
                 device = "/dev/disk/by-label/root";
                 fsType = "btrfs";
               };
@@ -139,9 +151,10 @@
                 fsType = "vfat";
                 options = ["fmask=0077" "dmask=0077"];
               };
+              */
 
               boot = {
-                kernelPackages = pkgs.linuxPackages_cachyos;
+                #kernelPackages = pkgs.linuxPackages_cachyos;
                 # kernelPackages = pkgs.linuxPackages_zen;
                 kernelModules = [
                   "kvm-intel"
@@ -150,29 +163,29 @@
                 extraModulePackages = with config.boot.kernelPackages; [
                 ];
                 blacklistedKernelModules = [
-                    "k10temp"
-                    "ax25"
-                    "netrom"
-                    "rose"
-                    "adfs"
-                    "affs"
-                    "bfs"
-                    "befs"
-                    "cramfs"
-                    "efs"
-                    "erofs"
-                    "exofs"
-                    "freevxfs"
-                    "hfs"
-                    "hpfs"
-                    "jfs"
-                    "minix"
-                    "omfs"
-                    "qnx4"
-                    "qnx6"
-                    "sysv"
-                    "sp5100-tco"
-                    "iTCO_wdt"
+                  "k10temp"
+                  "ax25"
+                  "netrom"
+                  "rose"
+                  "adfs"
+                  "affs"
+                  "bfs"
+                  "befs"
+                  "cramfs"
+                  "efs"
+                  "erofs"
+                  "exofs"
+                  "freevxfs"
+                  "hfs"
+                  "hpfs"
+                  "jfs"
+                  "minix"
+                  "omfs"
+                  "qnx4"
+                  "qnx6"
+                  "sysv"
+                  "sp5100-tco"
+                  "iTCO_wdt"
                 ];
                 loader = {
                   systemd-boot = {
@@ -268,16 +281,16 @@
                   ];
                   substituters = [
                     # cache.nixos.org
-                    # "https://nixos-cache-proxy.cofob.dev"
+                    "https://nixos-cache-proxy.cofob.dev"
                     "https://cache.nixos.org"
                     # cache.garnix.org
-                    # "https://cache.garnix.io"
+                    "https://cache.garnix.io"
                     # cachix
-                    # "https://nix-community.cachix.org/"
-                    # "https://chaotic-nyx.cachix.org/"
-                    # "https://ags.cachix.org"
-                    # "https://hyprland.cachix.org"
-                    # "https://chaotic-nyx.cachix.org/"
+                    "https://nix-community.cachix.org/"
+                    "https://chaotic-nyx.cachix.org/"
+                    "https://ags.cachix.org"
+                    "https://hyprland.cachix.org"
+                    "https://chaotic-nyx.cachix.org/"
                     # ezkea
                     "https://ezkea.cachix.org"
                   ];
@@ -285,13 +298,13 @@
                     # cache.nixos.org
                     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
                     # cache.garnix.io
-                    # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+                    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
                     # cachix.org
-                    # "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                    # "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-                    # "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
-                    # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-                    # "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+                    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                    "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+                    "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
+                    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+                    "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
                     # ezkea
                     "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
                   ];
@@ -324,8 +337,8 @@
                   enable32Bit = true;
                 };
                 amdgpu = {
-                    initrd = {
-                        enable = true;
+                  initrd = {
+                    enable = true;
                   };
                 };
               };
@@ -334,9 +347,9 @@
                 hostName = "nixos";
                 useDHCP = lib.mkDefault true;
                 dhcpcd = {
-                    enable = true;
-                    persistent = false;
-                    wait = "any";
+                  enable = true;
+                  persistent = false;
+                  wait = "any";
                 };
                 firewall = {
                   # firewall options
@@ -345,13 +358,14 @@
                 };
                 networkmanager = {
                   enable = true;
-                  dns = "default";
+                  dns = "systemd-resolved";
                   dhcp = "internal";
                 };
                 wireless = {
                   enable = false;
                 };
-                extraHosts = {
+                /*
+                  extraHosts = {
                   157.240.245.174 instagram.com
                   157.240.245.174 www.instagram.com
                   157.240.245.174 b.i.instagram.com
@@ -540,15 +554,16 @@
                   0.0.0.0 iplog.co
                   0.0.0.0 grabify.org
                 };
+                */
                 nameservers = [
-                    "1.1.1.1"
-                    "1.0.0.1"
-                    "8.8.8.8"
-                    "8.8.4.4"
-                    "2606:4700:4700::1111"
-                    "2606:4700:4700::1001"
-                    "2001:4860:4860::8888"
-                    "2001:4860:4860::8844"
+                  "1.1.1.1"
+                  "1.0.0.1"
+                  "8.8.8.8"
+                  "8.8.4.4"
+                  "2606:4700:4700::1111"
+                  "2606:4700:4700::1001"
+                  "2001:4860:4860::8888"
+                  "2001:4860:4860::8844"
                 ];
                 timeServers = [
                   # https://wiki.nixos.org/wiki/NTP
@@ -820,7 +835,7 @@
                   nsp = "nix-shell -p";
                   ncg = "nh clean all --keep 3 --keep-since 1d";
                   upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${cfgDir}";
-                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
+                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0  && rm -rf ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf && rm -rf ${config.users.users.kd.home}/.config/qt6ct/qt6ct.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
                   gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                   ff = "fastfetch";
                   cd = "z";

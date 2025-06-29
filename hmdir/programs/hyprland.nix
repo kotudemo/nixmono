@@ -9,7 +9,7 @@
           "$mainMod" = "SUPER";
           "$terminal" = "ghostty";
           "$calc" = "kcalc";
-          "$browser" = "firefox";
+          "$browser" = "chromium";
           "$fileManager" = "dolphin";
           "$key" = "tab";
 
@@ -24,10 +24,10 @@
             "wl-paste --type text --watch cliphist store"
             "wl-paste --type image --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"
-            "[workspace 2 silent] firefox"
-            "[workspace 3 silent] telegram-desktop"
-            "[workspace 1 silent] vesktop"
-            "[workspace 4 silent] spotify"
+            # "[workspace 2 silent] firefox"
+            # "[workspace 3 silent] telegram-desktop"
+            # "[workspace 1 silent] vesktop"
+            # "[workspace 4 silent] spotify"
           ];
 
           env = [
@@ -196,8 +196,8 @@
             "$mainMod, F, exec, $browser"
             "$mainMod, period, exec, bemoji -cn"
             "$mainMod, O, exec, obs"
-            "$mainMod, T, exec, telegram-desktop"
-            "$mainMod, C, exec, vscodium"
+            "$mainMod, T, exec, ayugram-desktop"
+            "$mainMod, C, exec, vscode"
             "$mainMod, S, exec, spotify"
             "$mainMod, B, exec, vesktop"
             "$mainMod, D, exec, wofi --show drun"

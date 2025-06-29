@@ -9,7 +9,7 @@
 
 1. Package UFR II printer driver via Flake
 2. Package XP-Pen driver via Flake
-3. Declare Firefox `user_prefs` and extensions 
+3. Decalre chromium extensions  
 4. Declare Spicetify extensions  
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
 5. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
@@ -21,10 +21,10 @@
 11. Declare Starship prompt config
 12. Manage Git and Zerotier secrets via SOPS and AgeNix
 13. Add Docker configuration
-14. Declare gtk theme
+14. Fix hyprpanel config
 15. Declare qt and kde.packages theme
 16. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-17. Hardened specialisation 
+17. Hardened specialisation
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

@@ -6,25 +6,8 @@
     enable = true;
     systemd.args = "-v";
     settings = {
-      #  launcher = {
-      #    max_items = 6;
-      #    plugins.websearch = {
-      #        enable = true;
-      #        engines = [{
-      #            name = "DuckDuckGo";
-      #            url = "https://duckduckgo.com/?q=%s";
-      #            key = "d";
-      #        }];
-      #    };
-      #  };
       windows.switch = {
         enable = true;
-        open = {
-          modifier = "alt";
-        };
-        navigate = {
-          forward = "tab";
-        };
       };
     };
   };

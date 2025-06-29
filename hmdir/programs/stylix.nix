@@ -43,6 +43,7 @@
         hyprlock = {
           useWallpaper = true;
         };
+        qt.enable = true;
       };
       image = config.wallpaper;
       fonts = {
