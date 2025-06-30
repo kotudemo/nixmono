@@ -26,7 +26,7 @@
     ./programs/hyprland.nix
     # ./programs/hyprshell.nix
     # ./programs/handpanel.nix
-    ./programs/hyprpanel.nix
+    ./modules/hyprpanel.nix
   ];
   home = {
     username = "kd";
@@ -47,6 +47,10 @@
       hyprprop
       kdePackages.ark
       kdePackages.dolphin
+      kdePackages.kdegraphics-thumbnailers
+      libsForQt5.ffmpegthumbs
+      kdePackages.qtsvg
+      libsForQt5.kio-extras
       kdePackages.kcalc
       libreoffice-qt6-fresh
       mpv
@@ -58,15 +62,12 @@
       spotify
       swappy
       tesseract
-      vscode
+      vscodium-fhsWithPackages
       wf-recorder
       wl-clipboard-rs
       wlsunset
     ];
   };
-
-  passthrough.enable = false;
-  games.enable = true;
 
   qt = {
     enable = true;
