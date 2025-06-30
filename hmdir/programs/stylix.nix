@@ -5,10 +5,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.stylix.homeModules.stylix
-  ];
-
   options = {
     stylixConfig = {
       enable = lib.mkEnableOption "enable stylix";

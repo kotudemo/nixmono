@@ -125,7 +125,7 @@
       allowBroken = true;
     };
     overlays = [
-      inputs.hyprpanel.overlay
+      # inputs.hyprpanel.overlay
     ];
   };
 
@@ -138,7 +138,7 @@
         };
 
         Service = {
-          ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+          ExecStart = "${lib.getExe pkgs.hyprpolkitagent}";
           Restart = "always";
           RestartSec = 10;
         };
@@ -156,7 +156,7 @@
         };
 
         Service = {
-          ExecStart = "${pkgs.hyprpanel}/bin/hyprpanel";
+          ExecStart = "${lib.getExe pkgs.hyprpanel}";
           Restart = "always";
           RestartSec = 1;
         };
