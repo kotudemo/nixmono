@@ -18,7 +18,7 @@
 8. Add `nixos-anywhere` installation guide
 9. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
 10. Refactor everything into options for full customization
-11. Declare Starship prompt config
+11. Fix clipboard history
 12. Manage Git and Zerotier secrets via SOPS and AgeNix
 13. Add Docker configuration
 14. Fix hyprpanel config

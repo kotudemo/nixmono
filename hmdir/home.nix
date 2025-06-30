@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ../options/modules.nix
     ./programs/starship.nix
     ./programs/eza.nix
     ./programs/helix.nix

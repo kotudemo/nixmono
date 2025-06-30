@@ -123,7 +123,11 @@
                 # Include the results of the hardware scan.
                 (modulesPath + "/installer/scan/not-detected.nix")
                 inputs.aagl.nixosModules.default
+                ./options/modules.nix
               ];
+
+              games.enable = false;
+              passthrough.enable = false;
 
               fileSystems."/" = {
                 device = "/dev/disk/by-uuid/fe8cfb14-50a2-4ab4-befa-904db1384b34";
@@ -150,8 +154,8 @@
               */
 
               boot = {
-                #kernelPackages = pkgs.linuxPackages_cachyos;
-                # kernelPackages = pkgs.linuxPackages_zen;
+                kernelPackages = pkgs.linuxPackages_cachyos;
+                #kernelPackages = pkgs.linuxPackages_zen;
                 kernelModules = [
                   "kvm-intel"
                   "amdgpu"
