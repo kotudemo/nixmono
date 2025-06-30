@@ -24,9 +24,7 @@
     ./programs/wofi.nix
     ./programs/chromium.nix
     ./programs/hyprland.nix
-    # ./programs/hyprshell.nix
-    # ./programs/handpanel.nix
-    ./modules/hyprpanel.nix
+    ./programs/hyprpanel.nix
   ];
   home = {
     username = "kd";
