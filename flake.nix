@@ -99,9 +99,9 @@
       extraSpecialArgs = {inherit inputs self cfgDir;};
       modules = [
         ./hmdir/home.nix
-        inputs.stylix.homeManagerModules.stylix
+        inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
-        inputs.hyprpanel.homeModules.hyprpanel
+        inputs.hyprpanel.homeManagerModules.hyprpanel
         inputs.nur.modules.homeManager.default
       ];
     };
