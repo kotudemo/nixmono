@@ -25,6 +25,7 @@
 15. Declare qt and kde.packages theme
 16. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
 17. Hardened specialisation
+18. Steal some plugins form hand7s Hyprland config 
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

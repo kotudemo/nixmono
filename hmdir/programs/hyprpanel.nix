@@ -5,13 +5,12 @@
   inputs,
   ...
 }: {
-  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
   programs = {
     hyprpanel = {
-      #enable = true;
-      #hyprland.enable = true;
-      #overwrite.enable = true;
-      #overlay.enable = true;
+      enable = true;
+      hyprland.enable = true;
+      overwrite.enable = true;
+      overlay.enable = true;
       override = ''
                 {
           "menus.clock.time.military": true,

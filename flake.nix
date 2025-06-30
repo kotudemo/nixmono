@@ -99,7 +99,10 @@
       extraSpecialArgs = {inherit inputs self cfgDir;};
       modules = [
         ./hmdir/home.nix
-        nur.modules.homeManager.default
+        inputs.stylix.homeManagerModules.stylix
+        inputs.chaotic.homeManagerModules.default
+        inputs.nur.modules.homeManager.default
+        inputs.hyprpanel.homeManagerModules.hyprpanel
       ];
     };
 
@@ -126,7 +129,7 @@
                 ./options/modules.nix
               ];
 
-              games.enable = false;
+              games.enable = true;
               passthrough.enable = false;
 
               fileSystems."/" = {
