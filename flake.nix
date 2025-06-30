@@ -101,8 +101,8 @@
         ./hmdir/home.nix
         inputs.stylix.homeManagerModules.stylix
         inputs.chaotic.homeManagerModules.default
+        inputs.hyprpanel.homeModules.hyprpanel
         inputs.nur.modules.homeManager.default
-        inputs.hyprpanel.homeManagerModules.hyprpanel
       ];
     };
 
