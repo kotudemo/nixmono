@@ -387,8 +387,8 @@
         };
 
         Service = {
-          ExecStart = "hyprpanel";
-          #ExecStart = "${lib.getExe pkgs.hyprpanel}";
+          #ExecStart = "hyprpanel";
+          ExecStart = "${lib.getExe pkgs.hyprpanel}";
           Restart = "always";
           RestartSec = 1;
         };
