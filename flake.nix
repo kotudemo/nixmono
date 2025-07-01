@@ -157,7 +157,7 @@
               */
 
               boot = {
-                kernelPackages = pkgs.linuxPackages_cachyos;
+                #kernelPackages = pkgs.linuxPackages_cachyos;
                 #kernelPackages = pkgs.linuxPackages_zen;
                 kernelModules = [
                   "kvm-intel"
@@ -323,7 +323,6 @@
                   ];
                 };
                 overlays = [
-                  inputs.hyprpanel.overlay
                 ];
                 hostPlatform = lib.mkDefault "x86_64-linux";
               };

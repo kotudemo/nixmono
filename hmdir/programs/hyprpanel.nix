@@ -3,11 +3,12 @@
   pkgs,
   lib,
   inputs,
+  lib,
   ...
 }: {
   programs = {
     hyprpanel = {
-      enable = true;
+      enable = lib.mkForce true;
       override = ''
                 {
           "menus.clock.time.military": true,
