@@ -85,7 +85,6 @@
     nixcord,
     hyprshell,
     aagl,
-    nix-flatpak,
     ...
   } @ inputs: let
     cfgDir = "~/sigmaNix";
