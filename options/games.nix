@@ -26,9 +26,6 @@ in {
           enable = true;
         };
         protontricks.enable = true;
-          extraCompatPackages = [
-          inputs.nix-proton-cachyos.packages.${pkgs.system}.proton-cachyos
-        ];
       };
       honkers-railway-launcher = {
         enable = true;
@@ -38,6 +35,7 @@ in {
       systemPackages = with pkgs; [
         inputs.freesm.packages.${pkgs.system}.freesmlauncher
         adwsteamgtk
+        protonplus
       ];
     };
   };
