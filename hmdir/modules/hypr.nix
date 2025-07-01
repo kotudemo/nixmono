@@ -10,7 +10,7 @@
         enable = true;
 
         settings = {
-          monitor = "HDMI-A-3,1920x1080@144,0x0,1";
+          monitor = ",1920x1080@143.98Hz,0x0,1";
           "$mainMod" = "SUPER";
           "$terminal" = "ghostty";
           "$calc" = "kcalc";
