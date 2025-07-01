@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
   ...
@@ -208,15 +207,15 @@
             "$mainMod, B, exec, vesktop"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"
-            "SUPER_ALT, S, exec, grimblast -f -c copy screen"
-            "SUPER_CTRL, S, exec, grimblast -f save area - | swappy -f -"
-            "CTRL, Print, exec, grimblast -c copysave screen ~/screens/screen-$(date +%s).png"
-            ", Print, exec, grimblast -f copysave area ~/screens/screen-$(date +%s).png"
+            "SUPER_ALT, S, exec, ${lib.getExe pkgs.grimblast} -f -c copy screen"
+            "SUPER_CTRL, S, exec, ${lib.getExe pkgs.grimblast} -f save area - | ${lib.getExe pkgs.swappy} -f -"
+            "CTRL, Print, exec, ${lib.getExe pkgs.grimblast} -c copysave screen ~/screens/screen-$(date +%s).png"
+            ", Print, exec, ${lib.getExe pkgs.grimblast} -f copysave area ~/screens/screen-$(date +%s).png"
             "SUPER_SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-            "SUPER_SHIFT, S, exec, grimblast -f copy area"
-            "SUPER_SHIFT, T, exec, grimblast -f save area - | tesseract -l eng stdin stdout | wl-copy"
-            "SUPER_SHIFT, R, exec, grimblast -f save area - | tesseract -l rus stdin stdout | wl-copy"
-            "SUPER_SHIFT, C, exec, hyprpicker -a"
+            "SUPER_SHIFT, S, exec, ${lib.getExe pkgs.grimblast} -f copy area"
+            "SUPER_SHIFT, T, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l eng stdin stdout | wl-copy"
+            "SUPER_SHIFT, R, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l rus stdin stdout | wl-copy"
+            "SUPER_SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
             "SUPER_SHIFT, M, exit,"
             #"ALT, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=key=$reverse --sort-recent && hyprswitch dispatch"
             "$mainMod, Q, killactive,"
@@ -268,12 +267,22 @@
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
+          # bindl = [
+          #   ", XF86AudioRaiseVolume, exec, pamixer -i 5"
+          #   ", XF86AudioLowerVolume, exec, pamixer -d 5"
+          #   ", XF86AudioMute, exec, pamixer -t"
+          #   ", XF86AudioMicMute, exec, pamixer --default-source -m"
+          # ];
+          bindel = [
+            ", XF86AudioRaiseVolume, exec, ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+            ", XF86AudioLowerVolume, exec, ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ];
 
           bindl = [
-            ", XF86AudioRaiseVolume, exec, pamixer -i 5"
-            ", XF86AudioLowerVolume, exec, pamixer -d 5"
-            ", XF86AudioMute, exec, pamixer -t"
-            ", XF86AudioMicMute, exec, pamixer --default-source -m"
+            ", XF86AudioPlay, exec, ${lib.getExe pkgs.playerctl} play-pause"
+            ", XF86AudioPrev, exec, ${lib.getExe pkgs.playerctl} previous"
+            ", XF86AudioNext, exec, ${lib.getExe pkgs.playerctl} next"
+            ", XF86AudioMute, exec, ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ];
         };
       };

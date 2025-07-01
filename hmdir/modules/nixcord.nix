@@ -1,9 +1,6 @@
 {
   inputs,
-  pkgs,
   self,
-  cfgDir,
-  config,
   ...
 }: {
   imports = [

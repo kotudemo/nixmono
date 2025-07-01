@@ -17,7 +17,6 @@
     ./modules/bat.nix
     ./modules/stylix.nix
     ./modules/nixcord.nix
-    ./modules/firefox.nix
     ./modules/fastfetch.nix
     ./modules/swayimg.nix
     ./modules/wofi.nix
@@ -36,9 +35,7 @@
       cliphist
       easyeffects
       google-cursor
-      grimblast
       hyprpaper
-      hyprpicker
       hyprprop
       kdePackages.ark
       kdePackages.kcalc
@@ -50,7 +47,6 @@
       qbittorrent-enhanced
       spicetify-cli
       spotify
-      swappy
       tesseract
       vscodium-fhs
       wf-recorder

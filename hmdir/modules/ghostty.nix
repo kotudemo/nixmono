@@ -7,6 +7,13 @@
       enableZshIntegration = true;
       installBatSyntax = true;
       installVimSyntax = true;
+      package = pkgs.ghostty.overrideAttrs (_: {
+        preBuild = ''
+          shopt -s globstar
+          sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
+          shopt -u globstar
+        '';
+      });
       settings = {
         # theme = "dark_everforest";
         #theme = "tokyonight";
