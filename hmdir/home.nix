@@ -59,7 +59,21 @@
     #  };
     #};
   };
-
+  services = {
+    flatpak = {
+      enable = true;
+      update = {
+        packages [
+          com.spotify.Client
+        ];
+        onActivation = true;
+        auto = {
+          enable = true;
+          onCalendar = "weekly"; # Default value
+        };
+      };
+    };
+  };
   qt = {
     enable = true;
     platformTheme.name = "qtct";

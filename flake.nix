@@ -67,6 +67,7 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/";
   };
 
   outputs = {
@@ -85,6 +86,7 @@
     nixcord,
     hyprshell,
     aagl,
+    nix-flatpak,
     ...
   } @ inputs: let
     cfgDir = "~/sigmaNix";
@@ -96,6 +98,7 @@
         ./hmdir/home.nix
         inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
+        inputs.nix-flatpak.homeManagerModules.nix-flatpak
         inputs.nur.modules.homeManager.default
       ];
     };
@@ -644,7 +647,6 @@
               };
 
               services = {
-                flatpak.enable = true;
                 fstrim.enable = true;
                 gvfs.enable = true;
                 udisks2.enable = true;
