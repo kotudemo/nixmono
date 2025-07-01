@@ -5,25 +5,24 @@
   ...
 }: {
   imports = [
-    ./programs/starship.nix
-    ./programs/eza.nix
-    ./programs/helix.nix
-    ./programs/yazi.nix
-    ./programs/ghostty.nix
-    ./programs/nh.nix
-    ./programs/bash.nix
-    ./programs/zoxide.nix
-    ./programs/bat.nix
-    ./programs/stylix.nix
-    ./programs/nixcord.nix
-    ./programs/firefox.nix
-    ./programs/fastfetch.nix
-    ./programs/hyprlock.nix
-    ./programs/swayimg.nix
-    ./programs/wofi.nix
-    ./programs/chromium.nix
-    ./programs/hyprland.nix
-    ./programs/hyprpanel.nix
+    ./modules/starship.nix
+    ./modules/eza.nix
+    ./modules/helix.nix
+    ./modules/yazi.nix
+    ./modules/ghostty.nix
+    ./modules/nh.nix
+    ./modules/bash.nix
+    ./modules/zoxide.nix
+    ./modules/bat.nix
+    ./modules/stylix.nix
+    ./modules/nixcord.nix
+    ./modules/firefox.nix
+    ./modules/fastfetch.nix
+    ./modules/hyprlock.nix
+    ./modules/swayimg.nix
+    ./modules/wofi.nix
+    ./modules/chromium.nix
+    ./modules/hypr.nix
   ];
   home = {
     username = "kd";
@@ -125,79 +124,8 @@
       allowBroken = true;
     };
     overlays = [
-      # inputs.hyprpanel.overlay
+      inputs.hyprpanel.overlay
     ];
-  };
-
-  systemd.user = {
-    services = {
-      hyprpolkitagent = {
-        Unit = {
-          Description = "Hyprpolkitagent service.";
-          WantedBy = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${lib.getExe pkgs.hyprpolkitagent}";
-          Restart = "always";
-          RestartSec = 10;
-        };
-
-        Install = {
-          After = "graphical-session.target";
-          ConditionEnvironment = "WAYLAND_DISPLAY";
-          PartOf = "graphical-session.target";
-        };
-      };
-      hyprpanel = {
-        Unit = {
-          Description = "Hyprpanel service.";
-          WantedBy = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${lib.getExe pkgs.hyprpanel}";
-          Restart = "always";
-          RestartSec = 1;
-        };
-
-        Install = {
-          After = "graphical-session.target";
-          ConditionEnvironment = "WAYLAND_DISPLAY";
-          PartOf = "graphical-session.target";
-        };
-      };
-    };
-  };
-
-  services = {
-    hypridle = {
-      enable = true;
-      settings = {
-        general = {
-          before_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms off";
-          after_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
-        };
-
-        listener = [
-          {
-            timeout = 300;
-            on-timeout = "${lib.getExe pkgs.brightnessctl} -s set 10";
-            on-resume = "${lib.getExe pkgs.brightnessctl} -r";
-          }
-
-          {
-            timeout = 600;
-            on-timeout = "${lib.getExe pkgs.hyprlock}";
-          }
-
-          {
-            timeout = 900;
-            on-timeout = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
-          }
-        ];
-      };
-    };
   };
 
   programs.home-manager = {
