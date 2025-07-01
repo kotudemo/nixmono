@@ -46,7 +46,6 @@
       pwvucontrol
       qbittorrent-enhanced
       spicetify-cli
-      spotify
       tesseract
       vscodium-fhs
       wf-recorder
@@ -58,21 +57,6 @@
     #    source = "${self}/attachments/dots/hyprlandarch/config.json";
     #  };
     #};
-  };
-  services = {
-    flatpak = {
-      enable = true;
-      packages = [
-        "com.spotify.Client"
-      ];
-      update = {
-        onActivation = true;
-        auto = {
-          enable = true;
-          onCalendar = "weekly"; # Default value
-        };
-      };
-    };
   };
   qt = {
     enable = true;

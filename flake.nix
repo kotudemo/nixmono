@@ -67,7 +67,6 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/";
   };
 
   outputs = {
@@ -98,7 +97,6 @@
         ./hmdir/home.nix
         inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
-        inputs.nix-flatpak.homeManagerModules.nix-flatpak
         inputs.nur.modules.homeManager.default
       ];
     };
@@ -123,6 +121,10 @@
                 # Include the results of the hardware scan.
                 (modulesPath + "/installer/scan/not-detected.nix")
                 inputs.aagl.nixosModules.default
+                inputs.chaotic.nixosModules.default
+                inputs.nix-index-database.nixosModules.nix-index
+                inputs.zapret-presets.nixosModules.presets
+                inputs.home-manager.nixosModules.default
                 ./options/modules.nix
               ];
 
@@ -650,7 +652,9 @@
                 udisks2.enable = true;
                 tumbler.enable = true;
                 pulseaudio.enable = false;
-
+                flatpak = {
+                  enable = true;
+                };
                 zapret = {
                   enable = true;
                   sf_presets = {
@@ -965,10 +969,6 @@
               };
             }
           )
-          inputs.chaotic.nixosModules.default
-          inputs.nix-index-database.nixosModules.nix-index
-          inputs.zapret-presets.nixosModules.presets
-          inputs.home-manager.nixosModules.default
         ];
       };
     };
