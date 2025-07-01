@@ -16,12 +16,12 @@
         }
       );
       extensions = [
-        { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
-        { id = "ponfpcnoihfmfllpaingbgckeeldkhle"; }
-        { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; }
-        { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
-        { id = "edibdbjcniadpccecjdfdjjppcpchdlm"; }
-        { id = "jceaicinopjaoknlhdfdjileacogogep"; }
+        {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";}
+        {id = "ponfpcnoihfmfllpaingbgckeeldkhle";}
+        {id = "mnjggcdmjocbbbhaepdhchncahnbgone";}
+        {id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";}
+        {id = "edibdbjcniadpccecjdfdjjppcpchdlm";}
+        {id = "jceaicinopjaoknlhdfdjileacogogep";}
       ];
     };
   };

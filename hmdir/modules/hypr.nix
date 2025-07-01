@@ -1,4 +1,10 @@
-{pkgs, inputs, lib, config, ...}: {
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  ...
+}: {
   wayland = {
     windowManager = {
       hyprland = {
@@ -273,7 +279,7 @@
       };
     };
   };
-    programs = {
+  programs = {
     hyprlock = {
       enable = true;
 
@@ -360,7 +366,7 @@
     };
   };
 
-    systemd.user = {
+  systemd.user = {
     services = {
       hyprpolkitagent = {
         Unit = {
