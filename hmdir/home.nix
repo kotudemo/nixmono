@@ -2,6 +2,9 @@
   pkgs,
   lib,
   inputs,
+  config,
+  cfgDir,
+  self,
   ...
 }: {
   imports = [
@@ -37,12 +40,11 @@
       easyeffects
       google-cursor
       grimblast
+      hyprpanel
+      hyprpaper
+      hyprpicker
+      hyprprop
       kdePackages.ark
-      kdePackages.dolphin
-      kdePackages.kdegraphics-thumbnailers
-      libsForQt5.ffmpegthumbs
-      kdePackages.qtsvg
-      libsForQt5.kio-extras
       kdePackages.kcalc
       libreoffice-qt6-fresh
       mpv
@@ -54,11 +56,16 @@
       spotify
       swappy
       tesseract
-      vscodium-fhsWithPackages
+      vscodium-fhs
       wf-recorder
       wl-clipboard-rs
       wlsunset
     ];
+    file = {
+      "${cfgDir}/.config/hyprpanel/config.json" = {
+          source = "${self}/attachments/dots/hyprlandarch/config.json";
+      };
+    };
   };
 
   qt = {

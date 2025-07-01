@@ -101,7 +101,7 @@
         ./hmdir/home.nix
         inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
-        inputs.hyprpanel.homeManagerModules.hyprpanel
+        #inputs.hyprpanel.homeManagerModules.hyprpanel
         inputs.nur.modules.homeManager.default
       ];
     };
@@ -653,6 +653,7 @@
                 fstrim.enable = true;
                 gvfs.enable = true;
                 udisks2.enable = true;
+                tumbler.enable = true;
                 pulseaudio.enable = false;
 
                 zapret = {
@@ -901,6 +902,16 @@
                   enable = true;
                   package = pkgs.jdk24;
                 };
+                thunar = {
+                  enable = true;
+                  plugins = with pkgs.xfce; [
+                    thunar-archive-plugin
+                    thunar-volman
+                    thunar-vcs-plugin
+                    thunar-media-tags-plugin
+                  ];
+                };
+                xfconf.enable = true;
                 nix-index-database.comma.enable = true;
                 amnezia-vpn.enable = true;
                 adb.enable = true;

@@ -22,10 +22,9 @@
 12. Manage Git and Zerotier secrets via SOPS and AgeNix
 13. Add Docker configuration
 14. Fix hyprpanel config
-15. Declare qt and kde.packages theme
 16. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-17. Hardened specialisation
-18. Steal some plugins form hand7s Hyprland config 
+17. Steal some plugins form hand7s Hyprland config 
+18. Hardened specialisation
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

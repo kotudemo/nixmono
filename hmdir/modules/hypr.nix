@@ -1,4 +1,4 @@
-{pkgs, inputs, cfgDir, lib, config, ...}: {
+{pkgs, inputs, lib, config, ...}: {
   wayland = {
     windowManager = {
       hyprland = {
@@ -10,7 +10,7 @@
           "$terminal" = "ghostty";
           "$calc" = "kcalc";
           "$browser" = "chromium";
-          "$fileManager" = "dolphin";
+          "$fileManager" = "thunar";
           "$key" = "tab";
 
           exec-once = [
@@ -359,19 +359,7 @@
       };
     };
   };
-  home = {
-    file = {
-      "${config.users.users.kd.home}/.config/hyprpanel/config.json" = {
-          source = "${cfgDir}/attachments/dots/hyprlandarch/config.json";
-      };
-    };
-    packages = with pkgs; [
-      hyprpanel
-      hyprpaper
-      hyprpicker
-      hyprprop
-    ];
-  };
+
     systemd.user = {
     services = {
       hyprpolkitagent = {
@@ -399,7 +387,8 @@
         };
 
         Service = {
-          ExecStart = "${lib.getExe pkgs.hyprpanel}";
+          ExecStart = "hyprpanel";
+          #ExecStart = "${lib.getExe pkgs.hyprpanel}";
           Restart = "always";
           RestartSec = 1;
         };
