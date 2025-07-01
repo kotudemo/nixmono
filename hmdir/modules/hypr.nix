@@ -197,7 +197,7 @@
             "$mainMod, period, exec, bemoji -cn"
             "$mainMod, O, exec, obs"
             "$mainMod, T, exec, ayugram-desktop"
-            "$mainMod, C, exec, vscode"
+            "$mainMod, C, exec, codium"
             "$mainMod, S, exec, spotify"
             "$mainMod, B, exec, vesktop"
             "$mainMod, D, exec, wofi --show drun"

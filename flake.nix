@@ -822,6 +822,7 @@
                   nvtopPackages.full
                   python3Full
                   python.pkgs.pip
+                  xdg-utils
                 ];
                 shellAliases = {
                   cl = "clear";
@@ -915,6 +916,7 @@
                 nix-index-database.comma.enable = true;
                 amnezia-vpn.enable = true;
                 adb.enable = true;
+                dconf.enable = true;
               };
 
               system = {

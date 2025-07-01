@@ -36,7 +36,6 @@
       blesh
       brightnessctl
       cliphist
-      dconf
       easyeffects
       google-cursor
       grimblast
