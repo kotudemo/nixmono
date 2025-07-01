@@ -78,7 +78,7 @@
 
   gtk = {
     enable = true;
-    iconTheme = {
+    iconTheme = lib.mkForce {
       name = "Whitesur-icon-theme";
       package = pkgs.whitesur-icon-theme;
     };
