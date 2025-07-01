@@ -59,10 +59,6 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
     };
-    hyprpanel = {
-      url = "github:jas-singhfsu/hyprpanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprshell = {
       url = "github:H3rmt/hyprswitch?ref=hyprshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,7 +83,6 @@
     stylix,
     zapret-presets,
     nixcord,
-    hyprpanel,
     hyprshell,
     aagl,
     ...
@@ -101,7 +96,6 @@
         ./hmdir/home.nix
         inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
-        #inputs.hyprpanel.homeManagerModules.hyprpanel
         inputs.nur.modules.homeManager.default
       ];
     };
@@ -843,7 +837,7 @@
                   nsp = "nix-shell -p";
                   ncg = "nh clean all --keep 3 --keep-since 1d";
                   upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${cfgDir}";
-                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0 ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf ${config.users.users.kd.home}/.config/qt6ct/qt6ct.conf ${config.users.users.kd.home}/.config/hyprpanel/config.json && , home-manager switch --flake ${cfgDir}"; #for home configurations
+                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0 ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf ${config.users.users.kd.home}/.config/qt6ct/qt6ct.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
                   gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                   ff = "fastfetch";
                   cd = "z";

@@ -2,8 +2,6 @@
   pkgs,
   lib,
   inputs,
-  config,
-  cfgDir,
   self,
   ...
 }: {
@@ -39,7 +37,6 @@
       easyeffects
       google-cursor
       grimblast
-      hyprpanel
       hyprpaper
       hyprpicker
       hyprprop
@@ -60,11 +57,11 @@
       wl-clipboard-rs
       wlsunset
     ];
-    file = {
-      ".config/hyprpanel/config.json" = {
-          source = "${self}/attachments/dots/hyprlandarch/config.json";
-      };
-    };
+    #file = {
+    #  ".config/hyprpanel/config.json" = {
+    #    source = "${self}/attachments/dots/hyprlandarch/config.json";
+    #  };
+    #};
   };
 
   qt = {
@@ -126,7 +123,7 @@
       allowBroken = true;
     };
     overlays = [
-      inputs.hyprpanel.overlay
+
     ];
   };
 

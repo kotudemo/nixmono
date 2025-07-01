@@ -16,7 +16,7 @@
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
-            "systemctl --user start hyprpanel.service"
+            #"systemctl --user start hyprpanel.service"
             # "systemctl --user start hyprshell.service"
             #"hyprswitch init --show-title"
             "hyprctl setcursor GoogleDot-Black 24"
@@ -387,7 +387,6 @@
         };
 
         Service = {
-          #ExecStart = "hyprpanel";
           ExecStart = "${lib.getExe pkgs.hyprpanel}";
           Restart = "always";
           RestartSec = 1;
