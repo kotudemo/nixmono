@@ -67,6 +67,7 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-proton-cachyos.url = "github:kimjongbing/nix-proton-cachyos";
   };
 
   outputs = {
