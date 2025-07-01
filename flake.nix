@@ -904,6 +904,27 @@
                   defaultApplications = {
                     "x-scheme-handler/http" = "chromium.desktop";
                     "x-scheme-handler/https" = "chromium.desktop";
+                    "x-scheme-handler/chrome" = "chromium.desktop";
+                    "text/*" = "text.desktop";
+                    "application/x-shellscript" = "text.desktop";
+                    "application/octet-stream" = "text.desktop";
+                    "image/*" = "swayimg.desktop";
+                    "video/*" = "mpv.desktop";
+                    "audio/*" = "mpv.desktop";
+                    "x-scheme-handler/magnet" = "qbittorrent.desktop";
+                    "application/x-bittorrent" = "qbittorrent.desktop";
+                    "x-scheme-handler/mailto" = "mail.desktop";
+                    "application/postscript" = "pdf.desktop";
+                    "application/pdf" = "pdf.desktop";
+                    "application/rss+xml" = "rss.desktop";
+                    "inode/directory" = "thunar.desktop";
+                    "text/html" = "chromium.desktop";
+                    "application/x-extension-htm" = "chromium.desktop";
+                    "application/x-extension-html" = "chromium.desktop";
+                    "application/x-extension-shtml" = "chromium.desktop";
+                    "application/xhtml+xml" = "chromium.desktop";
+                    "application/x-extension-xhtml" = "chromium.desktop";
+                    "application/x-extension-xht" = "chromium.desktop";
                   };
                 };
               };
