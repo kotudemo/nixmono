@@ -655,7 +655,7 @@
                   enable = true;
                   sf_presets = {
                     enable = true;
-                    preset = "renixos";
+                    preset = "general";
                   };
                 };
 

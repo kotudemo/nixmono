@@ -25,6 +25,10 @@
 15. Steal some plugins form hand7s Hyprland config 
 16. Hardened specialisation
 17. Custom boot manager skin 
+18. Automount hard drives
+19. Change file manager to yazi
+20. Update zapret flakes
+21. Update flake.lock
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
