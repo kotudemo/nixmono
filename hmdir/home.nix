@@ -18,7 +18,6 @@
     ./modules/nixcord.nix
     ./modules/firefox.nix
     ./modules/fastfetch.nix
-    ./modules/hyprlock.nix
     ./modules/swayimg.nix
     ./modules/wofi.nix
     ./modules/chromium.nix
@@ -36,11 +35,8 @@
       cliphist
       dconf
       easyeffects
-      hyprpaper
       google-cursor
       grimblast
-      hyprpicker
-      hyprprop
       kdePackages.ark
       kdePackages.dolphin
       kdePackages.kdegraphics-thumbnailers
