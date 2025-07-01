@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs = {
     ghostty = {
       enable = true; # enabling toggle
