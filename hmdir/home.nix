@@ -61,7 +61,7 @@
       wlsunset
     ];
     file = {
-      "${cfgDir}/.config/hyprpanel/config.json" = {
+      ".config/hyprpanel/config.json" = {
           source = "${self}/attachments/dots/hyprlandarch/config.json";
       };
     };
