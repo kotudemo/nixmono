@@ -9,22 +9,21 @@
 
 1. Package UFR II printer driver via Flake
 2. Package XP-Pen driver via Flake
-3. Decalre chromium extensions  
-4. Declare Spicetify extensions  
+3. Declare Spicetify extensions  
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
-5. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
-6. Declare Flatpak applications
-7. Integrate [Disko](https://github.com/nix-community/disko)
-8. Add `nixos-anywhere` installation guide
-9. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
-10. Refactor everything into options for full customization
-11. Fix clipboard history
-12. Manage Git and Zerotier secrets via SOPS and AgeNix
-13. Add Docker configuration
-14. Fix hyprpanel config
-16. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-17. Steal some plugins form hand7s Hyprland config 
-18. Hardened specialisation
+4. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
+5. Declare Flatpak applications
+6. Integrate [Disko](https://github.com/nix-community/disko)
+7. Add `nixos-anywhere` installation guide
+8. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
+9. Refactor everything into options for full customization
+10. Find new clipboard history manager
+11. Manage Git and Zerotier secrets via SOPS and AgeNix
+12. Add Docker configuration
+13. Find new panel
+14. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
+15. Steal some plugins form hand7s Hyprland config 
+16. Hardened specialisation
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

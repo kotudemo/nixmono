@@ -15,6 +15,14 @@
           ];
         }
       );
+      extensions = [
+        { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
+        { id = "ponfpcnoihfmfllpaingbgckeeldkhle"; }
+        { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; }
+        { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
+        { id = "edibdbjcniadpccecjdfdjjppcpchdlm"; }
+        { id = "jceaicinopjaoknlhdfdjileacogogep"; }
+      ];
     };
   };
   home.packages = with pkgs; [
