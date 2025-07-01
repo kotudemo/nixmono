@@ -36,14 +36,14 @@
           ];
 
           env = [
-            "env = XDG_CURRENT_DESKTOP,Hyprland"
-            "env = XDG_SESSION_TYPE,wayland"
-            "env = XDG_SESSION_DESKTOP,Hyprland"
-            "env = XCURSOR_SIZE,8"
-            "env = QT_QPA_PLATFORM,wayland"
+            #"env = XDG_CURRENT_DESKTOP,Hyprland"
+            #"env = XDG_SESSION_TYPE,wayland"
+            #"env = XDG_SESSION_DESKTOP,Hyprland"
+            #"env = XCURSOR_SIZE,8"
+            #"env = QT_QPA_PLATFORM,wayland"
+            #"env = XDG_SCREENSHOTS_DIR,~/screens"
+            #"env = ELECTRON_OZONE_PLATFORM_HINT,auto"
             #"env = QT_QPA_PLATFORMTHEME=qt6ct"
-            "env = XDG_SCREENSHOTS_DIR,~/screens"
-            "env = ELECTRON_OZONE_PLATFORM_HINT,auto"
             # env = MOZ_ENABLE_WAYLAND,0
             # Nvidima
             #"env = LIBVA_DRIVER_NAME,nvidia"
