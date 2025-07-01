@@ -62,10 +62,10 @@
   services = {
     flatpak = {
       enable = true;
+      packages = [
+        "com.spotify.Client"
+      ];
       update = {
-        packages [
-          com.spotify.Client
-        ];
         onActivation = true;
         auto = {
           enable = true;
