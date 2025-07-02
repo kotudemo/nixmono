@@ -47,6 +47,8 @@ in {
         inputs.freesm.packages.${pkgs.system}.freesmlauncher
         adwsteamgtk
         protonplus
+        mangohud
+        mangojuice
       ];
     };
   };

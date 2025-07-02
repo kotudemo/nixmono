@@ -40,7 +40,6 @@
       kdePackages.ark
       kdePackages.kcalc
       libreoffice-qt6-fresh
-      mangojuice
       mpv
       obs-studio
       pamixer
