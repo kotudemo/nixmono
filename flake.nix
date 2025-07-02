@@ -97,6 +97,7 @@
         inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
         inputs.nur.modules.homeManager.default
+        inputs.nixcord.homeModules.nixcord
       ];
     };
 
