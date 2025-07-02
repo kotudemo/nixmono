@@ -204,7 +204,7 @@
             "$mainMod, T, exec, ayugram-desktop"
             "$mainMod, C, exec, codium"
             "$mainMod, S, exec, spotify"
-            "$mainMod, B, exec, discord"
+            "$mainMod, B, exec, vesktop"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"
             "SUPER_ALT, S, exec, ${lib.getExe pkgs.grimblast} -f -c copy screen"
