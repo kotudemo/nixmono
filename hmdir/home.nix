@@ -21,6 +21,7 @@
     ./modules/wofi.nix
     ./modules/chromium.nix
     ./modules/hypr.nix
+    ./modules/mangohud.nix
   ];
   home = {
     username = "kd";
