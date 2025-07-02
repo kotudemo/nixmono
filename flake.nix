@@ -56,13 +56,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-    };
-    hyprshell = {
-      url = "github:H3rmt/hyprswitch?ref=hyprshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,8 +75,6 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
-    nixcord,
-    hyprshell,
     aagl,
     ...
   } @ inputs: let
