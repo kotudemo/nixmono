@@ -44,7 +44,7 @@ in {
     };
     environment = {
       systemPackages = with pkgs; [
-        inputs.freesm.packages.${pkgs.system}.freesmlauncher
+        #inputs.freesm.packages.${pkgs.system}.freesmlauncher
         adwsteamgtk
         protonplus
       ];

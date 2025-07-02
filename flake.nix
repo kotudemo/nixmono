@@ -588,9 +588,9 @@
               };
 
               security = {
-                rtkit = {
-                  enable = true;
-                };
+                # rtkit = {
+                #   enable = true;
+                # };
                 polkit = {
                   enable = true;
                   adminIdentities = [
@@ -861,6 +861,7 @@
                 systemPackages = with pkgs; [
                   fishPlugins.autopair
                   home-manager
+                  ripgrep
                   ripgrep-all
                   tealdeer
                   comma
