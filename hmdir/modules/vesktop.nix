@@ -9,8 +9,6 @@
     enable = true;
 
     vencord = {
-      enable = true;
-
       settings = lib.mkForce {
         # Core settings
         autoUpdate = false;
