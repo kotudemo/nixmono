@@ -21,7 +21,6 @@
     ./modules/wofi.nix
     ./modules/chromium.nix
     ./modules/hypr.nix
-    ./modules/mangohud.nix
   ];
   home = {
     username = "kd";
@@ -41,6 +40,7 @@
       kdePackages.ark
       kdePackages.kcalc
       libreoffice-qt6-fresh
+      mangojuice
       mpv
       obs-studio
       pamixer
