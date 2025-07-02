@@ -11,7 +11,6 @@
     ./modules/helix.nix
     ./modules/yazi.nix
     ./modules/ghostty.nix
-    ./modules/nh.nix
     ./modules/bash.nix
     ./modules/zoxide.nix
     ./modules/bat.nix

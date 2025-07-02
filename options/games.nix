@@ -22,6 +22,9 @@ in {
         remotePlay = {
           openFirewall = true;
         };
+        localNetworkGameTransfers = {
+          openFirewall = true;
+        };
         gamescopeSession = {
           enable = true;
         };
@@ -31,6 +34,13 @@ in {
         enable = true;
       };
       gamemode.enable = true;
+      gamescope = {
+        enable = true;
+        package = pkgs.gamescope_git;
+        args = [
+          "-e"
+        ];
+      };
     };
     environment = {
       systemPackages = with pkgs; [

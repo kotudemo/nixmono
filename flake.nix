@@ -161,9 +161,14 @@
                 kernelModules = [
                   "kvm-intel"
                   "amdgpu"
+                  "v4l2loopback"
                 ];
                 extraModulePackages = with config.boot.kernelPackages; [
+                  v4l2loopback
                 ];
+                extraModprobeConfig = ''
+                  options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+                '';
                 blacklistedKernelModules = [
                   "k10temp"
                   "ax25"
@@ -221,6 +226,12 @@
                   supportedFilesystems = [
                     "ntfs"
                     "refs"
+                  ];
+                };
+                plymouth = {
+                  enable = true;
+                  themePackages = with pkgs; [
+                    nixos-bgrt-plymouth
                   ];
                 };
               };
@@ -596,7 +607,10 @@
                 };
               };
 
-              time.timeZone = "Europe/Samara";
+              time = {
+                timeZone = "Europe/Samara";
+                hardwareClockInLocalTime = true;
+              };
 
               fonts = {
                 packages = with pkgs; [
@@ -641,8 +655,7 @@
 
               console = {
                 enable = true;
-                keyMap = "us";
-                useXkbConfig = false;
+                useXkbConfig = true;
               };
 
               services = {
@@ -651,6 +664,7 @@
                 udisks2.enable = true;
                 tumbler.enable = true;
                 pulseaudio.enable = false;
+                irqbalance.enable = true;
                 flatpak = {
                   enable = true;
                 };
@@ -665,7 +679,7 @@
                 ananicy = {
                   enable = true;
                   package = pkgs.ananicy-cpp;
-                  rulesProvider = pkgs.ananicy-rules-cachyos;
+                  rulesProvider = pkgs.ananicy-rules-cachyos_git;
                 };
 
                 greetd = {
@@ -708,6 +722,42 @@
                   enable = true;
                   nssmdns4 = true;
                   openFirewall = true;
+                };
+
+                resolved = {
+                  enable = true;
+                  dnsovertls = "true";
+                  dnssec = "true";
+                  llmnr = "resolve";
+                  domains = [
+                    "~."
+                  ];
+
+                  fallbackDns = [
+                    # cf dns
+                    "1.1.1.1"
+                    "1.0.0.1"
+                    "2606:4700:4700::1111"
+                    "2606:4700:4700::1001"
+
+                    # google dns
+                    "8.8.8.8"
+                    "8.8.4.4"
+                    "2001:4860:4860::8888"
+                    "2001:4860:4860::8844"
+
+                    # q9 dns
+                    "9.9.9.9"
+                    "149.112.112.112"
+                    "2620:fe::fe"
+                    "2620:fe::9"
+
+                    # open dns
+                    "208.67.222.222"
+                    "208.67.220.220"
+                    "2620:119:35::35"
+                    "2620:119:53::53"
+                  ];
                 };
 
                 pipewire = {
@@ -968,6 +1018,14 @@
                     thunar-vcs-plugin
                     thunar-media-tags-plugin
                   ];
+                };
+                nh = {
+                  enable = true; # enabling togglek
+                  clean = {
+                    enable = true;
+                    dates = "weekly";
+                    extraArgs = "--keep 2 --keep-since 2d";
+                  };
                 };
                 xfconf.enable = true;
                 nix-index-database.comma.enable = true;
