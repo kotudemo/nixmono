@@ -27,6 +27,12 @@
     homeDirectory = "/home/kd";
     stateVersion = "25.11";
     packages = with pkgs; [
+         webcord
+         legcord
+         (discord-krisp.override {
+      withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
       ayugram-desktop
       bemoji
       blesh
