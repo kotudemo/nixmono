@@ -158,6 +158,7 @@
                 kernelPackages = pkgs.linuxPackages_cachyos;
                 #kernelPackages = pkgs.linuxPackages_zen;
                 #kernelPackages = pkgs.linuxPackages_xanmod;
+                kernelParams = ["preempt=full"];
                 kernelModules = [
                   "kvm-intel"
                   "amdgpu"
@@ -588,9 +589,9 @@
               };
 
               security = {
-                # rtkit = {
-                #   enable = true;
-                # };
+                rtkit = {
+                  enable = true;
+                };
                 polkit = {
                   enable = true;
                   adminIdentities = [
