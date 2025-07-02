@@ -575,7 +575,6 @@
           FullUserInChatbox.enabled = false;
           IrcColors.enabled = false;
         };
-      };
 
       # QuickCSS with Gruvbox theme
       quickCss = ''
@@ -583,4 +582,5 @@
       '';
     };
   };
+};
 }
