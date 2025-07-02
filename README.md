@@ -22,14 +22,14 @@
 12. Add Docker configuration
 13. Find new panel
 14. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-15. Steal some plugins form hand7s Hyprland config 
+15. Steal some hyprlannd plugins form hand7s Hyprland config 
 16. Hardened specialisation
 17. Custom boot manager skin 
 18. Automount hard drives
 19. Change file manager to yazi
 20. Update zapret flakes
 21. Update flake.lock
-22. Fix audio
+22. Change launcher
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

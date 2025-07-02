@@ -1,6 +1,6 @@
 {
   inputs,
-  self,
+  pkgs,
   ...
 }: {
   imports = [
@@ -9,12 +9,15 @@
 
   programs.nixcord = {
     enable = true; # enable Nixcord. Also installs discord package
-    vesktop = {
+    discord = {
       enable = true;
-      autoscroll = {
+      package = pkgs.discord-krisp;
+      branch = "canary";
+      vencord = {
         enable = true;
       };
-      #configDir = "../../attachments/dots/vencord";
+      openASAR.enable = true;
+      autoscroll.enable = true;
     };
   };
   # ...
