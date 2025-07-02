@@ -29,6 +29,7 @@
 19. Change file manager to yazi
 20. Update zapret flakes
 21. Update flake.lock
+22. Fix audio
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
