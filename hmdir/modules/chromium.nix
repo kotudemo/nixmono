@@ -27,9 +27,6 @@
 
         {id = "giokfhncgfjkoamdbhfhfhgpikaioccc";}
       ];
-      extraOpts = {
-        "ExtensionManifestV2Availability" = 2;
-      };
     };
   };
   home.packages = with pkgs; [
