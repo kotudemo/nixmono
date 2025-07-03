@@ -132,6 +132,11 @@
                 fsType = "vfat";
                 options = ["fmask=0077" "dmask=0077"];
               };
+
+              fileSystems."/home/kd/hdd" = {
+                device = "/dev/disk/by-uuid/1E5C6D985C6D6C09";
+                fsType = "ntfs";
+              };
               /*
                 fileSystems."/" = {
                 device = "/dev/disk/by-label/root";

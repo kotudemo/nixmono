@@ -27,12 +27,10 @@
 17. Custom boot manager skin 
 18. Automount hard drives
 19. Change file manager to yazi
-20. Update zapret flakes
-21. Update flake.lock
-22. Change launcher
-23. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
-24. Better animations for hyprland
-25. Better dns servers
+20. Change launcher
+21. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
+22. Better animations for hyprland
+23. Better dns servers
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
