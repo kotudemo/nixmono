@@ -19,18 +19,17 @@
 9. Refactor everything into options for full customization
 11. Manage Git and Zerotier secrets via SOPS and AgeNix
 12. Add Docker configuration
-13. Find new panel
-14. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-15. Steal some hyprlannd plugins form hand7s Hyprland config 
-16. Hardened specialisation
-17. Custom boot manager skin 
-19. Change file manager to yazi
-20. Change launcher
-21. Find new clipboard history manager
-22. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
-23. Better animations for hyprland
-24. Better dns servers
-25. Easy username changing by adding a variable
+13. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
+14. Steal some hyprlannd plugins form hand7s Hyprland config 
+15. Hardened specialisation
+16. Custom boot manager skin 
+17. Change file manager to yazi
+18. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
+19. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
+20. Better animations for hyprland
+21. Better dns servers
+22. Easy username changing by adding a variable
+23. Fix gtk theme and icons
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
