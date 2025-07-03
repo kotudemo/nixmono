@@ -203,7 +203,7 @@
             "$mainMod, O, exec, obs"
             "$mainMod, T, exec, ayugram-desktop"
             "$mainMod, C, exec, codium"
-            "$mainMod, S, exec, spotify"
+            # "$mainMod, S, exec, spotify"
             "$mainMod, B, exec, discord"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"

@@ -31,6 +31,7 @@
 21. Update flake.lock
 22. Change launcher
 23. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
+24. Better animations for hyprland
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
