@@ -14,10 +14,9 @@
 4. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
 5. Declare Flatpak applications
 6. Integrate [Disko](https://github.com/nix-community/disko)
-7. Add `nixos-anywhere` installation guide
+7. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
 8. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
 9. Refactor everything into options for full customization
-10. Find new clipboard history manager
 11. Manage Git and Zerotier secrets via SOPS and AgeNix
 12. Add Docker configuration
 13. Find new panel
@@ -27,10 +26,11 @@
 17. Custom boot manager skin 
 19. Change file manager to yazi
 20. Change launcher
-21. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
-22. Better animations for hyprland
-23. Better dns servers
-24. Easy username changing by adding a variable
+21. Find new clipboard history manager
+22. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
+23. Better animations for hyprland
+24. Better dns servers
+25. Easy username changing by adding a variable
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
