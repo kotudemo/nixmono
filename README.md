@@ -25,12 +25,12 @@
 15. Steal some hyprlannd plugins form hand7s Hyprland config 
 16. Hardened specialisation
 17. Custom boot manager skin 
-18. Automount hard drives
 19. Change file manager to yazi
 20. Change launcher
 21. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
 22. Better animations for hyprland
 23. Better dns servers
+24. Easy username changing by adding a variable
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
