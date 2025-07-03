@@ -30,7 +30,7 @@
 20. Update zapret flakes
 21. Update flake.lock
 22. Change launcher
-23. Fix discord 
+23. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
