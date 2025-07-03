@@ -440,11 +440,6 @@
                   204.12.192.222 accounts.spotify.com
                   204.12.192.221 open.spotify.com
 
-                  # GitHub Copilot:
-                  50.7.87.84 api.github.com
-                  204.12.192.222 api.individual.githubcopilot.com
-                  204.12.192.222 proxy.individual.githubcopilot.com
-
                   # JetBrains:
                   50.7.85.221 datalore.jetbrains.com
                   107.150.34.100 plugins.jetbrains.com
