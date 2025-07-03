@@ -859,6 +859,7 @@
                   comma
                   git
                   gh
+                  nurl
                   p7zip-rar
                   nvtopPackages.full
                   python3Full
@@ -898,7 +899,6 @@
 
                   xh = ", xh";
                   yt = ", yt-dlp";
-                  nurl = ", nurl";
                   nom = ", nom";
 
                   sed = ", sd";

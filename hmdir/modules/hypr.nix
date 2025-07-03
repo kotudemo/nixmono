@@ -21,9 +21,6 @@
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
-            #"systemctl --user start hyprpanel.service"
-            # "systemctl --user start hyprshell.service"
-            #"hyprswitch init --show-title"
             "hyprctl setcursor GoogleDot-Black 24"
             "export QT_DISABLE_WINDOWDECORATION=1"
             "wl-paste --type text --watch cliphist store"
@@ -217,7 +214,6 @@
             "SUPER_SHIFT, R, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l rus stdin stdout | wl-copy"
             "SUPER_SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
             "SUPER_SHIFT, M, exit,"
-            #"ALT, $key, exec, hyprswitch gui --mod-key alt_l --key $key --close mod-key-release --reverse-key=key=$reverse --sort-recent && hyprswitch dispatch"
             "$mainMod, Q, killactive,"
             "$mainMod, V, fullscreen,"
             "$mainMod, SPACE, togglefloating,"
