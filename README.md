@@ -13,23 +13,21 @@
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
 4. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
 5. Declare Flatpak applications
-6. Integrate [Disko](https://github.com/nix-community/disko)
-7. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
-8. Make `passthrough.nix` better via adding options to change PCI IDs definitions and enable AMD GPU and CPU support without need to change `passthrough.nix` 
-9. Refactor everything into options for full customization
-11. Manage Git and Zerotier secrets via SOPS and AgeNix
-12. Add Docker configuration
-13. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-14. Steal some hyprlannd plugins form hand7s Hyprland config 
-15. Hardened specialisation
-16. Custom boot manager skin 
-17. Change file manager to yazi
-18. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
-19. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
-20. Better animations for hyprland
-21. Better dns servers
-22. Easy username changing by adding a variable
-23. Fix gtk theme and icons
+6. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
+8. Refactor `passthrough.nix`
+10. Manage Git and Zerotier secrets via SOPS and AgeNix
+11. Add Docker configuration
+12. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
+13. Steal some hyprlannd plugins form hand7s Hyprland config 
+14. Hardened specialisation
+15. Custom boot manager skin 
+16. Change file manager to yazi
+17. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
+18. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
+19. Better animations for hyprland
+20. Better dns servers
+21. Easy username changing by adding a variable
+22. Fix gtk theme and icons
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
