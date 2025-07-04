@@ -29,7 +29,7 @@
             "[workspace 2 silent] $browser"
             "[workspace 3 silent] discord"
             "[workspace 4 silent] ayugram-desktop"
-            "[workspace 4 silent] spotify"
+            "[workspace 4 silent] flatpak run com.spotify.Client"
           ];
 
           env = [
@@ -200,7 +200,7 @@
             "$mainMod, O, exec, obs"
             "$mainMod, T, exec, ayugram-desktop"
             "$mainMod, C, exec, codium"
-            "$mainMod, S, exec, spotify"
+            "$mainMod, S, exec, flatpak run com.spotify.Client"
             "$mainMod, B, exec, discord"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"
