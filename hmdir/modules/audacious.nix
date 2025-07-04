@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [ audacious ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [audacious];
 
   xdg.configFile."audacious/config".text = ''
     [audacious]

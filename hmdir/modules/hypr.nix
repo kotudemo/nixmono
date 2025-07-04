@@ -292,79 +292,71 @@
         general = {
           hide_cursor = true;
           ignore_empty_input = true;
+          no_fade_in = false;
+          disable_loading_bar = true;
+          fractional_scaling = 0;
         };
 
-        label = [
+        background = lib.mkForce [
           {
             monitor = "";
-            text = "$TIME";
-            text_align = "center";
-            color = config.lib.stylix.colors.base01;
-            font_size = 48;
-            font_family = "Nerd Hack Font";
-            rotate = 0;
-
-            position = "0, 50";
-            halign = "center";
-            valign = "center";
-
-            shadow_passes = 1;
-            shadow_size = 2;
-            shadow_color = "rgb(40, 40, 40)";
-            shadow_boost = 2;
-          }
-
-          {
-            monitor = "";
-            text = "> $LAYOUT[en,ru]";
-            text_align = "center";
-            color = config.lib.stylix.colors.base06;
-            font_size = 26;
-            font_family = "Nerd Hack Font";
-            rotate = 0;
-
-            position = "200, -50";
-            halign = "center";
-            valign = "center";
-
-            shadow_passes = 1;
-            shadow_size = 2;
-            shadow_color = "rgb(40, 40, 40)";
-            shadow_boost = 2;
+            blur_passes = 2;
+            contrast = 0.8916;
+            brightness = 0.8172;
+            vibrancy = 0.1696;
+            vibrancy_darkness = 0.0;
           }
         ];
 
-        input-field = lib.mkForce [
+        shape = [
+          # User box
           {
             monitor = "";
-            size = "250, 50";
-            outline_thickness = 2;
-            dots_size = 0.35;
-            dots_spacing = 0.5;
-            dots_center = true;
-            dots_rounding = -2;
-
-            fade_on_empty = false;
-            fade_timeout = 0;
-            placeholder_text = " ";
-            hide_input = false;
-            rounding = -0.3;
-
-            fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-            fail_transition = 1000;
-            capslock_color = -1;
-            numlock_color = -1;
-            bothlock_color = -1;
-            invert_numlock = false;
-            swap_font_color = false;
-
-            position = "0, -50";
+            size = "300, 50";
+            color = "rgba(102, 92, 84, 0.33)";
+            rounding = 10;
+            border_color = "rgba(255, 255, 255, 0)";
+            position = "0, 270";
             halign = "center";
-            valign = "center";
+            valign = "bottom";
+          }
+        ];
 
-            shadow_passes = 1;
-            shadow_size = 5;
-            shadow_boost = 1;
+        label = [
+          # Time
+          {
+            monitor = "";
+            text = ''cmd[update:1000] echo "$(date +'%k:%M')"'';
+            color = "rgba(235, 219, 178, 0.9)";
+            font_size = 115;
+            font_family = "Hack Nerd Font";
+            shadow_passes = 3;
+            position = "0, -150";
+            halign = "center";
+            valign = "top";
+          }
+          # Date
+          {
+            monitor = "";
+            text = ''cmd[update:1000] echo "- $(date +'%A, %B %d') -" '';
+            color = "rgba(235, 219, 178, 0.9)";
+            font_size = 18;
+            font_family = "Hack Nerd Font";
+            shadow_passes = 3;
+            position = "0, -350";
+            halign = "center";
+            valign = "top";
+          }
+          # Username
+          {
+            monitor = "";
+            text = "  $USER";
+            color = "rgba(235, 219, 178, 1)";
+            font_size = 15;
+            font_family = "Hack Nerd Font";
+            position = "0, 281";
+            halign = "center";
+            valign = "bottom";
           }
         ];
       };

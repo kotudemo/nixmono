@@ -26,12 +26,11 @@
 16. Better animations for hyprland
 17. Better dns servers
 18. Easy username changing by adding a variable
-19. Fix gtk theme and icons
-20. Hyprlock font
-21. Vim like keybindings
-22. Helix more custom keybindings
-23. Migrate to gruvbox dark
-24. Helix tutor
+19. Vim like keybindings
+20. Helix more custom keybindings
+21. Migrate to gruvbox dark
+22. Helix tutor
+23. flow-control tests
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
