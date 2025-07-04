@@ -26,10 +26,10 @@
             "wl-paste --type text --watch cliphist store"
             "wl-paste --type image --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"
-            # "[workspace 2 silent] firefox"
-            # "[workspace 3 silent] telegram-desktop"
-            # "[workspace 1 silent] vesktop"
-            # "[workspace 4 silent] spotify"
+            "[workspace 2 silent] $browser"
+            "[workspace 3 silent] discord"
+            "[workspace 4 silent] ayugram-desktop"
+            "[workspace 4 silent] spotify"
           ];
 
           env = [
@@ -200,7 +200,7 @@
             "$mainMod, O, exec, obs"
             "$mainMod, T, exec, ayugram-desktop"
             "$mainMod, C, exec, codium"
-            # "$mainMod, S, exec, spotify"
+            "$mainMod, S, exec, spotify"
             "$mainMod, B, exec, discord"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"

@@ -28,6 +28,7 @@
 20. Better dns servers
 21. Easy username changing by adding a variable
 22. Fix gtk theme and icons
+23. Hyprlock font
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
