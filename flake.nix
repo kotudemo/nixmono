@@ -977,7 +977,7 @@
                     "application/postscript" = "pdf.desktop";
                     "application/pdf" = "pdf.desktop";
                     "application/rss+xml" = "rss.desktop";
-                    "inode/directory" = "thunar.desktop";
+                    "inode/directory" = "nemo.desktop";
                     "text/html" = "chromium.desktop";
                     "application/x-extension-htm" = "chromium.desktop";
                     "application/x-extension-html" = "chromium.desktop";
@@ -1002,15 +1002,6 @@
                 java = {
                   enable = true;
                   package = pkgs.jdk24;
-                };
-                thunar = {
-                  enable = true;
-                  plugins = with pkgs.xfce; [
-                    thunar-archive-plugin
-                    thunar-volman
-                    thunar-vcs-plugin
-                    thunar-media-tags-plugin
-                  ];
                 };
                 nh = {
                   enable = true; # enabling togglek
