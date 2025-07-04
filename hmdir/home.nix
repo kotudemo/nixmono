@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    #./modules/audacious.nix
     ./modules/starship.nix
     ./modules/eza.nix
     ./modules/helix.nix
