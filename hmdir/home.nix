@@ -12,7 +12,7 @@
     ./modules/helix.nix
     ./modules/yazi.nix
     ./modules/ghostty.nix
-    ./modules/bash.nix
+    # ./modules/bash.nix
     ./modules/zoxide.nix
     ./modules/bat.nix
     ./modules/stylix.nix
@@ -36,7 +36,7 @@
       })
       ayugram-desktop
       bemoji
-      blesh
+      # blesh
       brightnessctl
       cliphist
       easyeffects
