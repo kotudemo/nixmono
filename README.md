@@ -24,12 +24,12 @@
 14. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
 15. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
 16. Better animations for hyprland
-17. Better dns servers
-18. Easy username changing by adding a variable
-19. Helix more custom keybindings
-20. Migrate to gruvbox dark
-21. Helix tutor
-22. flow-control tests
+17. Easy username changing by adding a variable
+18. Helix more custom keybindings
+19. Migrate to gruvbox dark
+20. Helix tutor
+21. flow-control tests
+22. Hosts to separate flake with deleted github urls + Better dns servers
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
