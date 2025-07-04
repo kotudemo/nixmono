@@ -15,7 +15,7 @@
           "$terminal" = "ghostty";
           "$calc" = "kcalc";
           "$browser" = "chromium";
-          "$fileManager" = "thunar";
+          "$fileManager" = "nemo";
           "$key" = "tab";
 
           exec-once = [
@@ -160,7 +160,7 @@
             "float,center,size 1250 700,move 330 15%, class:^(swayimg)$"
             "float,size 650 400,move 785 625,class:^(pwvucontrol)$"
             "float,center,size 900 600,class:^(mpv)$"
-            "float,center,size 950 700,class:^(thunar)$"
+            "float,center,size 950 700,class:^(nemo)$"
             "float,center,size 900 600,class:^(org.kde.ark)$"
             "float,center,size 500 600,class:^(org.kde.kcalc)$"
             "float,size 900 550,class:^(com.ayugram)$,title:^(Media viewer)$"
@@ -194,7 +194,7 @@
           bind = [
             "$mainMod, Return, exec, $terminal"
             "$mainMod, E, exec, $fileManager"
-            "$mainMod, G, exec, $calc"
+            "$mainMod, G, exec, $cal"
             "$mainMod, F, exec, $browser"
             "$mainMod, period, exec, bemoji -cn"
             "$mainMod, O, exec, obs"

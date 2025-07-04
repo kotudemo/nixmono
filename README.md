@@ -31,6 +31,7 @@
 21. Vim like keybindings
 22. Helix more custom keybindings
 23. Migrate to gruvbox dark
+24. Helix tutor
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
