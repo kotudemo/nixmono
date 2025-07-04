@@ -29,7 +29,6 @@
     homeDirectory = "/home/kd";
     stateVersion = "25.11";
     packages = with pkgs; [
-      webcord-vencord
       legcord
       (discord-krisp.override {
         withOpenASAR = true; # can do this here too
