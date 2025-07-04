@@ -12,23 +12,24 @@
 3. Declare Spicetify extensions  
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
 4. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
-5. Declare Flatpak applications
-6. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
-8. Refactor `passthrough.nix`
-10. Manage Git and Zerotier secrets via SOPS and AgeNix
-11. Add Docker configuration
-12. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-13. Steal some hyprlannd plugins form hand7s Hyprland config 
-14. Hardened specialisation
-15. Custom boot manager skin 
-16. Change file manager to yazi
-17. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
-18. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
-19. Better animations for hyprland
-20. Better dns servers
-21. Easy username changing by adding a variable
-22. Fix gtk theme and icons
-23. Hyprlock font
+5. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
+6. Refactor `passthrough.nix`
+7. Manage Git and Zerotier secrets via SOPS and AgeNix
+8. Add Docker configuration
+9. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
+10. Steal some hyprlannd plugins form hand7s Hyprland config 
+11. Hardened specialisation
+12. Custom boot manager skin 
+13. Change file manager to yazi
+14. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
+15. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
+16. Better animations for hyprland
+17. Better dns servers
+18. Easy username changing by adding a variable
+19. Fix gtk theme and icons
+20. Hyprlock font
+21. Vim like keybindings
+22. Helix more custom keybindings
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
