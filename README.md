@@ -20,7 +20,7 @@
 10. Steal some hyprlannd plugins form hand7s Hyprland config 
 11. Hardened specialisation
 12. Custom boot manager skin 
-13. Change file manager to yazi
+13. Change file manager to yazi/superfile
 14. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
 15. Find best discord modded client among `webcord-vencord` `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar)
 16. Better animations for hyprland
@@ -30,6 +30,7 @@
 20. Hyprlock font
 21. Vim like keybindings
 22. Helix more custom keybindings
+23. Migrate to gruvbox dark
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
