@@ -194,7 +194,7 @@
           bind = [
             "$mainMod, Return, exec, $terminal"
             "$mainMod, E, exec, $fileManager"
-            "$mainMod, G, exec, $cal"
+            "$mainMod, G, exec, $calc"
             "$mainMod, F, exec, $browser"
             "$mainMod, period, exec, bemoji -cn"
             "$mainMod, O, exec, obs"
