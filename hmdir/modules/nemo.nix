@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [ nemo-with-extensions nemo-preview nemo-fileroller ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [nemo-with-extensions nemo-preview nemo-fileroller];
 
   dconf.settings = {
     "org/nemo/preferences" = {

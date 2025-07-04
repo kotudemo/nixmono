@@ -76,9 +76,9 @@
 
   gtk = {
     enable = true;
-    iconTheme = lib.mkForce {
-      name = "Whitesur-icon-theme";
-      package = pkgs.whitesur-icon-theme;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme.override {color = "black";};
     };
   };
 
