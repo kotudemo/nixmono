@@ -26,11 +26,10 @@
 16. Better animations for hyprland
 17. Better dns servers
 18. Easy username changing by adding a variable
-19. Vim like keybindings
-20. Helix more custom keybindings
-21. Migrate to gruvbox dark
-22. Helix tutor
-23. flow-control tests
+19. Helix more custom keybindings
+20. Migrate to gruvbox dark
+21. Helix tutor
+22. flow-control tests
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
