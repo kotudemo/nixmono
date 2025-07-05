@@ -911,6 +911,7 @@
                   HOSTNAME = config.networking.hostName;
                   GDK_BACKEND = "wayland";
                   QT_QPA_PLATFORM = "wayland";
+                  QT_QPA_PLATFORMTHEME = "qt6ct";
                   XDG_SESSION_TYPE = "wayland";
                   XDG_CURRENT_DESKTOP = "Hyprland";
                   XDG_SESSION_DESKTOP = "Hyprland";
