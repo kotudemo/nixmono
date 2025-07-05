@@ -909,8 +909,8 @@
                 };
                 variables = {
                   HOSTNAME = config.networking.hostName;
-                  GDK_BACKEND = "wayland,x11";
-                  QT_QPA_PLATFORM = "wayland;xcb";
+                  GDK_BACKEND = "wayland";
+                  QT_QPA_PLATFORM = "wayland";
                   XDG_SESSION_TYPE = "wayland";
                   XDG_CURRENT_DESKTOP = "Hyprland";
                   XDG_SESSION_DESKTOP = "Hyprland";
