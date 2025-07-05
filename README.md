@@ -22,7 +22,7 @@
 12. Custom boot manager skin 
 13. Change file manager to yazi/superfile
 14. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
-15. Find best discord modded client among `vesktop`(module) `legcord` `discord-krisp`(with vencord and open-asar) equicord
+15. made custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
 16. Better animations for hyprland
 17. Easy username changing by adding a variable
 18. Helix more custom keybindings
