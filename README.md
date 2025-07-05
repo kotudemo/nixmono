@@ -11,6 +11,7 @@
 2. Package XP-Pen driver via Flake
 3. Declare Spicetify extensions  
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
+   OR spicetify flatpak installation with spicetify install script
 4. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
 5. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
 6. Refactor `passthrough.nix`
@@ -34,6 +35,7 @@
 24. Change all theme colors to stylix colors 
 25. Add automatic wallpaper change  with stylix integration
 26. Telegram theme generator with stylix 
+27. 
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
