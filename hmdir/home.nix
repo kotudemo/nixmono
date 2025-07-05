@@ -48,6 +48,7 @@
       kdePackages.kcalc
       libreoffice-qt6-fresh
       mpv
+      vlc
       obs-studio
       pamixer
       pwvucontrol
