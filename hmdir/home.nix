@@ -40,7 +40,6 @@
       brightnessctl
       cliphist
       easyeffects
-      spotify
       google-cursor
       hyprpaper
       hyprprop
