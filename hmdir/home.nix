@@ -58,8 +58,6 @@
       wf-recorder
       wl-clipboard-rs
       wlsunset
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
     ];
     #file = {
     #  ".config/hyprpanel/config.json" = {
