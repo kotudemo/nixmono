@@ -32,7 +32,8 @@
 22. Hosts to separate flake with deleted github urls + better dns servers configuration with resolved
 23. Vscodium home manager module
 24. Change all theme colors to stylix colors 
-25. Add automatic wallpaper change  with stylix integration 
+25. Add automatic wallpaper change  with stylix integration
+26. Telegram theme generator with stylix 
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
