@@ -26,10 +26,10 @@
             "wl-paste --type text --watch cliphist store"
             "wl-paste --type image --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"
-            "[workspace 2 silent] $browser"
-            "[workspace 3 silent] discord"
-            "[workspace 4 silent] ayugram-desktop"
-            "[workspace 4 silent] flatpak run com.spotify.Client"
+            # "[workspace 2 silent] $browser"
+            # "[workspace 3 silent] discord"
+            # "[workspace 4 silent] ayugram-desktop"
+            # "[workspace 4 silent] flatpak run com.spotify.Client"
           ];
 
           env = [
