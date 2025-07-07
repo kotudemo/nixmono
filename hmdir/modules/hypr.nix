@@ -201,6 +201,7 @@
             "SUPER_SHIFT, R, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l rus stdin stdout | wl-copy"
             "SUPER_SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
             "ALT, TAB, hyprexpo:expo, toggle"
+            "$mainMod, TAB, overview:toggle"
             "SUPER_SHIFT, M, exit,"
             "$mainMod, Q, killactive,"
             "$mainMod, V, fullscreen,"
@@ -282,6 +283,7 @@
         };
 
         plugins = with pkgs.hyprlandPlugins; [
+          hyprspace
           hyprexpo
           hypr-dynamic-cursors
           hyprwinwrap
