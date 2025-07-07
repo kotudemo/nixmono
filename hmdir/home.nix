@@ -131,7 +131,22 @@
     ];
   };
 
-  programs.home-manager = {
-    enable = true;
+  programs = {
+    home-manager = {
+      enable = true;
+    };
+    fuzzel = {
+            settings = {
+                main = {
+                    terminal = "${lib.getExe pkgs.ghostty}";
+                    layer = "overlay";
+                    prompt = "  > ";
+                };
+
+                border = {
+                    width = "2";
+                    radius = "10";
+                };
+            };
   };
 }

@@ -11,7 +11,8 @@
 2. Package XP-Pen driver via Flake
 3. Declare Spicetify extensions  
    ↳ Forking [Gerg-L's Spicetify flake](https://github.com/Gerg-L/spicetify-flake) to add marketplace support  
-   OR spicetify flatpak installation with spicetify install script
+   OR 
+   spicetify flatpak installation with spicetify install script
 4. Declare [Vencord](https://github.com/KaylorBen/nixcord) extensions
 5. Add `nixos-anywhere` and not `nixos-anywhere` installation guide
 6. Refactor `passthrough.nix`
@@ -26,8 +27,6 @@
 15. made custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
 17. Easy username changing by adding a variable
 18. Helix more custom keybindings
-19. Migrate to gruvbox dark
-20. Helix tutor
 21. flow-control tests
 22. Hosts to separate flake with deleted github urls + better dns servers configuration with resolved
 23. Vscodium home manager module
@@ -36,6 +35,7 @@
 26. Telegram theme generator with stylix 
 27. Fzf configuration
 28. Fix qt themes (again)
+29. Fix waybar language module
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

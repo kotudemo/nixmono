@@ -65,8 +65,8 @@
         };
       };
       cursor = {
-        name = "GoogleDot-Black";
-        package = pkgs.google-cursor;
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
         size = 24;
       };
     };
