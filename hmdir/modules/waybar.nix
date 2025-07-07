@@ -223,7 +223,6 @@
   '';
   home.packages = with pkgs; [
     wttrbar
-    wttr
   ];
   programs.waybar = {
     enable = true;
@@ -337,7 +336,7 @@
           padding-left: 4px;
       }
 
-      
+
 
       #language {
           background: rgba(40, 40, 40, 0.92);
