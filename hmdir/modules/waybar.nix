@@ -32,14 +32,14 @@
               "hyprland/language",
               "clock",
               "custom/notification",
-              "custom/power"
           ],
           "hyprland/window": {
               "format": "{}"
           },
+
             "custom/notification": {
       "tooltip": false,
-      "format": "{icon} ",
+      "format": "󱇌",
       "format-icons": {
         "notification": "<span foreground='#CC241D'><sup></sup></span>  <span foreground='#CC241D'></span>",
         "none": "  <span foreground='#CC241D'></span>",
@@ -223,6 +223,7 @@
   '';
   home.packages = with pkgs; [
     wttrbar
+    playerctl
   ];
   programs.waybar = {
     enable = true;
@@ -302,7 +303,6 @@
       #tray,
       #cava,
       #keyboard-state,
-      #custom-notification,
       #custom-power {
           background: none;
           padding: 0px 10px;
@@ -386,6 +386,18 @@
           border-right: 0px;
           margin-left: 4px;
           color: #ebdbb2;
+      }
+      #custom-notification {
+          background: rgba(40, 40, 40, 0.92);
+          color: #ebdbb2;
+          border-width: 2px;
+          border-style: solid;
+          border-color: #ebdbb2;
+          border-radius: 0px 4px 4px 0px;
+          border-left: 0px;
+          margin-left: 0px;
+          margin-right: 4px;
+          padding-right: 16px;
       }
 
       #clock {
