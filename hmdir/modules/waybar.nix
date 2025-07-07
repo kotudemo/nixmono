@@ -170,9 +170,10 @@ in {
       };
 
       "hyprland/language" = {
-        format = "<span foreground='#FABD2F'> </span> {}";
-        format-ru = "RU";
-        format-en = "US";
+        #format = "<span foreground='#FABD2F'> </span> {}";
+        format = "{}";
+        format-en = "🇺🇸";
+        format-ru = "🇷🇺";
       };
       "custom/launcher" = {
         format = "";

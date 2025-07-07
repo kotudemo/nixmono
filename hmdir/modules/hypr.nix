@@ -201,6 +201,7 @@
             "SUPER_SHIFT, T, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l eng stdin stdout | wl-copy"
             "SUPER_SHIFT, R, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l rus stdin stdout | wl-copy"
             "SUPER_SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
+            "ALT, TAB, overview:toggle"
             "SUPER_SHIFT, M, exit,"
             "$mainMod, Q, killactive,"
             "$mainMod, V, fullscreen,"
@@ -251,7 +252,40 @@
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
+                              plugin = {
+
+                        dynamic-cursors = {
+                            enabled = true;
+                            mode = "strech";
+                            threshold = 2;
+                            stretch = {
+                                limit = 4000;
+                                function = "quadratic";
+                            };
+
+                            shake = {
+                                enabled = true;
+                                nearest = true;
+                                threshold = 10.0;
+                                effects = true;
+                            };
+
+                            hyprcursor = {
+                                enabled = true;
+                                nearest = true;
+                                fallback = "clientside";
+                            };
+                        };
+
+                    };
         };
+        
+                        plugins = with inputs; [
+                    hyprcurs.packages.${pkgs.system}.hypr-dynamic-cursors
+                    hyprplugs.packages.${pkgs.system}.xtra-dispatchers
+                    hyprplugs.packages.${pkgs.system}.hyprwinwrap
+                    hyprspace.packages.${pkgs.system}.Hyprspace
+                ];
       };
     };
   };

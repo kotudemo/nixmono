@@ -29,6 +29,30 @@
         };
       };
     };
+            hyprcurs = {
+            url = "github:VirtCode/hypr-dynamic-cursors";
+            inputs = {
+                nixpkgs = {
+                    follows = "nixpkgs";
+                };
+            };
+        };
+            hyprplugs = {
+            url = "github:hyprwm/hyprland-plugins";
+            inputs = {
+                hyprland = {
+                    follows = "hyprland";
+                };
+            };
+        };
+            hyprspace = {
+            url = "github:KZDKM/Hyprspace";
+            inputs = {
+                nixpkgs = {
+                    follows = "nixpkgs";
+                };
+            };
+        };
 
     freesm = {
       url = "github:FreesmTeam/FreesmLauncher";
@@ -75,6 +99,9 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
+    hyprspace,
+    hyprplugs,
+    hyprcurs,
     aagl,
     ...
   } @ inputs: let
