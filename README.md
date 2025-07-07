@@ -6,7 +6,7 @@
 <h1 align="center">🛠️ NixOS Config TODO List</h1>
 
 ### ✅ Planned Improvements
-
+0. Stable commits???
 1. Package UFR II printer driver via Flake
 2. Package XP-Pen driver via Flake
 3. Declare Spicetify extensions  

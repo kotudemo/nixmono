@@ -29,32 +29,18 @@
         };
       };
     };
-     hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
 
       # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-      inputs.hyprland.follows = "hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprcurs = {
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs = {
-        hyprland = {
-          follows = "hyprland";
-        };
-      };
-    };
-    hyprplugs = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs = {
-        hyprland = {
-          follows = "hyprland";
+        nixpkgs = {
+          follows = "nixpkgs";
         };
       };
     };
@@ -104,10 +90,8 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
-    hyprland,
-    Hyprspace,
-    hyprplugs,
     hyprcurs,
+    Hyprspace,
     aagl,
     ...
   } @ inputs: let
@@ -945,7 +929,7 @@
                   GDK_BACKEND = "wayland";
                   QT_QPA_PLATFORM = "wayland";
                   QT_QPA_PLATFORMTHEME = "qt6ct";
-                  QT_DISABLE_WINDOWDECORATION = "1";
+                  # QT_DISABLE_WINDOWDECORATION = "1";
                   XDG_SESSION_TYPE = "wayland";
                   XDG_CURRENT_DESKTOP = "Hyprland";
                   XDG_SESSION_DESKTOP = "Hyprland";

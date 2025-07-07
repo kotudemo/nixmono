@@ -280,8 +280,6 @@
 
         plugins = with inputs; [
           hyprcurs.packages.${pkgs.system}.hypr-dynamic-cursors
-          hyprplugs.packages.${pkgs.system}.xtra-dispatchers
-          hyprplugs.packages.${pkgs.system}.hyprwinwrap
           Hyprspace.packages.${pkgs.system}.Hyprspace
         ];
       };
