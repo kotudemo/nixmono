@@ -25,6 +25,7 @@
     ./modules/nemo.nix
     ./modules/waybar.nix
     ./modules/swaync.nix
+    ./modules/swayosd.nix
   ];
   home = {
     username = "kd";
