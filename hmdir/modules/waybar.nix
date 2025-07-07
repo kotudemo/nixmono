@@ -4,7 +4,7 @@
   ...
 }: let
   custom = {
-    font = "JetBrains Nerd Mono";
+    font = "JetBrainsMono Nerd Font";
     font_size = "18px";
     font_weight = "bold";
     text_color = "#FBF1C7";
@@ -49,13 +49,19 @@ in {
         "hyprland/workspaces"
         "tray"
       ];
-      modules-center = ["clock"];
+      modules-center = [
+        "custom/playerctl"
+        "cava"
+        "pulseaudio"
+        "pulseaudio#microphone"
+
+        
+      ];
       modules-right = [
         "cpu"
         "memory"
-        "pulseaudio"
-        "pulseaudio#microphone"
         #"hyprland/language"
+        "clock"
         "custom/notification"
       ];
       clock = {
@@ -101,6 +107,55 @@ in {
           "3" = [];
           "4" = [];
           "5" = [];
+        };
+      };
+      "custom/playerctl" = {
+        format = "{2} <span>{0}</span>";
+        return-type = "json";
+        exec = "playerctl -p spotify metadata -f '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        tooltip = false;
+        on-click-middle = "playerctl -p spotify previous";
+        on-click = "playerctl -p spotify play-pause";
+        on-click-right = "playerctl -p spotify next";
+        on-click-forward = "playerctl -p spotify position 10+";
+        on-click-backward = "playerctl -p spotify position 10-";
+        on-scroll-up = "playerctl -p spotify volume 0.02+";
+        on-scroll-down = "playerctl -p spotify volume 0.02-";
+        format-icons = {
+          Paused = " ";
+          Playing = " ";
+        };
+      };
+      cava = {
+        framerate = 40;
+        autosens = 0;
+        sensitivity = 38;
+        bars = 18;
+        lower_cutoff_freq = 50;
+        higher_cutoff_freq = 12000;
+        method = "pulse";
+        hide_on_silence = false;
+        sleep_timer = 5;
+        source = "auto";
+        stereo = false;
+        reverse = false;
+        bar_delimiter = 0;
+        monstercat = false;
+        waves = false;
+        noise_reduction = 0.77;
+        input_delay = 0;
+        format-icons = [
+          "▁"
+          "▂"
+          "▃"
+          "▄"
+          "▅"
+          "▆"
+          "▇"
+          "█"
+        ];
+        actions = {
+          on-click-right = "mode";
         };
       };
       cpu = {

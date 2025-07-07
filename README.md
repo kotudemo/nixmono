@@ -35,7 +35,12 @@
 26. Telegram theme generator with stylix 
 27. Fzf configuration
 28. Fix qt themes (again)
-29. Fix waybar language module
+29. Waybar
+    ↳ Cava module
+    ↳ Language module
+    ↳ Weather module
+    ↳ Workspaces height fix
+    ↳ Media module?
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
