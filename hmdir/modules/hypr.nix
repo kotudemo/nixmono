@@ -21,6 +21,7 @@
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
+            "hyprctl setcursor Bibata-Modern-Ice 24"
             "wl-clip-persist --clipboard both"
             "wl-paste --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"

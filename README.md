@@ -19,23 +19,25 @@
 7. Manage Git and Zerotier secrets via SOPS and AgeNix
 8. Add Docker configuration
 9. Add some features from [Ampersand's configuration](https://github.com/Andrey0189/nixos-config-reborn)
-10. Steal some hyprlannd plugins form hand7s Hyprland config 
-11. Hardened specialisation
-12. Custom boot manager skin 
-13. Change file manager to yazi/superfile
-14. Find new app launcher, 
-15. made custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
-17. Easy username changing by adding a variable
-18. Helix more custom keybindings
-21. flow-control tests
-22. Hosts to separate flake with deleted github urls + better dns servers configuration with resolved
-23. Vscodium home manager module
-24. Change all theme colors to stylix colors 
-25. Add automatic wallpaper change  with stylix integration
-26. Telegram theme generator with stylix 
-27. Fzf configuration
-28. Fix qt themes (again)
-29. Waybar
+10. Hardened specialisation
+11. Custom boot manager skin 
+12. Change file manager to yazi/superfile
+13. Stylix
+    ↳ Automatic wallpaper change with stylix integration
+    ↳ Telegram theme generator
+    ↳ Change all theme colors to stylix colors 
+14. To make custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
+15. Fzf configuration  
+16. Easy username changing by adding a variable
+17. Helix more custom keybindings
+18. flow-control tests
+19. Hosts to separate flake with deleted github urls + better dns servers configuration with resolved
+20. Vscodium home manager module
+21. Change hyprexpo workspace_method and propely setup hypr-dynamic-cursors
+22. Test fonts and cursors
+23. Fix qt themes (again)
+24. Fancy fastfetch config
+25. Waybar
     ↳ Language module
     ↳ Weather module
     ↳ Media module?
