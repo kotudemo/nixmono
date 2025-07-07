@@ -5,201 +5,226 @@
     };
   };
   xdg.configFile."waybar/config.jsonc".text = ''
-        {
-        "layer": "top",
-        "position": "top",
-        "mode": "dock",
-        "exclusive": true,
-        "passthrough": false,
-        "gtk-layer-shell": true,
-        "ipc": false,
-        "reload_style_on_change": true,
-        "height": 0,
-        "modules-left": [
-            "custom/weather",
-            "hyprland/workspaces",
-    		"hyprland/window"
-        ],
-        "modules-center": [
-            "cava",
-            "custom/playerctl",
-            "pulseaudio",
-            "pulseaudio#microphone"
-        ],
-        "modules-right": [
-            "keyboard-state",
-            "tray",
-            "hyprland/language",
-            "clock",
-            "custom/power"
-        ],
-        "hyprland/window": {
-            "format": "{}"
-        },
-        "hyprland/workspaces": {
-            "disable-scroll": false,
-            "all-outputs": true,
-            "show-special": true,
-            "on-scroll-up": "hyprctl dispatch workspace m-1",
-            "on-scroll-down": "hyprctl dispatch workspace m+1",
-            "on-click": "activate",
-            "format": "{icon}",
-            "format-icons": {
-                  "1": "I",
-                  "2": "II",
-                  "3": "III",
-                  "4": "IV",
-                  "5": "v",
-                  "6": "VI",
-                  "7": "VII",
-                  "8": "VIII",
-                  "9": "IX",
-                  "10": "X",
-                  "urgent": "",
-                  "default": "󰐗",
-                  "magic": "󰓏",
-            },
-            "persistent-workspaces": {
-                "1": [],
-                "2": [],
-                "3": [],
-                "4": [],
-                "5": [],
-                "6": [],
-                "7": [],
-                "8": [],
-                "9": [],
-                "10": [],
-            },
-            "sort-by-number": true,
-        },
+          {
+          "layer": "top",
+          "position": "top",
+          "mode": "dock",
+          "exclusive": true,
+          "passthrough": false,
+          "gtk-layer-shell": true,
+          "ipc": false,
+          "reload_style_on_change": true,
+          "height": 0,
+          "modules-left": [
+              "custom/weather",
+              "hyprland/workspaces",
+      		    "hyprland/window"
+          ],
+          "modules-center": [
+              "cava",
+              "custom/playerctl",
+              "pulseaudio",
+              "pulseaudio#microphone"
+          ],
+          "modules-right": [
+              "keyboard-state",
+              "tray",
+              "hyprland/language",
+              "clock",
+              "custom/notification"
+              "custom/power"
+          ],
+          "hyprland/window": {
+              "format": "{}"
+          },
+            "custom/notification": {
+      "tooltip": false,
+      "format": "{icon} ",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
+        "none": "  <span foreground='${red}'></span>",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
+        "dnd-none": "  <span foreground='${red}'></span>",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
+        "inhibited-none": "  <span foreground='${red}'></span>",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
+        "dnd-inhibited-none": "  <span foreground='${red}'></span>"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+          "hyprland/workspaces": {
+              "disable-scroll": false,
+              "all-outputs": true,
+              "show-special": true,
+              "on-scroll-up": "hyprctl dispatch workspace m-1",
+              "on-scroll-down": "hyprctl dispatch workspace m+1",
+              "on-click": "activate",
+              "format": "{icon}",
+              "format-icons": {
+                    "1": "I",
+                    "2": "II",
+                    "3": "III",
+                    "4": "IV",
+                    "5": "v",
+                    "6": "VI",
+                    "7": "VII",
+                    "8": "VIII",
+                    "9": "IX",
+                    "10": "X",
+                    "urgent": "",
+                    "default": "󰐗",
+                    "magic": "󰓏",
+              },
+              "persistent-workspaces": {
+                  "1": [],
+                  "2": [],
+                  "3": [],
+                  "4": [],
+                  "5": [],
+                  "6": [],
+                  "7": [],
+                  "8": [],
+                  "9": [],
+                  "10": [],
+              },
+              "sort-by-number": true,
+          },
 
-        "hyprland/language": {
-            "format": "{}",
-            "format-en": "🇺🇸",
-            "format-ru": "🇷🇺"
-        },
-        "keyboard-state": {
-            "numlock": false,
-            "scrolllock": false,
-            "capslock": true,
-            "format": "{icon}",
-            "format-icons": {
-                "locked": "󰪛",
-                "unlocked": ""
-            }
-        },
-        "idle_inhibitor": {
-            "tooltip": false,
-            "format": "{icon}",
-            "start-activated": true,
-            "format-icons": {
-                "activated": " ",
-                "deactivated": " "
-            }
-        },
-        "custom/weather" : {
-            "tooltip" : true,
-            "format" : "{}",
-            "interval" : 30,
-            "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-            "return-type" : "json"
-        },
-        "tray": {
-            "icon-size": 11,
-            "spacing": 8
-        },
-        "clock": {
-            "timezone": "Europe/Samara",
-            "format": "{:%H:%M  %a  %d.%m}",
-            "tooltip-format": "<span font='RobotoMonoNerdFont'><tt><small>{calendar}</small></tt></span>",
-            "calendar": {
-                "mode": "year",
-                "mode-mon-col": 3,
-                "format": {
-                    "months":     "<span color='#504945'><b>{}</b></span>",
-                    "days":       "<span color='#ebdbb2'><b>{}</b></span>",
-                    "weeks":      "<span color='#928374'><b>W{}</b></span>",
-                    "weekdays":   "<span color='#7c6f64'><b>{}</b></span>",
-                    "today":      "<span color='#d79921'><b><u>{}</u></b></span>"
-                }
-            }
-        },
-        "pulseaudio": {
-            "format": "{icon}   {volume}%",
-            "tooltip": false,
-            "format-muted": " Muted",
-            "on-click": "pamixer -t",
-            "on-scroll-up": "pamixer -i 2",
-            "on-scroll-down": "pamixer -d 2",
-            "scroll-step": 3,
-            "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["", "", ""]
-            }
-        },
-    	"pulseaudio#microphone": {
-            "format": "{format_source}",
-            "format-source": " {volume}%",
-            "tooltip": false,
-            "format-source-muted": " Muted",
-            "on-click": "pamixer --default-source -t",
-            "on-scroll-up": "pamixer --default-source -i 2",
-            "on-scroll-down": "pamixer --default-source -d 2",
-            "scroll-step": 5
-        },
-        "custom/power": {
-            "format": "",
-            "tooltip": false,
-            "on-click": "wlogout -b 5 --protocol layer-shell"
-        },
-        "custom/playerctl": {
-            "format": "{icon}  <span>{}</span>",
-            "return-type": "json",
-            "exec": "playerctl -p spotify metadata -f '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-            "tooltip": false,
-            "on-click-middle": "playerctl -p spotify previous",
-            "on-click": "playerctl -p spotify play-pause",
-            "on-click-right": "playerctl -p spotify next",
-            "on-click-forward": "playerctl -p spotify position 10+",
-            "on-click-backward": "playerctl -p spotify position 10-",
-            "on-scroll-up": "playerctl -p spotify volume 0.02+",
-            "on-scroll-down": "playerctl -p spotify volume 0.02-",
-            "format-icons": {
-                "Paused": "",
-                "Playing": ""
-            }
-        },
-        "cava": {
-            "framerate": 40,
-            "autosens": 0,
-            "sensitivity": 38,
-            "bars": 18,
-            "lower_cutoff_freq": 50,
-            "higher_cutoff_freq": 12000,
-            "method": "pulse",
-            "hide_on_silence": false,
-            "sleep_timer": 5,
-            "source": "auto",
-            "stereo": false,
-            "reverse": false,
-            "bar_delimiter": 0,
-            "monstercat": false,
-            "waves": false,
-            "noise_reduction": 0.77,
-            "input_delay": 2,
-            "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-            "actions": {
-                       "on-click-right": "mode"
-            }
-    	 }
-    }
+          "hyprland/language": {
+              "format": "{}",
+              "format-en": "🇺🇸",
+              "format-ru": "🇷🇺"
+          },
+          "keyboard-state": {
+              "numlock": false,
+              "scrolllock": false,
+              "capslock": true,
+              "format": "{icon}",
+              "format-icons": {
+                  "locked": "󰪛",
+                  "unlocked": ""
+              }
+          },
+          "idle_inhibitor": {
+              "tooltip": false,
+              "format": "{icon}",
+              "start-activated": true,
+              "format-icons": {
+                  "activated": " ",
+                  "deactivated": " "
+              }
+          },
+          "custom/weather" : {
+              "tooltip" : true,
+              "format" : "{}",
+              "interval" : 30,
+              "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
+              "return-type" : "json"
+          },
+          "tray": {
+              "icon-size": 11,
+              "spacing": 8
+          },
+          "clock": {
+              "timezone": "Europe/Samara",
+              "format": "{:%H:%M  %a  %d.%m}",
+              "tooltip-format": "<span font='RobotoMonoNerdFont'><tt><small>{calendar}</small></tt></span>",
+              "calendar": {
+                  "mode": "year",
+                  "mode-mon-col": 3,
+                  "format": {
+                      "months":     "<span color='#504945'><b>{}</b></span>",
+                      "days":       "<span color='#ebdbb2'><b>{}</b></span>",
+                      "weeks":      "<span color='#928374'><b>W{}</b></span>",
+                      "weekdays":   "<span color='#7c6f64'><b>{}</b></span>",
+                      "today":      "<span color='#d79921'><b><u>{}</u></b></span>"
+                  }
+              }
+          },
+          "pulseaudio": {
+              "format": "{icon}   {volume}%",
+              "tooltip": false,
+              "format-muted": " Muted",
+              "on-click": "pamixer -t",
+              "on-scroll-up": "pamixer -i 2",
+              "on-scroll-down": "pamixer -d 2",
+              "scroll-step": 3,
+              "format-icons": {
+                  "headphone": "",
+                  "hands-free": "",
+                  "headset": "",
+                  "phone": "",
+                  "portable": "",
+                  "car": "",
+                  "default": ["", "", ""]
+              }
+          },
+      	"pulseaudio#microphone": {
+              "format": "{format_source}",
+              "format-source": " {volume}%",
+              "tooltip": false,
+              "format-source-muted": " Muted",
+              "on-click": "pamixer --default-source -t",
+              "on-scroll-up": "pamixer --default-source -i 2",
+              "on-scroll-down": "pamixer --default-source -d 2",
+              "scroll-step": 5
+          },
+          "custom/power": {
+              "format": "",
+              "tooltip": false,
+              "on-click": "wlogout -b 5 --protocol layer-shell"
+          },
+          "custom/playerctl": {
+              "format": "{icon}  <span>{}</span>",
+              "return-type": "json",
+              "exec": "playerctl -p spotify metadata -f '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+              "tooltip": false,
+              "on-click-middle": "playerctl -p spotify previous",
+              "on-click": "playerctl -p spotify play-pause",
+              "on-click-right": "playerctl -p spotify next",
+              "on-click-forward": "playerctl -p spotify position 10+",
+              "on-click-backward": "playerctl -p spotify position 10-",
+              "on-scroll-up": "playerctl -p spotify volume 0.02+",
+              "on-scroll-down": "playerctl -p spotify volume 0.02-",
+              "format-icons": {
+                  "Paused": "",
+                  "Playing": ""
+              }
+          },
+          "cava": {
+              "framerate": 40,
+              "autosens": 0,
+              "sensitivity": 38,
+              "bars": 18,
+              "lower_cutoff_freq": 50,
+              "higher_cutoff_freq": 12000,
+              "method": "pulse",
+              "hide_on_silence": false,
+              "sleep_timer": 5,
+              "source": "auto",
+              "stereo": false,
+              "reverse": false,
+              "bar_delimiter": 0,
+              "monstercat": false,
+              "waves": false,
+              "noise_reduction": 0.77,
+              "input_delay": 2,
+              "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+              "actions": {
+              "on-click-right": "mode"
+              }
+      	 }
+      }
   '';
+  home.packages = with pkgs; [
+    wttrbar
+    wttr
+  ];
   programs.waybar = {
     enable = true;
     style = ''
@@ -278,6 +303,7 @@
       #tray,
       #cava,
       #keyboard-state,
+      #custom-notification,
       #custom-power {
           background: none;
           padding: 0px 10px;
@@ -310,6 +336,8 @@
           padding-right: 6px;
           padding-left: 4px;
       }
+
+      
 
       #language {
           background: rgba(40, 40, 40, 0.92);

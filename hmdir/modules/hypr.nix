@@ -76,17 +76,25 @@
             enabled = true;
             first_launch_animation = false;
             bezier = [
-              "myBezier, 0.05, 0.7, 0.1, 1.0"
-              "myBezier1, 0.05, 0.8, 0.1, 1.0"
-              "myBezier2, 0.05, 0.92, 0.1, 1.0"
+              "fluent_decel, 0, 0.2, 0.4, 1"
+              "easeOutCirc, 0, 0.55, 0.45, 1"
+              "easeOutCubic, 0.33, 1, 0.68, 1"
+              "fade_curve, 0, 0.55, 0.45, 1"
             ];
             animation = [
-              "windows, 1, 9, myBezier2, popin"
-              "windowsOut, 1, 7, myBezier2, popin 80%"
-              "border, 1, 10, default"
-              "borderangle, 0, 8, myBezier1"
-              "fade, 1, 7, myBezier1"
-              "workspaces, 1, 8, myBezier, slide"
+              "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
+              "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
+              "windowsMove, 1, 2, fluent_decel, slide" # everything in between, moving, dragging, resizing.
+
+              # Fade
+              "fadeIn,      1, 3,   fade_curve" # fade in (open) -> layers and windows
+              "fadeOut,     1, 3,   fade_curve" # fade out (close) -> layers and windows
+              "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
+              "fadeShadow,  1, 10,  easeOutCirc" # fade on changing activewindow for shadows
+              "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
+              # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
+              # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
+              "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
             ];
           };
 
@@ -183,6 +191,7 @@
             "$mainMod, B, exec, discord"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"
+            "$mainMod, equal, exec, ${lib.getExe pkgs.woomer}"
             "SUPER_ALT, S, exec, ${lib.getExe pkgs.grimblast} -f -c copy screen"
             "SUPER_CTRL, S, exec, ${lib.getExe pkgs.grimblast} -f save area - | ${lib.getExe pkgs.swappy} -f -"
             "CTRL, Print, exec, ${lib.getExe pkgs.grimblast} -c copysave screen ~/screens/screen-$(date +%s).png"
