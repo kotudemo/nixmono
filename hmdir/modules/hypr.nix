@@ -256,7 +256,7 @@
           plugin = {
             hyprexpo = {
               columns = 3;
-              gap_size = 5;
+              gap_size = 2;
             };
             dynamic-cursors = {
               enabled = true;
