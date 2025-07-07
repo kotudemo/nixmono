@@ -35,8 +35,8 @@
     hyprcurs = {
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
+        hyprland = {
+          follows = "hyprland";
         };
       };
     };
