@@ -31,7 +31,7 @@
               "tray",
               "hyprland/language",
               "clock",
-              "custom/notification"
+              "custom/notification",
               "custom/power"
           ],
           "hyprland/window": {
