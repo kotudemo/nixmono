@@ -4,10 +4,13 @@
   inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+  ];
   wayland = {
     windowManager = {
       hyprland = {
         enable = true;
+        package = pkgs.hyprland;
 
         settings = {
           monitor = "HDMI-A-1,1920x1080@143.98Hz,1920x0,1";
@@ -16,12 +19,10 @@
           "$calc" = "kcalc";
           "$browser" = "chromium";
           "$fileManager" = "nemo";
-          "$key" = "tab";
 
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
-            "hyprctl setcursor GoogleDot-Black 24"
             "wl-clip-persist --clipboard both"
             "wl-paste --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"
@@ -201,7 +202,7 @@
             "SUPER_SHIFT, T, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l eng stdin stdout | wl-copy"
             "SUPER_SHIFT, R, exec, ${lib.getExe pkgs.grimblast} -f save area - | tesseract -l rus stdin stdout | wl-copy"
             "SUPER_SHIFT, C, exec, ${lib.getExe pkgs.hyprpicker} -a"
-            "ALT, TAB, overview:toggle"
+            "ALT, TAB, hyprexpo:expo, toggle"
             "SUPER_SHIFT, M, exit,"
             "$mainMod, Q, killactive,"
             "$mainMod, V, fullscreen,"
@@ -253,6 +254,10 @@
             "$mainMod, mouse:273, resizewindow"
           ];
           plugin = {
+            hyprexpo = {
+              columns = 3;
+              gap_size = 5;
+            };
             dynamic-cursors = {
               enabled = true;
               mode = "strech";
@@ -279,7 +284,7 @@
         };
 
         plugins = with pkgs.hyprlandPlugins; [
-          hyprspace
+          hyprexpo
           hypr-dynamic-cursors
           hyprwinwrap
           xtra-dispatchers

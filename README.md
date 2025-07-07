@@ -35,6 +35,7 @@
 25. Add automatic wallpaper change  with stylix integration
 26. Telegram theme generator with stylix 
 27. Fzf configuration
+28. Fix qt themes (again)
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

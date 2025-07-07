@@ -46,9 +46,6 @@
       brightnessctl
       cliphist
       easyeffects
-      google-cursor
-      hyprpaper
-      hyprprop
       kdePackages.ark
       kdePackages.kcalc
       libreoffice-qt6-fresh

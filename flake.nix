@@ -77,12 +77,10 @@
     zapret-presets,
     aagl,
     ...
-  } @ inputs: let
-    cfgDir = "~/sigmaNix";
-  in {
+  } @ inputs: {
     homeConfigurations."kd@nixos" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = {inherit inputs self cfgDir;};
+      extraSpecialArgs = {inherit inputs self;};
       modules = [
         ./hmdir/home.nix
         inputs.stylix.homeModules.stylix
@@ -105,6 +103,7 @@
               lib,
               inputs,
               modulesPath,
+              self,
               ...
             }: {
               imports = [
@@ -881,10 +880,11 @@
                   vim = "nvim";
                   nv = "nvim";
                   nvim = "nvim";
+                  nfu = "cd ${self} && sudo nix flake update && cd -";
                   nsp = "nix-shell -p";
                   ncg = "nh clean all --keep 3 --keep-since 1d";
-                  upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${cfgDir}";
-                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0 ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf ${config.users.users.kd.home}/.config/qt6ct/qt6ct.conf && , home-manager switch --flake ${cfgDir}"; #for home configurations
+                  upd = "sudo nix-channel --update nixos && sudo nixos-rebuild switch --upgrade-all --flake ${self}";
+                  hms = "rm -rf ${config.users.users.kd.home}/.gtkrc-2.0 ${config.users.users.kd.home}/.config/fontconfig/conf.d/10-hm-fonts.conf ${config.users.users.kd.home}/.config/qt6ct/qt6ct.conf && , home-manager switch --flake ${self}"; #for home configurations
                   gtu = "git add ./* && git commit -a --allow-empty-message -m '' && git push -u origin HEAD";
                   ff = "fastfetch";
                   cd = "z";
@@ -904,6 +904,7 @@
                   sed = ", sd";
                   du = ", dust";
                   ps = ", procs";
+                  hyprprop = ", hyprprop";
                   top = ", btm";
                   pf = ", pfetch";
                 };
