@@ -189,7 +189,7 @@ in {
       };
 
       pulseaudio = {
-        format = "{icon}   {volume}%";
+        format = "{icon} {volume}%";
         tooltip = false;
         format-muted = " Muted";
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
@@ -313,16 +313,14 @@ in {
         padding: 1px;
       }
 
-      #pulseaudio.microphone, #pulseaudio, #network, #cpu, #memory, #disk, #language, #custom-notification {
+      #pulseaudio.microphone, #pulseaudio, #network, #cpu, #memory, #disk, #language, #custom-playerctl, #cava, #custom-notification {
         padding-left: 5px;
         padding-right: 5px;
         margin-right: 10px;
         color: ${text_color};
       }
 
-      #pulseaudio.microphone, #pulseaudio, #language {
-        margin-left: 15px;
-      }
+
 
       #custom-notification {
         margin-left: 15px;
