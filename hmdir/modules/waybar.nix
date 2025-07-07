@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = ["waybar"];
@@ -41,14 +41,14 @@
       "tooltip": false,
       "format": "{icon} ",
       "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
-        "none": "  <span foreground='${red}'></span>",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
-        "dnd-none": "  <span foreground='${red}'></span>",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
-        "inhibited-none": "  <span foreground='${red}'></span>",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>",
-        "dnd-inhibited-none": "  <span foreground='${red}'></span>"
+        "notification": "<span foreground='#CC241D'><sup></sup></span>  <span foreground='#CC241D'></span>",
+        "none": "  <span foreground='#CC241D'></span>",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>  <span foreground='#CC241D'></span>",
+        "dnd-none": "  <span foreground='#CC241D'></span>",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='#CC241D'></span>",
+        "inhibited-none": "  <span foreground='#CC241D'></span>",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='#CC241D'></span>",
+        "dnd-inhibited-none": "  <span foreground='#CC241D'></span>"
       },
       "return-type": "json",
       "exec-if": "which swaync-client",
