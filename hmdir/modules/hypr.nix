@@ -21,32 +21,12 @@
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
-            "systemctl --user start hyprpanel.service"
+            "swayosd-server"
             "hyprctl setcursor GoogleDot-Black 24"
             "export QT_DISABLE_WINDOWDECORATION=1"
             "wl-paste --type text --watch cliphist store"
             "wl-paste --type image --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"
-            # "[workspace 2 silent] $browser"
-            # "[workspace 3 silent] discord"
-            # "[workspace 4 silent] ayugram-desktop"
-            # "[workspace 4 silent] flatpak run com.spotify.Client"
-          ];
-
-          env = [
-            #"env = XDG_CURRENT_DESKTOP,Hyprland"
-            #"env = XDG_SESSION_TYPE,wayland"
-            #"env = XDG_SESSION_DESKTOP,Hyprland"
-            #"env = XCURSOR_SIZE,8"
-            #"env = QT_QPA_PLATFORM,wayland"
-            #"env = XDG_SCREENSHOTS_DIR,~/screens"
-            #"env = ELECTRON_OZONE_PLATFORM_HINT,auto"
-            #"env = QT_QPA_PLATFORMTHEME=qt6ct"
-            # env = MOZ_ENABLE_WAYLAND,0
-            # Nvidima
-            #"env = LIBVA_DRIVER_NAME,nvidia"
-            #"env = __GLX_VENDOR_LIBRARY_NAME,nvidia"
-            #"env = NVD_BACKEND,direct"
           ];
 
           input = {
@@ -258,28 +238,30 @@
             "SUPER_SHIFT, 0, movetoworkspacesilent, 10"
             "$mainMod, mouse_down, workspace, e+1"
             "$mainMod, mouse_up, workspace, e-1"
+            ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
           ];
 
           bindm = [
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
-          # bindl = [
-          #   ", XF86AudioRaiseVolume, exec, pamixer -i 5"
-          #   ", XF86AudioLowerVolume, exec, pamixer -d 5"
-          #   ", XF86AudioMute, exec, pamixer -t"
-          #   ", XF86AudioMicMute, exec, pamixer --default-source -m"
-          # ];
-          bindel = [
-            ", XF86AudioRaiseVolume, exec, ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-            ", XF86AudioLowerVolume, exec, ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ];
-
           bindl = [
-            ", XF86AudioPlay, exec, ${lib.getExe pkgs.playerctl} play-pause"
-            ", XF86AudioPrev, exec, ${lib.getExe pkgs.playerctl} previous"
-            ", XF86AudioNext, exec, ${lib.getExe pkgs.playerctl} next"
-            ", XF86AudioMute, exec, ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise 5%+"
+            ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower 5%-"
+            "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%"
+            "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 0%"
+          ];
+          bindle = [
+            ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume +2 --max-volume=100"
+            ",XF86AudioLowerVolume, exec, swayosd-client --output-volume -2"
+
+            "$mainMod, f11, exec, swayosd-client --output-volume +2 --max-volume=100"
+            "$mainMod, f12, exec, swayosd-client --output-volume -2"
+          ];
+          bindr = [
+            "CAPS,Caps_Lock,exec,swayosd-client --caps-lock"
+            ",Scroll_Lock,exec,swayosd-client --scroll-lock"
+            ",Num_Lock,exec,swayosd-client --num-lock"
           ];
         };
       };
@@ -305,24 +287,6 @@
           PartOf = "graphical-session.target";
         };
       };
-      #hyprpanel = {
-      #Unit = {
-      #  Description = "Hyprpanel service.";
-      #  WantedBy = "graphical-session.target";
-      #};
-      #
-      #Service = {
-      #  ExecStart = "${lib.getExe pkgs.hyprpanel}";
-      #  Restart = "always";
-      #  RestartSec = 1;
-      #};
-      #
-      #Install = {
-      #  After = "graphical-session.target";
-      #  ConditionEnvironment = "WAYLAND_DISPLAY";
-      #  PartOf = "graphical-session.target";
-      #};
-      #};
     };
   };
 
@@ -432,10 +396,6 @@
           }
         ];
       };
-    };
-    hyprpanel = {
-      enable = true;
-      systemd.enable = true;
     };
   };
 }
