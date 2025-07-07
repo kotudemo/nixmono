@@ -123,11 +123,7 @@ in {
       modules-right = [
         "cpu"
         "memory"
-        (
-          if (host == "desktop")
-          then "disk"
-          else ""
-        )
+        "disk"
         "pulseaudio"
         "network"
         "battery"

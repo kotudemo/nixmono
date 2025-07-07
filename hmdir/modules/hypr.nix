@@ -22,6 +22,8 @@
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
             "swayosd-server"
+            "waybar &"
+            "swaync &"
             "hyprctl setcursor GoogleDot-Black 24"
             "export QT_DISABLE_WINDOWDECORATION=1"
             "wl-paste --type text --watch cliphist store"
