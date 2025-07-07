@@ -51,7 +51,7 @@
     hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs = {
-        nixpkgs = {
+        hyprland = {
           follows = "hyprland";
         };
       };
