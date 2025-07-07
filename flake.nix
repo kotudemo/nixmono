@@ -29,17 +29,19 @@
         };
       };
     };
-            hyprland = {
-            url = "github:hyprwm/Hyprland";
-        };
-        hyprspace = {
-            url = "github:KZDKM/Hyprspace";
-            inputs = {
-                nixpkgs = {
-                    follows = "nixpkgs";
-                };
-            };
-        };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      # inputs = {
+      # nixpkgs = {
+      #   follows = "nixpkgs";
+      # };
+      #
+      # };
+      inputs.hyprland.follows = "hyprland";
+    };
 
     freesm = {
       url = "github:FreesmTeam/FreesmLauncher";
