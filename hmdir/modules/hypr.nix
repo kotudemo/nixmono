@@ -252,40 +252,38 @@
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
-                              plugin = {
+          plugin = {
+            dynamic-cursors = {
+              enabled = true;
+              mode = "strech";
+              threshold = 2;
+              stretch = {
+                limit = 4000;
+                function = "quadratic";
+              };
 
-                        dynamic-cursors = {
-                            enabled = true;
-                            mode = "strech";
-                            threshold = 2;
-                            stretch = {
-                                limit = 4000;
-                                function = "quadratic";
-                            };
+              shake = {
+                enabled = true;
+                nearest = true;
+                threshold = 10.0;
+                effects = true;
+              };
 
-                            shake = {
-                                enabled = true;
-                                nearest = true;
-                                threshold = 10.0;
-                                effects = true;
-                            };
-
-                            hyprcursor = {
-                                enabled = true;
-                                nearest = true;
-                                fallback = "clientside";
-                            };
-                        };
-
-                    };
+              hyprcursor = {
+                enabled = true;
+                nearest = true;
+                fallback = "clientside";
+              };
+            };
+          };
         };
-        
-                        plugins = with inputs; [
-                    hyprcurs.packages.${pkgs.system}.hypr-dynamic-cursors
-                    hyprplugs.packages.${pkgs.system}.xtra-dispatchers
-                    hyprplugs.packages.${pkgs.system}.hyprwinwrap
-                    hyprspace.packages.${pkgs.system}.Hyprspace
-                ];
+
+        plugins = with inputs; [
+          hyprcurs.packages.${pkgs.system}.hypr-dynamic-cursors
+          hyprplugs.packages.${pkgs.system}.xtra-dispatchers
+          hyprplugs.packages.${pkgs.system}.hyprwinwrap
+          hyprspace.packages.${pkgs.system}.Hyprspace
+        ];
       };
     };
   };

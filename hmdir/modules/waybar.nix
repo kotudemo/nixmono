@@ -22,7 +22,6 @@
     aqua = "#8EC07C";
     opacity = "1";
     indicator_height = "2px";
-
   };
 in {
   home.packages = with pkgs; [

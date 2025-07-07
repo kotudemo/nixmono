@@ -29,30 +29,30 @@
         };
       };
     };
-            hyprcurs = {
-            url = "github:VirtCode/hypr-dynamic-cursors";
-            inputs = {
-                nixpkgs = {
-                    follows = "nixpkgs";
-                };
-            };
+    hyprcurs = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
         };
-            hyprplugs = {
-            url = "github:hyprwm/hyprland-plugins";
-            inputs = {
-                hyprland = {
-                    follows = "hyprland";
-                };
-            };
+      };
+    };
+    hyprplugs = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs = {
+        hyprland = {
+          follows = "nixpkgs";
         };
-            hyprspace = {
-            url = "github:KZDKM/Hyprspace";
-            inputs = {
-                nixpkgs = {
-                    follows = "nixpkgs";
-                };
-            };
+      };
+    };
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
         };
+      };
+    };
 
     freesm = {
       url = "github:FreesmTeam/FreesmLauncher";
