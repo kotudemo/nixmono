@@ -282,7 +282,7 @@
           hyprcurs.packages.${pkgs.system}.hypr-dynamic-cursors
           hyprplugs.packages.${pkgs.system}.xtra-dispatchers
           hyprplugs.packages.${pkgs.system}.hyprwinwrap
-          hyprspace.packages.${pkgs.system}.Hyprspace
+          Hyprspace.packages.${pkgs.system}.Hyprspace
         ];
       };
     };

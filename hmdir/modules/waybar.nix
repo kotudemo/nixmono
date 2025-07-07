@@ -55,7 +55,7 @@ in {
         "memory"
         "pulseaudio"
         "pulseaudio#microphone"
-        "hyprland/language"
+        #"hyprland/language"
         "custom/notification"
       ];
       clock = {

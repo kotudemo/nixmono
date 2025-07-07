@@ -29,12 +29,19 @@
         };
       };
     };
-    hyprland = {
+     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+
+      # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
+      inputs.hyprland.follows = "hyprland";
+    };
+
     hyprcurs = {
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs = {
@@ -45,14 +52,6 @@
     };
     hyprplugs = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs = {
-        hyprland = {
-          follows = "hyprland";
-        };
-      };
-    };
-    hyprspace = {
-      url = "github:KZDKM/Hyprspace";
       inputs = {
         hyprland = {
           follows = "hyprland";
@@ -106,7 +105,7 @@
     stylix,
     zapret-presets,
     hyprland,
-    hyprspace,
+    Hyprspace,
     hyprplugs,
     hyprcurs,
     aagl,

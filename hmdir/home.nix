@@ -39,6 +39,7 @@
       })
       lmstudio
       r2modman
+      flow-control
       ayugram-desktop
       bemoji
       # blesh
