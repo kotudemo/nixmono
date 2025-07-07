@@ -36,10 +36,8 @@
 27. Fzf configuration
 28. Fix qt themes (again)
 29. Waybar
-    ↳ Cava module
     ↳ Language module
     ↳ Weather module
-    ↳ Workspaces height fix
     ↳ Media module?
 ---
 
