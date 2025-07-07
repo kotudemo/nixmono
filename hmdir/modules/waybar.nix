@@ -1,493 +1,275 @@
-{pkgs, ...}: {
+{pkgs, self, ...}: let
+  custom = {
+    font = "Maple Mono";
+    font_size = "18px";
+    font_weight = "bold";
+    text_color = "#FBF1C7";
+    background_0 = "#1D2021";
+    background_1 = "#282828";
+    border_color_style = "#A89984";
+    border_color = "#928374";
+    red = "#CC241D";
+    green = "#98971A";
+    yellow = "#FABD2F";
+    blue = "#458588";
+    magenta = "#B16286";
+    cyan = "#689D6A";
+    orange = "#D65D0E";
+    orange_bright = "#FE8019";
+    opacity = "1";
+    indicator_height = "2px";
+  };
+in
+{
+      home.packages = with pkgs; [
+    wttrbar
+    playerctl
+  ];
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = ["waybar"];
     };
   };
-  xdg.configFile."waybar/config.jsonc".text = ''
-          {
-          "layer": "top",
-          "position": "top",
-          "mode": "dock",
-          "exclusive": true,
-          "passthrough": false,
-          "gtk-layer-shell": true,
-          "ipc": false,
-          "reload_style_on_change": true,
-          "height": 0,
-          "modules-left": [
-              "custom/weather",
-              "hyprland/workspaces",
-      		    "hyprland/window"
-          ],
-          "modules-center": [
-              "cava",
-              "custom/playerctl",
-              "pulseaudio",
-              "pulseaudio#microphone"
-          ],
-          "modules-right": [
-              "keyboard-state",
-              "tray",
-              "hyprland/language",
-              "clock",
-              "custom/notification",
-          ],
-          "hyprland/window": {
-              "format": "{}"
-          },
 
-            "custom/notification": {
-      "tooltip": false,
-      "format": "󱇌",
-      "format-icons": {
-        "notification": "<span foreground='#CC241D'><sup></sup></span>  <span foreground='#CC241D'></span>",
-        "none": "  <span foreground='#CC241D'></span>",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>  <span foreground='#CC241D'></span>",
-        "dnd-none": "  <span foreground='#CC241D'></span>",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='#CC241D'></span>",
-        "inhibited-none": "  <span foreground='#CC241D'></span>",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>  <span foreground='#CC241D'></span>",
-        "dnd-inhibited-none": "  <span foreground='#CC241D'></span>"
-      },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true
-    },
-          "hyprland/workspaces": {
-              "disable-scroll": false,
-              "all-outputs": true,
-              "show-special": true,
-              "on-scroll-up": "hyprctl dispatch workspace m-1",
-              "on-scroll-down": "hyprctl dispatch workspace m+1",
-              "on-click": "activate",
-              "format": "{icon}",
-              "format-icons": {
-                    "1": "I",
-                    "2": "II",
-                    "3": "III",
-                    "4": "IV",
-                    "5": "v",
-                    "6": "VI",
-                    "7": "VII",
-                    "8": "VIII",
-                    "9": "IX",
-                    "10": "X",
-                    "urgent": "",
-                    "default": "󰐗",
-                    "magic": "󰓏",
-              },
-              "persistent-workspaces": {
-                  "1": [],
-                  "2": [],
-                  "3": [],
-                  "4": [],
-                  "5": [],
-                  "6": [],
-                  "7": [],
-                  "8": [],
-                  "9": [],
-                  "10": [],
-              },
-              "sort-by-number": true,
-          },
-
-          "hyprland/language": {
-              "format": "{}",
-              "format-en": "🇺🇸",
-              "format-ru": "🇷🇺"
-          },
-          "keyboard-state": {
-              "numlock": false,
-              "scrolllock": false,
-              "capslock": true,
-              "format": "{icon}",
-              "format-icons": {
-                  "locked": "󰪛",
-                  "unlocked": ""
-              }
-          },
-          "idle_inhibitor": {
-              "tooltip": false,
-              "format": "{icon}",
-              "start-activated": true,
-              "format-icons": {
-                  "activated": " ",
-                  "deactivated": " "
-              }
-          },
-          "custom/weather" : {
-              "tooltip" : true,
-              "format" : "{}",
-              "interval" : 30,
-              "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-              "return-type" : "json"
-          },
-          "tray": {
-              "icon-size": 11,
-              "spacing": 8
-          },
-          "clock": {
-              "timezone": "Europe/Samara",
-              "format": "{:%H:%M  %a  %d.%m}",
-              "tooltip-format": "<span font='RobotoMonoNerdFont'><tt><small>{calendar}</small></tt></span>",
-              "calendar": {
-                  "mode": "year",
-                  "mode-mon-col": 3,
-                  "format": {
-                      "months":     "<span color='#504945'><b>{}</b></span>",
-                      "days":       "<span color='#ebdbb2'><b>{}</b></span>",
-                      "weeks":      "<span color='#928374'><b>W{}</b></span>",
-                      "weekdays":   "<span color='#7c6f64'><b>{}</b></span>",
-                      "today":      "<span color='#d79921'><b><u>{}</u></b></span>"
-                  }
-              }
-          },
-          "pulseaudio": {
-              "format": "{icon}   {volume}%",
-              "tooltip": false,
-              "format-muted": " Muted",
-              "on-click": "pamixer -t",
-              "on-scroll-up": "pamixer -i 2",
-              "on-scroll-down": "pamixer -d 2",
-              "scroll-step": 3,
-              "format-icons": {
-                  "headphone": "",
-                  "hands-free": "",
-                  "headset": "",
-                  "phone": "",
-                  "portable": "",
-                  "car": "",
-                  "default": ["", "", ""]
-              }
-          },
-      	"pulseaudio#microphone": {
-              "format": "{format_source}",
-              "format-source": " {volume}%",
-              "tooltip": false,
-              "format-source-muted": " Muted",
-              "on-click": "pamixer --default-source -t",
-              "on-scroll-up": "pamixer --default-source -i 2",
-              "on-scroll-down": "pamixer --default-source -d 2",
-              "scroll-step": 5
-          },
-          "custom/power": {
-              "format": "",
-              "tooltip": false,
-              "on-click": "wlogout -b 5 --protocol layer-shell"
-          },
-          "custom/playerctl": {
-              "format": "{icon}  <span>{}</span>",
-              "return-type": "json",
-              "exec": "playerctl -p spotify metadata -f '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-              "tooltip": false,
-              "on-click-middle": "playerctl -p spotify previous",
-              "on-click": "playerctl -p spotify play-pause",
-              "on-click-right": "playerctl -p spotify next",
-              "on-click-forward": "playerctl -p spotify position 10+",
-              "on-click-backward": "playerctl -p spotify position 10-",
-              "on-scroll-up": "playerctl -p spotify volume 0.02+",
-              "on-scroll-down": "playerctl -p spotify volume 0.02-",
-              "format-icons": {
-                  "Paused": "",
-                  "Playing": ""
-              }
-          },
-          "cava": {
-              "framerate": 40,
-              "autosens": 0,
-              "sensitivity": 38,
-              "bars": 18,
-              "lower_cutoff_freq": 50,
-              "higher_cutoff_freq": 12000,
-              "method": "pulse",
-              "hide_on_silence": false,
-              "sleep_timer": 5,
-              "source": "auto",
-              "stereo": false,
-              "reverse": false,
-              "bar_delimiter": 0,
-              "monstercat": false,
-              "waves": false,
-              "noise_reduction": 0.77,
-              "input_delay": 2,
-              "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-              "actions": {
-              "on-click-right": "mode"
-              }
-      	 }
-      }
-  '';
-  home.packages = with pkgs; [
-    wttrbar
-    playerctl
-  ];
   programs.waybar = {
     enable = true;
-    style = ''
-      * {
-          border: none;
-          font-family: JuliaMono;
-          font-weight: 800;
-          font-size: 13px;
-          min-height: 0;
-      }
+    settings.mainBar = with custom; {
+    position = "bottom";
+    layer = "top";
+    height = 28;
+    margin-top = 0;
+    margin-bottom = 0;
+    margin-left = 0;
+    margin-right = 0;
+    modules-left = [
+      "custom/launcher"
+      "hyprland/workspaces"
+      "tray"
+    ];
+    modules-center = [ "clock" ];
+    modules-right = [
+      "cpu"
+      "memory"
+      (if (host == "desktop") then "disk" else "")
+      "pulseaudio"
+      "network"
+      "battery"
+      "hyprland/language"
+      "custom/notification"
+    ];
+    clock = {
+      calendar = {
+        format = {
+          today = "<span color='#98971A'><b>{}</b></span>";
+        };
+      };
+      format = "  {:%H:%M}";
+      tooltip = "true";
+      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+      format-alt = "  {:%d/%m}";
+    };
+    "hyprland/workspaces" = {
+      active-only = false;
+      disable-scroll = true;
+      format = "{icon}";
+      on-click = "activate";
+      format-icons = {
+        "1" = "I";
+        "2" = "II";
+        "3" = "III";
+        "4" = "IV";
+        "5" = "V";
+        "6" = "VI";
+        "7" = "VII";
+        "8" = "VIII";
+        "9" = "IX";
+        "10" = "X";
+        sort-by-number = true;
+      };
+      persistent-workspaces = {
+        "1" = [ ];
+        "2" = [ ];
+        "3" = [ ];
+        "4" = [ ];
+        "5" = [ ];
+      };
+    };
+    cpu = {
+      format = "<span foreground='${green}'> </span> {usage}%";
+      format-alt = "<span foreground='${green}'> </span> {avg_frequency} GHz";
+      interval = 2;
+      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+    };
+    memory = {
+      format = "<span foreground='${cyan}'>󰟜 </span>{}%";
+      format-alt = "<span foreground='${cyan}'>󰟜 </span>{used} GiB"; # 
+      interval = 2;
+      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+    };
+    disk = {
+      # path = "/";
+      format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
+      interval = 60;
+      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+    };
+    network = {
+      format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
+      format-ethernet = "<span foreground='${magenta}'>󰀂 </span>";
+      tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
+      format-linked = "{ifname} (No IP)";
+      format-disconnected = "<span foreground='${magenta}'>󰖪 </span>";
+    };
+    tray = {
+      icon-size = 20;
+      spacing = 8;
+    };
+    pulseaudio = {
+      format = "{icon} {volume}%";
+      format-muted = "<span foreground='${blue}'> </span> {volume}%";
+      format-icons = {
+        default = [ "<span foreground='${blue}'> </span>" ];
+      };
+      scroll-step = 2;
+      on-click = "pamixer -t";
+      on-click-right = "pavucontrol";
+    };
+    battery = {
+      format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
+      format-icons = [
+        " "
+        " "
+        " "
+        " "
+        " "
+      ];
+      format-charging = "<span foreground='${yellow}'> </span>{capacity}%";
+      format-full = "<span foreground='${yellow}'> </span>{capacity}%";
+      format-warning = "<span foreground='${yellow}'> </span>{capacity}%";
+      interval = 5;
+      states = {
+        warning = 20;
+      };
+      format-time = "{H}h{M}m";
+      tooltip = true;
+      tooltip-format = "{time}";
+    };
+    "hyprland/language" = {
+      format = "<span foreground='#FABD2F'> </span> {}";
+      format-fr = "FR";
+      format-en = "US";
+    };
+    "custom/launcher" = {
+      format = "";
+      on-click = "random-wallpaper";
+      on-click-right = "rofi -show drun";
+      tooltip = "true";
+      tooltip-format = "Random Wallpaper";
+    };
+    "custom/notification" = {
+      tooltip = false;
+      format = "{icon} ";
+      format-icons = {
+        notification = "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>";
+        none = "  <span foreground='${red}'></span>";
+        dnd-notification = "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>";
+        dnd-none = "  <span foreground='${red}'></span>";
+        inhibited-notification = "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>";
+        inhibited-none = "  <span foreground='${red}'></span>";
+        dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>  <span foreground='${red}'></span>";
+        dnd-inhibited-none = "  <span foreground='${red}'></span>";
+      };
+      return-type = "json";
+      exec-if = "which swaync-client";
+      exec = "swaync-client -swb";
+      on-click = "swaync-client -t -sw";
+      on-click-right = "swaync-client -d -sw";
+      escape = true;
+    };
+  };
+    style = 
+      with custom; ''
+    * {
+      border: none;
+      border-radius: 0px;
+      padding: 0;
+      margin: 0;
+      font-family: ${font};
+      font-weight: ${font_weight};
+      opacity: ${opacity};
+      font-size: ${font_size};
+    }
 
-      window#waybar {
-          background: none;
-          margin: 0px;
-          padding: 0px;
-      }
+    window#waybar {
+      background: #282828;
+      border-top: 1px solid ${border_color_style};
+    }
 
-      tooltip {
-          background: rgba(40, 40, 40, 0.92);
-          border-radius: 4px;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          color: #ebdbb2;
-      }
+    tooltip {
+      background: ${background_1};
+      border: 1px solid ${border_color_style};
+    }
+    tooltip label {
+      margin: 5px;
+      color: ${text_color};
+    }
 
-      #workspaces button {
-          border: none;
-          transition-duration: 0.3s;
-          background: none;
-          box-shadow: inherit;
-          text-shadow: inherit;
-          color: #928374;
-          padding: 3px;
-          padding-left: 3px;
-          padding-right: 3px;
-      }
+    #workspaces {
+      padding-left: 15px;
+    }
+    #workspaces button {
+      color: ${yellow};
+      padding-left:  5px;
+      padding-right: 5px;
+      margin-right: 10px;
+    }
+    #workspaces button.empty {
+      color: ${text_color};
+    }
+    #workspaces button.active {
+      color: ${orange_bright};
+    }
 
-      #workspaces button.persistent {
-          color: #928374;
-      }
+    #clock {
+      color: ${text_color};
+    }
 
-      #workspaces button.empty {
-          color: #504945;
-      }
+    #tray {
+      margin-left: 10px;
+      color: ${text_color};
+    }
+    #tray menu {
+      background: ${background_1};
+      border: 1px solid ${border_color_style};
+      padding: 8px;
+    }
+    #tray menuitem {
+      padding: 1px;
+    }
 
-      #workspaces button.special {
-          color: #b8bb26;
-      }
+    #pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification {
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-right: 10px;
+      color: ${text_color};
+    }
 
-      #workspaces button.visible {
-          color: #ebdbb2;
-      }
+    #pulseaudio, #language {
+      margin-left: 15px;
+    }
 
-      #workspaces button:hover {
-          color: #d79921;
-      }
+    #custom-notification {
+      margin-left: 15px;
+      padding-right: 2px;
+      margin-right: 5px;
+    }
 
-      #workspaces button.active {
-          color: #ebdbb2;
-      }
-
-      #workspaces button.urgent {
-          color: #cc241d;
-      }
-
-      #language,
-      #custom-weather,
-      #window,
-      #custom-playerctl,
-      #clock,
-      #battery,
-      #pulseaudio,
-      #network,
-      #workspaces,
-      #tray,
-      #cava,
-      #keyboard-state,
-      #custom-power {
-          background: none;
-          padding: 0px 10px;
-          margin: 0px;
-          margin-top: 5px;
-          margin-bottom: 0px;
-      }
-
-      #tray {
-          background: rgba(40, 40, 40, 0.92);
-          border-radius: 4px;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          margin-right: 4px;
-          margin-left: 4px;
-          padding-right: 8px;
-          padding-left: 9px;
-          padding-top: 2px;
-          color: #ebdbb2;
-      }
-
-      #workspaces {
-          background: rgba(40, 40, 40, 0.92);
-          border-radius: 4px;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          margin-left: 4px;
-          padding-right: 6px;
-          padding-left: 4px;
-      }
-
-
-
-      #language {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-right: 0px;
-          border-radius: 4px 0px 0px 4px;
-          min-width: 24px;
-      }
-
-      #keyboard-state {
-          background: none;
-          color: #ebdbb2;
-          border: none;
-          padding-top: 1px;
-      }
-
-      #window {
-          background: rgba(40, 40, 40, 0.92);
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-radius: 4px;
-          margin-left: 30px;
-          margin-right: 30px;
-          color: #ebdbb2;
-      }
-
-      #custom-playerctl {
-          background: rgba(40, 40, 40, 0.92);
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-right: 0px;
-          border-left: 0px;
-          color: #ebdbb2;
-      }
-
-      #cava {
-          background: rgba(40, 40, 40, 0.92);
-          border-radius: 4px 0px 0px 4px;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-right: 0px;
-          margin-left: 4px;
-          color: #ebdbb2;
-      }
-      #custom-notification {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-radius: 0px 4px 4px 0px;
-          border-left: 0px;
-          margin-left: 0px;
-          margin-right: 4px;
-          padding-right: 16px;
-      }
-
-      #clock {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-radius: 0px;
-          border-right: 0px;
-          border-left: 0px;
-      }
-
-      #network {
-          color: #ebdbb2;
-          border-left: 0px;
-          border-right: 0px;
-      }
-
-      #pulseaudio {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-right: 0px;
-          border-left: 0px;
-          border-radius: 0px;
-      }
-
-      #pulseaudio.microphone {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-radius: 0px 4px 4px 0px;
-          border-left: 0px;
-          margin-right: 4px;
-      }
-
-      #battery {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-radius: 0px;
-          border-right: 0px;
-          border-left: 0px;
-      }
-
-      #custom-weather {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-radius: 4px;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          margin-left: 4px;
-          padding-right: 7px;
-          padding-top: 1px;
-      }
-
-      #idle_inhibitor {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-left: 0px;
-          border-right: 0px;
-          border-radius: 0px;
-          min-width: 18px;
-          margin-left: -4px;
-          margin-right: -4px;
-      }
-
-      #custom-power {
-          background: rgba(40, 40, 40, 0.92);
-          color: #ebdbb2;
-          border-width: 2px;
-          border-style: solid;
-          border-color: #ebdbb2;
-          border-radius: 0px 4px 4px 0px;
-          border-left: 0px;
-          margin-left: 0px;
-          margin-right: 4px;
-          padding-right: 16px;
-      }
-    '';
+    #custom-launcher {
+      font-size: 20px;
+      color: ${text_color};
+      font-weight: bold;
+      margin-left: 15px;
+      padding-right: 10px;
+    }
+  '';
   };
 }
