@@ -19,8 +19,10 @@
     cyan = "#689D6A";
     orange = "#D65D0E";
     orange_bright = "#FE8019";
+    aqua = "#8EC07C";
     opacity = "1";
     indicator_height = "2px";
+
   };
 in {
   home.packages = with pkgs; [
@@ -52,8 +54,8 @@ in {
       modules-right = [
         "cpu"
         "memory"
-        "wireplumber"
-        "wireplumber#microphone"
+        "pulseaudio"
+        "pulseaudio#microphone"
         "hyprland/language"
         "custom/notification"
       ];
@@ -65,9 +67,9 @@ in {
           on-scroll = 1;
           on-click-right = "mode";
           format = {
-            "months" = "<span color='${red}'><b>{}</b></span>";
+            "months" = "<span color='${aqua}'><b>{}</b></span>";
             "days" = "<span color='${border_color}'><b>{}</b></span>";
-            "weeks" = "<span color='${orange}'><b>W{}</b></span>";
+            "weeks" = "<span color='${blue}'><b>W{}</b></span>";
             #"weekdays" = "<span color='#ffcc66'><b>{}</b></span>";
             "today" = "<span color='${green}'><b><u>{}</u></b></span>";
           };
@@ -131,35 +133,42 @@ in {
         icon-size = 20;
         spacing = 8;
       };
-      "wireplumber" = {
-        format = "{icon} {volume}%";
-        format-muted = " off";
-        format-icons = {
-          default = [
-            "" 
-            ""
-            ""
-          ];
-        };
-        max-volume = 150;
-        scroll-step = 2;
-        smooth-scrolling-threshold = 1;
+
+      pulseaudio = {
+        format = "{icon}   {volume}%";
+        tooltip = false;
+        format-muted = " Muted";
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         on-click-right = "pwvucontrol";
         on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+";
         on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-";
-      };
-      "wireplumber#microphone" = {
-        format = " {volume}%";
-        format-muted = " off";
         scroll-step = 2;
-        smooth-scrolling-threshold = 1;
-        max-volume = 150;
+        format-icons = {
+          headphone = "";
+          hands-free = "";
+          headset = "";
+          phone = "";
+          portable = "";
+          car = "";
+          default = [
+            ""
+            ""
+            ""
+          ];
+        };
+      };
+      "pulseaudio#microphone" = {
+        format = "{format_source}";
+        format-source = " {volume}%";
+        tooltip = false;
+        format-source-muted = " Muted";
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
         on-click-right = "pwvucontrol";
         on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 2%+";
         on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 2%-";
+        scroll-step = 2;
       };
+
       "hyprland/language" = {
         format = "<span foreground='#FABD2F'> </span> {}";
         format-ru = "RU";
@@ -249,14 +258,14 @@ in {
         padding: 1px;
       }
 
-      #wireplumber, #wireplumber.microphone, #network, #cpu, #memory, #disk, #language, #custom-notification {
+      #pulseaudio.microphone, #pulseaudio, #network, #cpu, #memory, #disk, #language, #custom-notification {
         padding-left: 5px;
         padding-right: 5px;
         margin-right: 10px;
         color: ${text_color};
       }
 
-      #wireplumber, #wireplumber.microphone, #language {
+      #pulseaudio.microphone, #pulseaudio, #language {
         margin-left: 15px;
       }
 
