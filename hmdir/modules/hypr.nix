@@ -4,8 +4,6 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [
-  ];
   wayland = {
     windowManager = {
       hyprland = {
@@ -13,7 +11,7 @@
         package = pkgs.hyprland;
 
         settings = {
-          monitor = "HDMI-A-1,1920x1080@143.98Hz,1920x0,1";
+          monitor = ",1920x1080@143.98Hz,1920x0,1";
           "$mainMod" = "SUPER";
           "$terminal" = "ghostty";
           "$calc" = "kcalc";
