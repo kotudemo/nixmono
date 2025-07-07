@@ -36,15 +36,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprcurs = {
-      url = "github:VirtCode/hypr-dynamic-cursors";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
-    };
-
     freesm = {
       url = "github:FreesmTeam/FreesmLauncher";
     };
