@@ -190,7 +190,7 @@
             "$mainMod, B, exec, discord"
             "$mainMod, D, exec, wofi --show drun"
             "$mainMod, L, exec, hyprlock"
-            "$mainMod, equal, exec, ${lib.getExe pkgs.woomer}"
+            #"$mainMod, equal, exec, ${lib.getExe pkgs.woomer}"
             "SUPER_ALT, S, exec, ${lib.getExe pkgs.grimblast} -f -c copy screen"
             "SUPER_CTRL, S, exec, ${lib.getExe pkgs.grimblast} -f save area - | ${lib.getExe pkgs.swappy} -f -"
             "CTRL, Print, exec, ${lib.getExe pkgs.grimblast} -c copysave screen ~/screens/screen-$(date +%s).png"
