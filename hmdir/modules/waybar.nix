@@ -10,8 +10,7 @@
     text_color = "#FBF1C7";
     background_0 = "#1D2021";
     background_1 = "#282828";
-    border_color_style = "#A89984";
-    border_color = "#928374";
+    border_color = "#e8cb94";
     red = "#CC241D";
     green = "#98971A";
     yellow = "#FABD2F";
@@ -53,8 +52,8 @@ in {
       modules-right = [
         "cpu"
         "memory"
-        "wireplumber#output"
-        "wireplumber#input"
+        "wireplumber"
+        "wireplumber#microphone"
         "hyprland/language"
         "custom/notification"
       ];
@@ -66,9 +65,9 @@ in {
           on-scroll = 1;
           on-click-right = "mode";
           format = {
-            #"months" = "<span color='#ffead3'><b>{}</b></span>";
-            #"days" = "<span color='#ecc6d9'><b>{}</b></span>";
-            #"weeks" = "<span color='#99ffdd'><b>W{}</b></span>";
+            "months" = "<span color='${red}'><b>{}</b></span>";
+            "days" = "<span color='${border_color}'><b>{}</b></span>";
+            "weeks" = "<span color='${orange}'><b>W{}</b></span>";
             #"weekdays" = "<span color='#ffcc66'><b>{}</b></span>";
             "today" = "<span color='${green}'><b><u>{}</u></b></span>";
           };
@@ -132,19 +131,7 @@ in {
         icon-size = 20;
         spacing = 8;
       };
-      "wireplumber#input" = {
-        format-source = " {volume}%";
-        format-source-muted = " off";
-        format = "{format_source}";
-        scroll-step = 1;
-        smooth-scrolling-threshold = 1;
-        max-volume = 150;
-        on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-        on-click-right = "pwvucontrol";
-        on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ +1%";
-        on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ -1%";
-      };
-      "wireplumber#output" = {
+      "wireplumber" = {
         format = "{icon} {volume}%";
         format-muted = " off";
         format-icons = {
@@ -159,10 +146,20 @@ in {
         smooth-scrolling-threshold = 1;
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         on-click-right = "pwvucontrol";
-        on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ +2%";
-        on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ -2%";
+        on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+";
+        on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-";
       };
-
+      "wireplumber#microphone" = {
+        format = " {volume}%";
+        format-muted = " off";
+        scroll-step = 2;
+        smooth-scrolling-threshold = 1;
+        max-volume = 150;
+        on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        on-click-right = "pwvucontrol";
+        on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 2%+";
+        on-scroll-down = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 2%-";
+      };
       "hyprland/language" = {
         format = "<span foreground='#FABD2F'> </span> {}";
         format-ru = "RU";
@@ -207,12 +204,12 @@ in {
 
       window#waybar {
         background: #282828;
-        border-top: 1px solid ${border_color_style};
+        border-top: 1px solid ${border_color};
       }
 
       tooltip {
         background: ${background_1};
-        border: 1px solid ${border_color_style};
+        border: 1px solid ${border_color};
       }
       tooltip label {
         margin: 5px;
@@ -245,21 +242,21 @@ in {
       }
       #tray menu {
         background: ${background_1};
-        border: 1px solid ${border_color_style};
+        border: 1px solid ${border_color};
         padding: 8px;
       }
       #tray menuitem {
         padding: 1px;
       }
 
-      #wireplumber.output, #wireplumber.input, #network, #cpu, #memory, #disk, #language, #custom-notification {
+      #wireplumber, #wireplumber.microphone, #network, #cpu, #memory, #disk, #language, #custom-notification {
         padding-left: 5px;
         padding-right: 5px;
         margin-right: 10px;
         color: ${text_color};
       }
 
-      #wireplumber.output, #wireplumber.input, #language {
+      #wireplumber, #wireplumber.microphone, #language {
         margin-left: 15px;
       }
 
