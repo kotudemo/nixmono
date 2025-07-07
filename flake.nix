@@ -29,12 +29,17 @@
         };
       };
     };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-
-      # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+            hyprland = {
+            url = "github:hyprwm/Hyprland";
+        };
+        hyprspace = {
+            url = "github:KZDKM/Hyprspace";
+            inputs = {
+                nixpkgs = {
+                    follows = "nixpkgs";
+                };
+            };
+        };
 
     freesm = {
       url = "github:FreesmTeam/FreesmLauncher";
@@ -81,7 +86,8 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
-    Hyprspace,
+    hyprland,
+    hyprspace,
     aagl,
     ...
   } @ inputs: let

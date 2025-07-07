@@ -255,7 +255,7 @@
         };
 
         plugins = with inputs; [
-          Hyprspace.packages.${pkgs.system}.Hyprspace
+          hyprspace.packages.${pkgs.system}.Hyprspace
         ];
       };
     };
