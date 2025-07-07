@@ -252,10 +252,37 @@
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
+          plugin = {
+            dynamic-cursors = {
+              enabled = true;
+              mode = "strech";
+              threshold = 2;
+              stretch = {
+                limit = 4000;
+                function = "quadratic";
+              };
+
+              shake = {
+                enabled = true;
+                nearest = true;
+                threshold = 10.0;
+                effects = true;
+              };
+
+              hyprcursor = {
+                enabled = true;
+                nearest = true;
+                fallback = "clientside";
+              };
+            };
+          };
         };
 
-        plugins = with inputs; [
-          hyprspace.packages.${pkgs.system}.Hyprspace
+        plugins = with pkgs.hyprlandPlugins; [
+          hyprspace
+          hypr-dynamic-cursors
+          hyprwinwrap
+          xtra-dispatchers
         ];
       };
     };
