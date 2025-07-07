@@ -81,7 +81,6 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
-    hyprcurs,
     Hyprspace,
     aagl,
     ...
