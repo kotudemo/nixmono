@@ -34,6 +34,7 @@
         withOpenASAR = true; # can do this here too
         withVencord = true;
       })
+      lmstudio
       r2modman
       ayugram-desktop
       bemoji
@@ -60,11 +61,11 @@
       wl-clipboard-rs
       wlsunset
     ];
-    #file = {
-    #  ".config/hyprpanel/config.json" = {
-    #    source = "${self}/attachments/dots/hyprlandarch/config.json";
-    #  };
-    #};
+    file = {
+      ".config/hyprpanel/config.json" = {
+        source = "${self}/attachments/dots/hyprlandarch/config.json";
+      };
+    };
   };
   qt = {
     enable = true;
