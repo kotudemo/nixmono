@@ -24,7 +24,7 @@
     ./modules/hypr.nix
     ./modules/nemo.nix
     ./modules/waybar.nix
-    ./swaync.nix
+    ./modules/swaync.nix
   ];
   home = {
     username = "kd";
