@@ -29,6 +29,9 @@
         };
       };
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
     hyprcurs = {
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs = {
@@ -41,7 +44,7 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs = {
         hyprland = {
-          follows = "nixpkgs";
+          follows = "hyprland";
         };
       };
     };
@@ -99,6 +102,7 @@
     nixos-anywhere,
     stylix,
     zapret-presets,
+    hyprland,
     hyprspace,
     hyprplugs,
     hyprcurs,
