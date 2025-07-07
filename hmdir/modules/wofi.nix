@@ -27,7 +27,8 @@
 
     style = ''
       * {
-        font-family: JetBrainsMonoNerd;
+        font-family: Hack Nerd Font;
+        font_weight: semibold;
         color: #ebdbb2;
         background: transparent;
       }
@@ -36,11 +37,12 @@
         background: #1d2021;
         margin: auto;
         padding: 10px;
-        border-radius: 20px;
+        border-radius: 10px;
         border: 5px solid #e8cb94;
       }
 
       #input {
+        font-family: Hack Nerd Font;
         padding: 10px;
         margin-bottom: 10px;
         border-radius: 15px;
