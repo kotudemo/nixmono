@@ -21,6 +21,7 @@
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
+            "systemctl --user start hyprpanel.service"
             "hyprctl setcursor GoogleDot-Black 24"
             "export QT_DISABLE_WINDOWDECORATION=1"
             "wl-paste --type text --watch cliphist store"
@@ -284,6 +285,77 @@
       };
     };
   };
+  systemd.user = {
+    services = {
+      hyprpolkitagent = {
+        Unit = {
+          Description = "Hyprpolkitagent service.";
+          WantedBy = "graphical-session.target";
+        };
+
+        Service = {
+          ExecStart = "${lib.getExe pkgs.hyprpolkitagent}";
+          Restart = "always";
+          RestartSec = 10;
+        };
+
+        Install = {
+          After = "graphical-session.target";
+          ConditionEnvironment = "WAYLAND_DISPLAY";
+          PartOf = "graphical-session.target";
+        };
+      };
+      #hyprpanel = {
+      #Unit = {
+      #  Description = "Hyprpanel service.";
+      #  WantedBy = "graphical-session.target";
+      #};
+      #
+      #Service = {
+      #  ExecStart = "${lib.getExe pkgs.hyprpanel}";
+      #  Restart = "always";
+      #  RestartSec = 1;
+      #};
+      #
+      #Install = {
+      #  After = "graphical-session.target";
+      #  ConditionEnvironment = "WAYLAND_DISPLAY";
+      #  PartOf = "graphical-session.target";
+      #};
+      #};
+    };
+  };
+
+  services = {
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          before_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms off";
+          after_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
+        };
+
+        listener = [
+          {
+            timeout = 300;
+            on-timeout = "${lib.getExe pkgs.brightnessctl} -s set 10";
+            on-resume = "${lib.getExe pkgs.brightnessctl} -r";
+          }
+
+          {
+            timeout = 600;
+            on-timeout = "${lib.getExe pkgs.hyprlock}";
+          }
+
+          {
+            timeout = 900;
+            on-timeout = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
+          }
+        ];
+      };
+    };
+  };
+
   programs = {
     hyprlock = {
       enable = true;
@@ -361,76 +433,9 @@
         ];
       };
     };
-  };
-
-  systemd.user = {
-    services = {
-      hyprpolkitagent = {
-        Unit = {
-          Description = "Hyprpolkitagent service.";
-          WantedBy = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${lib.getExe pkgs.hyprpolkitagent}";
-          Restart = "always";
-          RestartSec = 10;
-        };
-
-        Install = {
-          After = "graphical-session.target";
-          ConditionEnvironment = "WAYLAND_DISPLAY";
-          PartOf = "graphical-session.target";
-        };
-      };
-      hyprpanel = {
-        Unit = {
-          Description = "Hyprpanel service.";
-          WantedBy = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${lib.getExe pkgs.hyprpanel}";
-          Restart = "always";
-          RestartSec = 1;
-        };
-
-        Install = {
-          After = "graphical-session.target";
-          ConditionEnvironment = "WAYLAND_DISPLAY";
-          PartOf = "graphical-session.target";
-        };
-      };
-    };
-  };
-
-  services = {
-    hypridle = {
+    hyprpanel = {
       enable = true;
-      settings = {
-        general = {
-          before_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms off";
-          after_sleep_cmd = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch dpms on";
-        };
-
-        listener = [
-          {
-            timeout = 300;
-            on-timeout = "${lib.getExe pkgs.brightnessctl} -s set 10";
-            on-resume = "${lib.getExe pkgs.brightnessctl} -r";
-          }
-
-          {
-            timeout = 600;
-            on-timeout = "${lib.getExe pkgs.hyprlock}";
-          }
-
-          {
-            timeout = 900;
-            on-timeout = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
-          }
-        ];
-      };
+      systemd.enable = true;
     };
   };
 }

@@ -34,6 +34,7 @@
         withOpenASAR = true; # can do this here too
         withVencord = true;
       })
+      r2modman
       ayugram-desktop
       bemoji
       # blesh
