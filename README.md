@@ -22,9 +22,8 @@
 11. Hardened specialisation
 12. Custom boot manager skin 
 13. Change file manager to yazi/superfile
-14. Find new clipboard history manager, notification daemon and status bar, change app launcher, 
+14. Find new app launcher, 
 15. made custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
-16. Better animations for hyprland
 17. Easy username changing by adding a variable
 18. Helix more custom keybindings
 19. Migrate to gruvbox dark
