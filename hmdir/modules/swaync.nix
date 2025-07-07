@@ -1,5 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [swaynotificationcenter];
+  wayland.windowManager.hyprland = {
+    settings = {
+      exec-once = ["swaync"];
+    };
+  };
 
   xdg.configFile."swaync/style.css".text = ''
         @define-color shadow rgba(0, 0, 0, 0.25);

@@ -35,6 +35,7 @@
 24. Change all theme colors to stylix colors 
 25. Add automatic wallpaper change  with stylix integration
 26. Telegram theme generator with stylix 
+27 Fzf configuration
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

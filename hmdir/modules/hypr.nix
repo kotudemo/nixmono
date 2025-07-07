@@ -21,13 +21,9 @@
           exec-once = [
             "systemctl --user start hypridle.service"
             "systemctl --user start hyprpolkitagent.service"
-            "swayosd-server"
-            "waybar &"
-            "swaync &"
             "hyprctl setcursor GoogleDot-Black 24"
-            "export QT_DISABLE_WINDOWDECORATION=1"
-            "wl-paste --type text --watch cliphist store"
-            "wl-paste --type image --watch cliphist store"
+            "wl-clip-persist --clipboard both"
+            "wl-paste --watch cliphist store"
             "wlsunset -l 53.1 -L 50.0 -t 4500 -T 5000"
           ];
 
@@ -240,30 +236,11 @@
             "SUPER_SHIFT, 0, movetoworkspacesilent, 10"
             "$mainMod, mouse_down, workspace, e+1"
             "$mainMod, mouse_up, workspace, e-1"
-            ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
           ];
 
           bindm = [
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
-          ];
-          bindl = [
-            ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise 5%+"
-            ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower 5%-"
-            "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%"
-            "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 0%"
-          ];
-          bindle = [
-            ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume +2 --max-volume=100"
-            ",XF86AudioLowerVolume, exec, swayosd-client --output-volume -2"
-
-            "$mainMod, f11, exec, swayosd-client --output-volume +2 --max-volume=100"
-            "$mainMod, f12, exec, swayosd-client --output-volume -2"
-          ];
-          bindr = [
-            "CAPS,Caps_Lock,exec,swayosd-client --caps-lock"
-            ",Scroll_Lock,exec,swayosd-client --scroll-lock"
-            ",Num_Lock,exec,swayosd-client --num-lock"
           ];
         };
       };
