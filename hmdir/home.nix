@@ -7,12 +7,12 @@
 }: {
   imports = [
     #./modules/audacious.nix
+    # ./modules/bash.nix
     ./modules/starship.nix
     ./modules/eza.nix
     ./modules/helix.nix
     ./modules/yazi.nix
     ./modules/ghostty.nix
-    # ./modules/bash.nix
     ./modules/zoxide.nix
     ./modules/bat.nix
     ./modules/stylix.nix
@@ -23,6 +23,8 @@
     ./modules/chromium.nix
     ./modules/hypr.nix
     ./modules/nemo.nix
+    ./modules/waybar.nix
+    ./swaync.nix
   ];
   home = {
     username = "kd";
