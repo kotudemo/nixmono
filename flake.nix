@@ -107,7 +107,7 @@
               modulesPath,
               self,
               ...
-            }:
+            }:{
               imports = [
                 # Include the results of the hardware scan.
                 (modulesPath + "/installer/scan/not-detected.nix")
