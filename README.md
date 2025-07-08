@@ -22,10 +22,10 @@
 10. Hardened specialisation
 11. Custom boot manager skin 
 12. Change file manager to yazi/superfile
-13. Stylix
-    ↳ Automatic wallpaper change with stylix integration
-    ↳ Telegram theme generator
-    ↳ Change all theme colors to stylix colors 
+13. Stylix \
+    ↳ Automatic wallpaper change with stylix integration \
+    ↳ Telegram theme generator \
+    ↳ Change all theme colors to stylix colors \
 14. To make custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
 15. Fzf configuration  
 16. Easy username changing by adding a variable
@@ -37,9 +37,9 @@
 22. Test fonts and cursors
 23. Fix qt themes (again)
 24. Fancy fastfetch config
-25. Waybar
-    ↳ Language module
-    ↳ Weather module
+25. Waybar \
+    ↳ Language module \
+    ↳ Weather module \
     ↳ Media module?
 ---
 
