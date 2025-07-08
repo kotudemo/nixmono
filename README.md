@@ -111,14 +111,6 @@ For this guide you need:
 
 ---
 
-### 🎨 Theming & Appearance
-
-* [Sigma Wallpapers](https://github.com/kotudemo/PoALFW/releases/tag/wallpapers)
-* [Everforest KDE Theme](https://github.com/Serge2702/KDE-Everforest/blob/main/Everforest.colors)
-* Tokyo Night theme: available in KDE store
-
----
-
 ### 🙏 Special Thanks
 
 * [hand7s](https://github.com/s0me1newithhand7s)
