@@ -41,6 +41,7 @@
     ↳ Language module \
     ↳ Weather module \
     ↳ Media module?
+26. Swayimg mime types fix
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
