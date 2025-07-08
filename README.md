@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/47190ada-1cce-47b0-af1b-735f69200beb" alt="screenshot" width="600"/>
-  <img src="https://github.com/user-attachments/assets/dacdc722-183a-4e6a-ad23-feafa1e1507b" alt="screenshot" width="600"/>
+  <img src="https://github.com/user-attachments/assets/48dbd69d-9b99-4f30-b534-042ad434de6d" alt="screenshot" width="600"/>
 </p>
 
 <h1 align="center">🛠️ NixOS Config TODO List</h1>
