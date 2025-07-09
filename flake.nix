@@ -785,7 +785,7 @@
                             96000
                           ];
 
-                          "default.clock.min-quantum" = 512;
+                          "default.clock.min-quantum" = 1024;
                           "default.clock.quantum" = 4096;
                           "default.clock.max-quantum" = 8192;
                         };
