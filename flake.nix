@@ -747,11 +747,11 @@
                   ];
                 };
                 pulseaudio = {
-                  enable = true;
+                  enable = false;
                   support32Bit = true;
-                }; 
+                };
 
-                /*pipewire = {
+                pipewire = {
                   enable = true;
                   alsa = {
                     enable = true;
@@ -772,36 +772,10 @@
 
                   wireplumber = {
                     enable = true;
-                    extraConfig."alsa-vm.conf" = ''
-                      # ALSA node property overrides for virtual machine hardware
-
-                        monitor.alsa.rules = [
-                          # Generic PCI cards on any VM type
-                          {
-                            matches = [
-                              {
-                                node.name = "~alsa_input.pci.*"
-                                cpu.vm.name = "~.*"
-                              }
-                              {
-                                node.name = "~alsa_output.pci.*"
-                                cpu.vm.name = "~.*"
-                              }
-                            ]
-                            actions = {
-                              update-props = {
-                                api.alsa.period-size   = 1024
-                                api.alsa.headroom      = 2048
-                        		session.suspend-timeout-seconds = 0
-                              }
-                            }
-                          }
-                        ]
-                    '';
                   };
                   extraConfig = {
                     pipewire = {
-                        "92-low-latency" = {
+                      "92-low-latency" = {
                         "context.properties" = {
                           "default.clock.rate" = 48000;
                           "default.clock.allowed-rates" = [
@@ -835,7 +809,7 @@
                       };
                     };
                   };
-                };*/
+                };
 
                 scx = {
                   enable = true;
