@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [swaynotificationcenter];
+  home.packages = with pkgs; [
+    swaynotificationcenter
+    wf-recorder
+  ];
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = ["swaync"];

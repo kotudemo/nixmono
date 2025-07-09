@@ -5,7 +5,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-      wf-recorder
       wl-clipboard
       wl-clip-persist
       wlsunset
