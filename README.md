@@ -41,7 +41,8 @@
     ↳ Language module \
     ↳ Weather module \
     ↳ Media module?
-26. Swayimg mime types fix
+26. Fix mime types for wayland (swayimg) and manage wayland and xorg software mime types 
+27. Option for x11 rice
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>

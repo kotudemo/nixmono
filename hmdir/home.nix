@@ -18,14 +18,15 @@
     ./modules/stylix.nix
     ./modules/vesktop.nix
     ./modules/fastfetch.nix
-    ./modules/swayimg.nix
-    ./modules/wofi.nix
     ./modules/chromium.nix
-    ./modules/hypr.nix
     ./modules/nemo.nix
-    ./modules/waybar.nix
-    ./modules/swaync.nix
-    ./modules/swayosd.nix
+
+    ./modules/wayland/swayimg.nix
+    ./modules/wayland/hypr.nix
+    ./modules/wayland/waybar.nix
+    ./modules/wayland/swaync.nix
+    ./modules/wayland/swayosd.nix
+    ./modules/wayland/wofi.nix
   ];
   home = {
     username = "kd";
