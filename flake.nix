@@ -751,8 +751,8 @@
                   support32Bit = true;
                 }; 
 
-                pipewire = {
-                  enable = false;
+                /*pipewire = {
+                  enable = true;
                   alsa = {
                     enable = true;
                     support32Bit = true;
@@ -835,7 +835,7 @@
                       };
                     };
                   };
-                };
+                };*/
 
                 scx = {
                   enable = true;
