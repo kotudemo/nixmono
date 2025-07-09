@@ -54,8 +54,6 @@ in {
         "cava"
         "pulseaudio"
         "pulseaudio#microphone"
-
-        
       ];
       modules-right = [
         "cpu"

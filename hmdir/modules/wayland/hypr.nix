@@ -5,9 +5,9 @@
   ...
 }: {
   home.packages = with pkgs; [
-      wl-clipboard
-      wl-clip-persist
-      wlsunset
+    wl-clipboard
+    wl-clip-persist
+    wlsunset
   ];
   wayland = {
     windowManager = {

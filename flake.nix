@@ -226,12 +226,6 @@
                     "refs"
                   ];
                 };
-                plymouth = {
-                  enable = true;
-                  themePackages = with pkgs; [
-                    nixos-bgrt-plymouth
-                  ];
-                };
               };
 
               systemd = {
@@ -581,9 +575,9 @@
               };
 
               security = {
-                #rtkit = {
-                #  enable = true;
-                #};
+                rtkit = {
+                  enable = true;
+                };
                 polkit = {
                   enable = true;
                   adminIdentities = [
@@ -656,7 +650,7 @@
                 gvfs.enable = true;
                 udisks2.enable = true;
                 tumbler.enable = true;
-                pulseaudio.enable = false;
+                #pulseaudio.enable = false;
                 irqbalance.enable = true;
                 flatpak = {
                   enable = true;
@@ -752,9 +746,13 @@
                     "2620:119:53::53"
                   ];
                 };
+                pulseaudio = {
+                  enable = true;
+                  support32Bit = true;
+                }; 
 
                 pipewire = {
-                  enable = true;
+                  enable = false;
                   alsa = {
                     enable = true;
                     support32Bit = true;
@@ -774,10 +772,36 @@
 
                   wireplumber = {
                     enable = true;
+                    extraConfig."alsa-vm.conf" = ''
+                      # ALSA node property overrides for virtual machine hardware
+
+                        monitor.alsa.rules = [
+                          # Generic PCI cards on any VM type
+                          {
+                            matches = [
+                              {
+                                node.name = "~alsa_input.pci.*"
+                                cpu.vm.name = "~.*"
+                              }
+                              {
+                                node.name = "~alsa_output.pci.*"
+                                cpu.vm.name = "~.*"
+                              }
+                            ]
+                            actions = {
+                              update-props = {
+                                api.alsa.period-size   = 1024
+                                api.alsa.headroom      = 2048
+                        		session.suspend-timeout-seconds = 0
+                              }
+                            }
+                          }
+                        ]
+                    '';
                   };
                   extraConfig = {
                     pipewire = {
-                      "92-low-latency" = {
+                        "92-low-latency" = {
                         "context.properties" = {
                           "default.clock.rate" = 48000;
                           "default.clock.allowed-rates" = [
@@ -804,7 +828,6 @@
                           ];
                         };
                       };
-
                       "94-no-upmixing" = {
                         "stream.properties" = {
                           "channelmix.upmix" = false;
@@ -970,10 +993,21 @@
                     "x-scheme-handler/http" = "chromium.desktop";
                     "x-scheme-handler/https" = "chromium.desktop";
                     "x-scheme-handler/chrome" = "chromium.desktop";
+                    "application/x-extension-htm" = "chromium.desktop";
+                    "application/x-extension-html" = "chromium.desktop";
+                    "application/x-extension-shtml" = "chromium.desktop";
+                    "application/xhtml+xml" = "chromium.desktop";
+                    "application/x-extension-xhtml" = "chromium.desktop";
+                    "application/x-extension-xht" = "chromium.desktop";
+                    "text/html" = "chromium.desktop";
                     "text/*" = "text.desktop";
                     "application/x-shellscript" = "text.desktop";
                     "application/octet-stream" = "text.desktop";
                     "image/*" = "swayimg.desktop";
+                    "image/jpeg" = "swayimg.desktop";
+                    "image/png" = "swayimg.desktop";
+                    "image/webp" = "swayimg.desktop";
+                    "image/gif" = "swayimg.desktop";
                     "video/*" = "mpv.desktop";
                     "audio/*" = "mpv.desktop";
                     "x-scheme-handler/magnet" = "qbittorrent.desktop";
@@ -983,13 +1017,6 @@
                     "application/pdf" = "pdf.desktop";
                     "application/rss+xml" = "rss.desktop";
                     "inode/directory" = "nemo.desktop";
-                    "text/html" = "chromium.desktop";
-                    "application/x-extension-htm" = "chromium.desktop";
-                    "application/x-extension-html" = "chromium.desktop";
-                    "application/x-extension-shtml" = "chromium.desktop";
-                    "application/xhtml+xml" = "chromium.desktop";
-                    "application/x-extension-xhtml" = "chromium.desktop";
-                    "application/x-extension-xht" = "chromium.desktop";
                   };
                 };
               };
