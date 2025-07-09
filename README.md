@@ -31,7 +31,7 @@
 16. Easy username changing by adding a variable
 17. Helix more custom keybindings
 18. flow-control tests
-19. Hosts to separate flake with deleted github urls + better dns servers configuration with resolved
+19. Better dns servers configuration with resolved (maybe with pihole)
 20. Vscodium home manager module
 21. Change hyprexpo workspace_method and propely setup hypr-dynamic-cursors
 22. Test fonts and cursors
