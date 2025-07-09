@@ -4,6 +4,12 @@
   inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+      wf-recorder
+      wl-clipboard
+      wl-clip-persist
+      wlsunset
+  ];
   wayland = {
     windowManager = {
       hyprland = {

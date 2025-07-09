@@ -59,10 +59,6 @@
       spicetify-cli
       tesseract
       vscodium-fhs
-      wf-recorder
-      wl-clipboard
-      wl-clip-persist
-      wlsunset
     ];
     #file = {
     #  ".config/hyprpanel/config.json" = {
