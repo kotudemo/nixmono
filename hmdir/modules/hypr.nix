@@ -147,7 +147,7 @@
             "float,center,size 1250 700,move 330 15%, class:^(swayimg)$"
             "float,size 650 400,move 785 625,class:^(pwvucontrol)$"
             "float,center,size 900 600,class:^(mpv)$"
-            "float,center,size 1800 1300,class:^(nemo)$"
+            "float,center,size 1700 1500,class:^(nemo)$"
             "float,center,size 900 600,class:^(org.kde.ark)$"
             "float,center,size 500 600,class:^(org.kde.kcalc)$"
             "float,size 900 550,class:^(com.ayugram)$,title:^(Media viewer)$"
