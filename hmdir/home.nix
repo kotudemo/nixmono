@@ -39,6 +39,7 @@
         withVencord = true;
       })
       lmstudio
+      unigine-superposition
       r2modman
       flow-control
       ayugram-desktop
