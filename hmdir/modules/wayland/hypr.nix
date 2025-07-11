@@ -16,12 +16,24 @@
         package = pkgs.hyprland;
 
         settings = {
-          monitor = ",1920x1080@143.98Hz,1920x0,1";
+          monitor = ",1920x1080@143.98Hz,0x0,1";
           "$mainMod" = "SUPER";
           "$terminal" = "ghostty";
           "$calc" = "kcalc";
           "$browser" = "chromium";
           "$fileManager" = "nemo";
+
+          env = [
+            "WLR_NO_HARDWARE_CURSORS,1"
+            "NIXOS_OZONE_WL,1"
+            "QT_QPA_PLATFORMTHEME=qt6ct"
+            "GDK_BACKEND,wayland,x11"
+            "QT_QPA_PLATFORM,wayland;xcb"
+           # " QT_DISABLE_WINDOWDECORATION,1"
+            "XDG_SESSION_TYPE,wayland"
+            "XDG_CURRENT_DESKTOP,Hyprland"
+            "XDG_SESSION_DESKTOP,Hyprland"
+          ];
 
           exec-once = [
             "systemctl --user start hypridle.service"
@@ -314,7 +326,7 @@
 
         Install = {
           After = "graphical-session.target";
-          ConditionEnvironment = "WAYLAND_DISPLAY";
+          Condition1ironment = "WAYLAND_DISPLAY";
           PartOf = "graphical-session.target";
         };
       };

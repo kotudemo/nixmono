@@ -909,19 +909,10 @@
                 };
                 variables = {
                   HOSTNAME = config.networking.hostName;
-                  QT_QPA_PLATFORMTHEME = "qt6ct";
-                  GDK_BACKEND = "wayland,x11";
-                  QT_QPA_PLATFORM = "wayland;xcb";
-                  # QT_DISABLE_WINDOWDECORATION = "1";
-                  XDG_SESSION_TYPE = "wayland";
-                  XDG_CURRENT_DESKTOP = "Hyprland";
-                  XDG_SESSION_DESKTOP = "Hyprland";
                   NIXPKGS_ALLOW_UNFREE = "1";
                   NIXPKGS_ALLOW_INSECURE = "1";
-                  NIXOS_OZONE_WL = "1";
-                  XCURSOR_SIZE = "8";
                   XDG_SCREENSHOTS_DIR = "~/screens";
-                  WLR_NO_HARDWARE_CURSORS = "1";
+                  XCURSOR_SIZE = "24";
                 };
               };
 
