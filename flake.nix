@@ -659,7 +659,7 @@
                   enable = true;
                   sf_presets = {
                     enable = true;
-                    preset = "general";
+                    preset = "general_alt";
                   };
                 };
 
