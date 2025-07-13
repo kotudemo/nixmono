@@ -36,12 +36,12 @@
     stateVersion = "25.11";
     packages = with pkgs; [
       legcord
+      discordo
       (discord-krisp.override {
         withOpenASAR = true; # can do this here too
         withVencord = true;
       })
       lmstudio
-      unigine-superposition
       r2modman
       flow-control
       ayugram-desktop

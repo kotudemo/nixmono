@@ -26,7 +26,7 @@
     ↳ Automatic wallpaper change with stylix integration \
     ↳ Telegram theme generator \
     ↳ Change all theme colors to stylix colors \
-14. To make custom module for home-manager to set `legcord` settings includidng app settings vencord, shelter, equicord plugins 
+14. Nixcord or discordo
 15. Fzf configuration  
 16. Easy username changing by adding a variable
 17. Helix more custom keybindings

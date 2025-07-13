@@ -60,6 +60,9 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
   };
 
   outputs = {
@@ -76,6 +79,7 @@
     stylix,
     zapret-presets,
     aagl,
+    nixcord,
     ...
   } @ inputs: let
     cfgDir = "~/sigmaNix";
@@ -88,6 +92,7 @@
         inputs.stylix.homeModules.stylix
         inputs.chaotic.homeManagerModules.default
         inputs.nur.modules.homeManager.default
+        inputs.nixcord.homeModules.nixcord
       ];
     };
 

@@ -12,8 +12,8 @@
 
         settings = {
             bind = [
-                "SUPER ALT CTRL, D, exec, /home/kd/gits/degoidalizator.sh"
-                "SUPER ALT CTRL, G, exec, /home/kd/gits/goidalizator.sh" 
+                "SUPER ALT CTRL, D, exec, /home/kd/hdd/ultrakal/degoidalizator.sh"
+                "SUPER ALT CTRL, G, exec, /home/kd/hdd/ultrakal/goidalizator.sh" 
             ];
         };
       };
