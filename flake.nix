@@ -1013,6 +1013,13 @@
                     extraArgs = "--keep 2 --keep-since 2d";
                   };
                 };
+                obs-studio = {
+                  enable = true;
+                  enableVirtualCamera = true;
+                  plugins = [
+                    pkgs.obs-studio-plugins.wlrobs
+                  ];
+                };
                 xfconf.enable = true;
                 nix-index-database.comma.enable = true;
                 amnezia-vpn.enable = true;

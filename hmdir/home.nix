@@ -27,8 +27,8 @@
     ./modules/wayland/swaync.nix
     ./modules/wayland/swayosd.nix
     ./modules/wayland/wofi.nix
-    
-    ./goida.nix
+
+    ./managed.nix
   ];
   home = {
     username = "kd";
@@ -55,7 +55,6 @@
       libreoffice-qt6-fresh
       mpv
       vlc
-      obs-studio
       pamixer
       pwvucontrol
       qbittorrent-enhanced
