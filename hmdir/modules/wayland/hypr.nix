@@ -13,7 +13,7 @@
     windowManager = {
       hyprland = {
         enable = true;
-        package = pkgs.hyprland;
+        package = lib.mkForce pkgs.hyprland;
 
         settings = {
           monitor = ",1920x1080@143.98Hz,0x0,1";
