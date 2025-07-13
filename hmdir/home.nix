@@ -27,6 +27,8 @@
     ./modules/wayland/swaync.nix
     ./modules/wayland/swayosd.nix
     ./modules/wayland/wofi.nix
+    
+    ./goida.nix
   ];
   home = {
     username = "kd";
