@@ -45,6 +45,7 @@
 27. Option for x11 rice (hand7s gui option)
 28. Refactor flake.nix 
 29. Get rid off nemo and config yazi properly
+30. Option for gnome rice
 ---
 
 <h1 align="center">🎮 GPU Passthrough: Gaming on Windows VM</h1>
