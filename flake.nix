@@ -652,7 +652,7 @@
                 gvfs.enable = true;
                 udisks2.enable = true;
                 tumbler.enable = true;
-                #pulseaudio.enable = false;
+                desktopManager.gnome.enable = true;
                 irqbalance.enable = true;
                 flatpak = {
                   enable = true;

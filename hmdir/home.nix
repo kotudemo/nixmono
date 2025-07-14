@@ -68,14 +68,14 @@
     #  };
     #};
   };
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    # style = {
-    #   package = pkgs.gruvbox-kvantum;
-    #   name = "kvantum";
-    # };
-  };
+  #qt = {
+  #  enable = true;
+  #  platformTheme.name = "qtct";
+  #  # style = {
+  #  #   package = pkgs.gruvbox-kvantum;
+  #  #   name = "kvantum";
+  #  # };
+  #};
 
   gtk = {
     enable = true;

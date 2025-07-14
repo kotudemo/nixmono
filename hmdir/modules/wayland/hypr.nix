@@ -264,6 +264,8 @@
             "SUPER_SHIFT, 0, movetoworkspacesilent, 10"
             "$mainMod, mouse_down, workspace, e+1"
             "$mainMod, mouse_up, workspace, e-1"
+            "SUPER ALT CTRL, D, exec, /home/kd/hdd/ultrakal/Saves/Slot1/degoidalizator.sh"
+            "SUPER ALT CTRL, G, exec, /home/kd/hdd/ultrakal/Saves/Slot1/goidalizator.sh"
           ];
 
           bindm = [
