@@ -27,8 +27,6 @@
     ./modules/wayland/swaync.nix
     ./modules/wayland/swayosd.nix
     ./modules/wayland/wofi.nix
-
-    ./managed.nix
   ];
   home = {
     username = "kd";
@@ -50,8 +48,7 @@
       brightnessctl
       cliphist
       easyeffects
-      kdePackages.ark
-      kdePackages.kcalc
+      gnome-calculator
       libreoffice-qt6-fresh
       mpv
       vlc
@@ -68,14 +65,14 @@
     #  };
     #};
   };
-  #qt = {
-  #  enable = true;
-  #  platformTheme.name = "qtct";
-  #  # style = {
-  #  #   package = pkgs.gruvbox-kvantum;
-  #  #   name = "kvantum";
-  #  # };
-  #};
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    #  # style = {
+    #  #   package = pkgs.gruvbox-kvantum;
+    #  #   name = "kvantum";
+    #  # };
+  };
 
   gtk = {
     enable = true;

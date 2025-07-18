@@ -19,7 +19,7 @@
           monitor = ",1920x1080@143.98Hz,0x0,1";
           "$mainMod" = "SUPER";
           "$terminal" = "ghostty";
-          "$calc" = "kcalc";
+          "$calc" = "gnome-calculator";
           "$browser" = "chromium";
           "$fileManager" = "nemo";
 
@@ -165,8 +165,8 @@
             "float,size 650 400,move 785 625,class:^(pwvucontrol)$"
             "float,center,size 900 600,class:^(mpv)$"
             "float,center,size 1700 1500,class:^(nemo)$"
-            "float,center,size 900 600,class:^(org.kde.ark)$"
-            "float,center,size 500 600,class:^(org.kde.kcalc)$"
+            "float,center,size 900 600,class:^(org.gnome.FileRoller)$"
+            "float,center,size 500 600,class:^(org.gnome.Calculator)$"
             "float,size 900 550,class:^(com.ayugram)$,title:^(Media viewer)$"
 
             "opacity 0.95 0.95,class:^(ghostty)$"
