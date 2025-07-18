@@ -369,10 +369,8 @@
                   enable = false;
                 };
                 extraHosts = ''
-                  ### t.me/immalware: hosts file
-                  # Последнее обновление: 26 июня 2025
-                  # hosts по этой ссылке неактуален и больше не будет обновляться!
-                  # Актуальный hosts тут: github.com/ImMALWARE/textbin/blob/main/hosts
+                  ### dns.malw.link: hosts file
+                  # Последнее обновление: 4 июля 2025
                   # Дополнение к zapret:
                   157.240.245.174 instagram.com
                   157.240.245.174 www.instagram.com
@@ -399,6 +397,9 @@
                   204.12.192.222 api.openai.com
                   204.12.192.221 operator.chatgpt.com
                   204.12.192.222 sora.chatgpt.com
+                  204.12.192.222 sora.com
+                  204.12.192.222 sora.chatgpt.com
+                  204.12.192.222 videos.openai.com
 
                   # Сервисы Google:
                   204.12.192.222 gemini.google.com
@@ -422,9 +423,9 @@
                   204.12.192.222 sydney.bing.com
                   204.12.192.222 edgeservices.bing.com
                   204.12.192.221 rewards.bing.com
-                  78.40.217.193 xsts.auth.xboxlive.com
-                  50.7.87.86 xgpuwebf2p.gssv-play-prod.xboxlive.com
-                  50.7.87.86 xgpuweb.gssv-play-prod.xboxlive.com
+                  204.12.192.222 xsts.auth.xboxlive.com
+                  204.12.192.222 xgpuwebf2p.gssv-play-prod.xboxlive.com
+                  204.12.192.222 xgpuweb.gssv-play-prod.xboxlive.com
 
                   # Spotify:
                   204.12.192.222 api.spotify.com
@@ -441,6 +442,11 @@
                   204.12.192.222 www.spotify.com
                   204.12.192.222 accounts.spotify.com
                   204.12.192.221 open.spotify.com
+
+                  # GitHub Copilot:
+                  #50.7.87.84 api.github.com
+                  204.12.192.222 api.individual.githubcopilot.com
+                  204.12.192.222 proxy.individual.githubcopilot.com
 
                   # JetBrains:
                   50.7.85.221 datalore.jetbrains.com
@@ -480,7 +486,7 @@
                   # Clash Royale, Clash of Clans, Brawl Stars
                   3.160.212.81 cdn.id.supercell.com
                   18.172.112.81 security.id.supercell.com
-                  3.165.113.14 accounts.supercell.com
+                  45.95.233.23 accounts.supercell.com
                   18.66.195.96 game-assets.clashroyaleapp.com
                   51.158.190.98 game.clashroyaleapp.com
                   3.162.38.39 game-assets.clashofclans.com
@@ -488,6 +494,7 @@
                   108.157.194.81 clashofclans.inbox.supercell.com
                   179.43.168.109 game.brawlstarsgame.com
                   18.239.69.129 game-assets.brawlstarsgame.com
+                  204.12.192.222 store.supercell.com
 
                   # DeepL
                   204.12.192.222 deepl.com
@@ -515,10 +522,6 @@
                   204.12.192.219 guilded.gg
                   204.12.192.219 www.guilded.gg
 
-                  # Twitch
-                  204.12.192.219 usher.ttvnw.net
-                  204.12.192.219 gql.twitch.tv
-
                   # Fitbit
                   204.12.192.219 api.fitbit.com
                   204.12.192.219 fitbit-pa.googleapis.com
@@ -538,6 +541,10 @@
                   107.150.34.99 builds.parsec.app
                   204.12.192.220 tria.ge
                   204.12.192.220 api.imgur.com
+                  45.95.233.23 www.dyson.com
+                  45.95.233.23 www.dyson.fr
+                  45.95.233.23 usher.ttvnw.net
+                  64.188.98.242 api.manus.im
 
                   # Блокировка реально плохих сайтов
                   # Скримеры:
@@ -556,6 +563,7 @@
                   0.0.0.0 ezstat.ru
                   0.0.0.0 iplog.co
                   0.0.0.0 grabify.org
+                  ### dns.malw.link: end hosts file
                 '';
                 nameservers = [
                   "1.1.1.1"
@@ -661,7 +669,7 @@
                   enable = true;
                   sf_presets = {
                     enable = true;
-                    preset = "general_alt";
+                    preset = "general_alt3";
                   };
                 };
 
