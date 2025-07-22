@@ -26,7 +26,7 @@
           env = [
             "WLR_NO_HARDWARE_CURSORS,1"
             "NIXOS_OZONE_WL,1"
-            "QT_QPA_PLATFORMTHEME=qt6ct"
+            "QT_QPA_PLATFORMTHEME,qt6ct"
             "GDK_BACKEND,wayland,x11"
             "QT_QPA_PLATFORM,wayland;xcb"
             # " QT_DISABLE_WINDOWDECORATION,1"

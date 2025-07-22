@@ -660,7 +660,6 @@
                 gvfs.enable = true;
                 udisks2.enable = true;
                 tumbler.enable = true;
-                desktopManager.gnome.enable = true;
                 irqbalance.enable = true;
                 flatpak = {
                   enable = true;
@@ -669,7 +668,7 @@
                   enable = true;
                   sf_presets = {
                     enable = true;
-                    preset = "general_alt3";
+                    preset = "general_alt2";
                   };
                 };
 
