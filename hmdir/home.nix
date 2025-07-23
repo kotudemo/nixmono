@@ -40,6 +40,7 @@
         withVencord = true;
       })
       lmstudio
+      impression
       r2modman
       flow-control
       ayugram-desktop

@@ -668,7 +668,7 @@
                   enable = true;
                   sf_presets = {
                     enable = true;
-                    preset = "general_alt2";
+                    preset = "general";
                   };
                 };
 
